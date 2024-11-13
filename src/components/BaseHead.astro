@@ -1,0 +1,45 @@
+---
+// data imports
+import * as site from "../data/site.json";
+
+// stylesheet imports
+import "../styles/reset.css";
+import "../styles/global.css";
+
+interface Props {
+	title?: string;
+    description?: string;
+}
+
+const { siteName, siteDescription, url, favicon, logo } = site;
+const { title, description } = Astro.props;
+---
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href={favicon} />
+    <link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css"/>
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title ?? "Mack Richardson"}</title>
+
+    <meta name="title" content={siteName} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={url} />
+    <meta property="og:title" content={siteName} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={logo} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={url} />
+    <meta property="twitter:title" content={siteName} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={logo} />
+</head>

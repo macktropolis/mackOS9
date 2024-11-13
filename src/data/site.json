@@ -1,0 +1,17 @@
+{
+    "siteName": "Mack Richardson",
+    "description": "The personal website of Mack Richardson; FileMaker Developer, Web Developer, Comic Book Collector, Pulp Sci-Fi Fan, & Dog Lover.",
+    "version": "9.0.0",
+    "url": "https://mackrichardson.com",
+    "favicon": "/assets/favicon/favicon.ico",
+    "logo": "/assets/images/astronut-logo-h-social.png",
+    "author": "Mack Richardson",
+    "phone": "+1 336.403.1746",
+    "email": "mack@mackrichardson.com",
+    "address1": "7295 Broad St",
+    "address2": "",
+    "addressCity": "Rural Hall",
+    "addressState": "NC",
+    "addressZIP": "27045",
+    "linkedin": "linkedin.com/in/macktropolis/"
+  }

@@ -1,0 +1,156 @@
+---
+//  library imports
+import { getCollection, type CollectionEntry } from "astro:content";
+import { Image } from "astro:assets";
+
+//  layout imports
+import Layout from "../../layouts/Layout.astro";
+
+//  component imports
+// import Hero from "../../components/Hero.astro";
+import CategoryCloud from "../../components/CategoryCloud.astro";
+import RelatedPosts from "../../components/RelatedPosts.astro";
+
+// utils imports
+import { slugify, formatBlogPosts, formatDate } from "../../js/utils";
+
+// export formatted blog posts
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+  const formattedPosts = formatBlogPosts(allPosts);
+
+  return formattedPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: {
+      post,
+    },
+  }));
+}
+
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
+const { post } = Astro.props;
+const { title, description, date, category, author, image } = post.data;
+
+const { Content } = await post.render();
+
+const allPosts = await getCollection("blog");
+const formattedPosts = formatBlogPosts(allPosts, {
+  sortByDate: false,
+});
+const relatedPosts = formattedPosts
+  .filter(
+    (post) => post.data.category === category && post.data.title !== title
+  )
+  .slice(0, 3);
+---
+
+<Layout title={title} description={description} page={title}>
+
+  <main>
+    <div class="card-wrapper">
+      <div class="card post">
+          <header class="card__header">
+            <img src="/assets/images/title-bar-close.png" height="28" width="28" class="control close" alt="Close">
+            <div class="title">
+              <h3 class="card__title">
+                <a href={`/category/${slugify(category)}/`} class="badge">{category}</a>
+              </h3>
+              <span class={`icon ${slugify(category)}`}>&nbsp;</span>
+            </div>
+            <img src="/assets/images/title-bar-expand.png" height="28" width="28" class="control expand">
+            <img src="/assets/images/title-bar-collapse.png" height="28" width="28" class="control collapse">
+            <a href="/" class="button">&nbsp;</a>
+        </header>
+    
+          <section class="card__content">
+            <article>
+              <section class="hero-image">
+                <a href="#">
+                <svg xmlns='http://www.w3.org/2000/svg'>
+            
+                <filter id='noiseFilter'>
+                    <feTurbulence 
+                    type='fractalNoise' 
+                    baseFrequency='0.65' 
+                    numOctaves='3' 
+                    stitchTiles='stitch' />
+                </filter>
+            
+                <rect
+                    width='100%' 
+                    height='100%' 
+                    filter='url(#noiseFilter)' />
+                </svg>
+                    <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width="400"
+                    height="250"
+                    format="webp"
+                    fit="cover"
+                    quality={80}
+                    aspectRatio="4:1"
+                    />
+                  </a>
+            </section>
+
+            <section id="content">
+              <h1>{title}</h1>
+              <Content />
+            </section>
+
+          </article>
+          <section class="card__meta">
+            <p>
+              <a href={`/author/${slugify(author)}/`}>{author}</a>
+              &bull;
+              Posted: {formatDate(date)}
+            </p>
+          </section>
+        </section>
+      </div>
+    </div><!-- end: .card-wrapper -->
+  </main>
+</Layout>
+
+<style is:global>
+main {
+    columns: unset;
+    width: min(150ch, 95%);
+}
+article p {
+  margin-bottom: 2rem;
+}
+#content {
+  padding: 2rem;
+}
+#content h1 {
+  font-size: 5ch;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+#content p {
+  margin-bottom: 2rem;
+}
+#content p:last-of-type {
+  margin-bottom: 0;
+}
+.hero-image {
+  height: 400px;
+}
+.card__header a.button {
+  all: unset;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 36px;
+  width: 36px;
+}
+.control.collapse,
+.control.expand {
+  opacity: 0;
+}
+</style>

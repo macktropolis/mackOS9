@@ -1,0 +1,164 @@
+---
+import CategoryCloud from "./CategoryCloud.astro";
+const { page } = Astro.props;
+---
+
+<header class="site__header">
+    <ul class="site__nav">
+      <li id="apple-menu">
+        <img src="/assets/images/apple.png" alt="" class="home-icon">
+          <ul class="submenu">
+            <li><a href="#popup1" alt="">About Mack Richardson</a></li>
+        </ul>
+      </li>
+      <li><a href="#" title="Home">Home</a></li>
+      <li>
+        Contact
+        <ul class="submenu">
+          <li><a href="mailto:mack@mackrichardson.com"><img src="/assets/images/mail.png" alt="" /> Email</a></li>
+          <li><a href=""><img src="/assets/images/network.png" alt="" /> LinkedIn</a></li>
+          <li><a href=""><img src="/assets/images/network.png" alt="" /> Facebook</a></li>
+          <li><a href=""><img src="/assets/images/network.png" alt="" /> X/Twitter</a></li>
+        </ul>
+      </li>
+      <li>
+        Categories
+        <CategoryCloud />
+      </li>
+      <li id="site-loc"> 
+        <img src="/assets/images/finder.png" alt="">
+        {page}
+      </li>
+    </ul>
+  </header>
+
+
+  <style is:global>
+    header.site__header {
+      background-color: hsl(var(--color-base), 1);
+      border-bottom: 1px solid hsl(var(--color-dark), 1);
+      box-shadow: 0 1px 2px hsl(var(--color-dark), 1);
+      display: flex;
+      flex-grow: 1;
+      height: 28px;
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;  
+    }
+
+    .site__nav {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      font-size: .9rem;
+      font-weight: bold;
+      height: 100%;
+      list-style-position: unset;
+      justify-content: center;
+      margin: 0;
+      padding-left: 1rem;
+      width: 100%;
+    }
+
+    .site__nav li {
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      margin: 0;
+      padding: 0 0.75rem;
+    }
+
+    .site__nav li#apple-menu img {
+      height: 20px;
+      width: 20px;
+    }
+    .site__nav a {
+      color: hsl(var(--color-dark), 1);
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;  
+      padding: 0 .25rem;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    .site__nav a:hover,
+    .site__nav li:hover{
+      background-color: hsl(var(--color-dark), 1);
+      color: hsl(var(--color-light), 1);
+    }
+
+    .site__nav img {
+      height: 16px;
+      width: 16px;
+    }
+
+    .site__nav .menu {
+      position: relative;
+    }
+
+    .site__nav .submenu {
+        background-color: hsl(var(--color-base), 1);
+        border: 2px solid hsl(var(--color-dark), 1);
+        box-shadow: 0 2px 2px hsl(var(--color-dark), 1);
+        font-size: inherit;
+        margin: 0;
+        position: absolute;
+        top: 99%;
+        visibility: hidden;
+    }
+
+    .site__nav li#apple-menu .submenu {
+        left: 0;
+    }
+    
+    .site__nav li:hover .submenu {
+        visibility: visible;
+    }
+
+    .site__nav .submenu li {
+        padding: 0;
+    }
+
+    .site__nav .submenu li a {
+        display: block;
+        padding: .5rem 1rem;
+    }
+
+    .site__nav .submenu li a img {
+        display: block;
+        float: left;
+        height: 16px;
+        margin-right: .5rem;
+        width: 16px;
+    }
+
+    #site-loc {
+        align-items: center;
+        display: flex;
+        font-size: 1rem;
+        font-weight: bold;
+        gap: .5rem;
+        height: 100%;
+        margin-left: auto;
+        padding: 0 1rem;
+        position: relative;
+    }
+
+    #site-loc > img {
+        height: 24px !important;
+        width: 24px !important;
+    }
+
+    #site-loc::before {
+        background: url("/assets/images/dot-separator.png") no-repeat 50%;
+        content: "";
+        height: 100%;
+        position: absolute;
+        inset: auto auto auto -10px;
+        width: 15px;
+    }
+</style>

@@ -1,0 +1,45 @@
+---
+// library imports
+import { getCollection, type CollectionEntry } from "astro:content";
+
+// utils imports
+import { formatBlogPosts, slugify } from "../js/utils";
+
+const allPosts = await getCollection("blog");
+const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts);
+const allCategories = formattedPosts.map((cat) => cat.data.category).flat();
+
+// Get unique categories and sort them alphabetically
+const uniqueSortedCategories = [...new Set(allCategories)].sort((a, b) => a.localeCompare(b));
+
+// Create the processedCats object with counts
+const processedCats = uniqueSortedCategories.reduce((acc, category) => {
+  // Count occurrences of each category
+  const value = allCategories.filter((cat) => cat === category).length;
+
+  return {
+    ...acc,
+    [category]: value,
+  };
+}, {});
+
+// Log or display the count of posts in each category
+console.log("Category counts:", processedCats);
+
+// Example: Generating output for display
+const showCount = uniqueSortedCategories.map(
+  (category) => `${category} (${processedCats[category]})`
+);
+---
+
+<ul class="categories submenu">
+  {
+    Object.entries(processedCats).map(([key, val]) => (
+      <li>
+        <a class="badge" href={`/category/${slugify(key)}/`}>
+          {key} {showCount && `(${val})`}
+        </a>
+      </li>
+    ))
+  }
+</ul>

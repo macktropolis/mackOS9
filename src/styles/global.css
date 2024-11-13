@@ -1,0 +1,359 @@
+:root {
+    --color-base: 0, 0%, 92%;
+    --color-dark: 0, 0%, 15%;
+    --color-light: 0, 0%, 100%;
+    --color-light-2: 0, 0%, 92%;
+    --color-mid: 0, 0%, 80%;
+    --color-mid-2: 0, 0%, 40%;
+
+    --gradient-color: 220, 92%, 75%;
+    --gradient-color-2: 214, 91%, 74%;
+    --gradient-color-3: 246, 97%, 85%;
+
+    --font-sans: sans-serif;
+    --font-serif: serif;
+    --font-mono: monospace;
+}
+
+body {
+    background: hsl(var(--gradient-color), 1);
+    font-family: var(--font-mono);
+    font-size: 100%;
+    padding-top: 5rem;
+    height: 100vh;
+}
+
+body::after {
+    background: linear-gradient(
+        65deg, 
+        hsl(var(--gradient-color), 1) 0%, 
+        hsl(var(--gradient-color-2), 1) 50%, 
+        hsl(var(--gradient-color-3, 1)) 100%);
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-size: 1.6rem;
+    font-family: serif;
+    margin-bottom: 1rem;
+  }
+  
+p {
+    font-size: 1.2rem;
+    line-height: 125%;
+}
+ul,
+ol {
+    font-size: 1.1rem;
+    list-style-position: inside;
+    margin: 2rem 0;
+}
+main {
+    columns: 400px;
+    margin: 0 auto 2rem auto;
+    padding: 0 0 2rem 0;
+    width: 95%;
+}
+
+/* = = = = = = = = = = = = = 
+Cards
+= = = = = = = = = = = = = */
+.card-wrapper {
+    break-inside: avoid;
+    padding-bottom: 1rem;
+}
+.card {
+    align-self: start;
+    background-color: hsl(var(--color-mid), 1);
+    border: 2px solid hsl(var(--color-dark), 1);
+    box-shadow: 3px 3px 3px hsl(var(--color-dark), 1);
+}
+.card.alt {
+    background-color: hsl(var(--color-light-2), 1);
+}
+.card__header {
+    background: hsl(var(--color-mid), 1) url("/assets/images/title-bar-ridges-2.png") 0 repeat-x;
+    border: none;
+    box-shadow: none;
+    display: flex;
+    flex-grow: 1;
+    height: 40px;
+    overflow-y: hidden;
+    position: relative;
+    text-align: center;
+}
+.card.alt .card__header {
+    border-bottom: 2px solid hsl(var(--color-dark), 1);
+    box-shadow: 0 2px 2px hsl(var(--color-base), 1);
+}
+.card__header div.title {
+    background-color: hsl(var(--color-mid), 1);
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    column-gap: .5rem;
+    margin-left: auto;
+    max-width: 50ch;
+    overflow: hidden;
+    padding: 0 10px;
+    text-align: left;
+    white-space: nowrap;
+    z-index: 1;
+}
+.card__header h3 {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 100%;
+    margin: 0;
+}
+.card__header .icon,
+.card__header img{
+    height: 38px;
+    padding: 4px;
+    width: 38px;
+}
+.card__header .icon {
+    background: transparent url('/assets/images/finder.png') no-repeat 50%;
+    background-size: 75%;
+}
+.card__header .icon.filemaker {
+    background-image: url('/assets/images/filemaker.png');
+}
+.card__header .icon.sci-fi {
+    background-image: url('/assets/images/deathstar-II.png');
+}
+.card__header .icon.retro-gaming {
+background-image: url('/assets/images/playstation.png');
+}
+.card__header .icon.web-dev {
+        background-image: url('/assets/images/homepage-builder.png');
+}
+.card__header .icon.comic-books {
+    background-image: url('/assets/images/batwing.png');
+}
+.card__header img.control {
+background-color: hsl(var(--color-mid), 1);
+}
+.card__header img.control.expand {
+        margin-left: auto;
+}
+.card__header img.control.collapse {
+    display: none;
+}
+.card__content {
+    font-family: var(--font-mono);
+    font-size: 1.4rem;
+    padding: 1rem;
+}
+.card__content article {
+    background-color: hsl(var(--color-light, 1));  
+    border: 2px solid hsl(var(--color-dark, 1));
+    padding: 1rem;
+    position: relative;
+}
+.card.alt .card__content article {
+    background-color: transparent;
+    border: none;
+    text-align: center;
+}
+.card__content article::before {
+    border-top: 2px solid hsl(0, 0%, 55%);
+    border-left: 2px solid hsl(0, 0%, 55%);
+    border-right: 2px solid hsl(var(--color-light, 1));
+    border-bottom: 2px solid hsl(var(--color-light, 1));
+    content: "";
+    position: absolute;
+    inset: -4px -4px -4px -4px;
+}
+.card.alt .card__content article::before {
+    display: none;
+}
+.card__content h1 {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+}
+.card__content p {
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 125%;
+    margin-bottom: 1rem;
+}
+.card__content .card__meta p {
+    font-size: small;
+    margin-bottom: 0;
+    margin-top: 1rem;
+    text-align: right;
+}
+
+/* = = = = = = = = = = = = = 
+Featured Card 
+= = = = = = = = = = = = = */
+.card.featured .card__content {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+.card.featured .card__content article  * {
+    width: 100% !important;
+}
+.card.featured .card__content h1 {
+    font-size: 3rem;
+}
+.card.featured .card__content article {
+    overflow-x: hidden;
+}
+.card.featured .card__content img#mack {
+    display: block;
+    height: auto;
+    margin-inline: auto;
+    width: min(30%, 200px);
+}
+
+/* = = = = = = = = = = = = = 
+Button 
+= = = = = = = = = = = = = */
+.button {
+    background-color: hsl(var(--color-mid), 1); /* Light gray background */
+    border: 1px solid hsl(var(--color-dark), 1); /* Slightly darker gray border */
+    border-radius: 3px; /* Slightly rounded corners */
+    box-shadow:
+        0 0 0 1px hsl(var(--color-dark), 1),
+        inset -1px -1px 0 1px hsl(var(--color-dark), 0.25), /* Subtle inner shadow */
+        inset 1px 1px 0 2px hsl(var(--color-light), 0.5); /* Subtle inner shadow */
+    cursor: pointer; /* Indicate clickable state */
+    display: inline-block;
+    font-size: .9rem;
+    font-weight: bold;
+    margin-top: .5rem;
+    padding: 10px; /* Standard button padding */
+    position: relative;
+    text-decoration: none;
+    width: fit-content;
+    z-index: 1;
+}
+.button:active {
+    background-color: hsl(var(--color-mid-2), 1); /* Darker gray on hover */
+    box-shadow: 
+        0 0 0 1px hsl(var(--color-dark), 1),
+        inset 1px 1px 0 1px hsl(var(--color-dark), 0.25), /* Subtle inner shadow */
+        inset -1px -1px 0 2px hsl(var(--color-mid), 0.25); /* Subtle inner shadow */
+    color: hsl(var(--color-light), 1);
+}
+.button.primary {
+    box-shadow:
+        0 0 0 3px hsl(var(--color-mid), 1),
+        0 0 0 4px hsl(var(--color-dark), 1),
+        0 0 0 2px hsl(var(--color-dark), 1),
+        inset -1px -1px 0 1px hsl(var(--color-dark), 0.25), /* Subtle inner shadow */
+        inset 1px 1px 0 2px hsl(var(--color-light), 0.5); /* Subtle inner shadow */
+}
+.button.primary:active {
+    box-shadow: 
+        0 0 0 3px hsl(var(--color-mid), 1),
+        0 0 0 4px hsl(var(--color-dark), 1),
+        0 0 0 2px hsl(var(--color-dark), 1),
+        inset 1px 1px 0 1px hsl(var(--color-dark), 0.5), /* Subtle inner shadow */
+        inset -1px -1px 0 2px hsl(var(--color-light), 0.25); /* Subtle inner shadow */
+}
+
+/* = = = = = = = = = = = = = 
+CSS Only Modal Pop-up
+= = = = = = = = = = = = = */
+.popup {
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  .popup:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .popup > div.card {
+    align-self: inherit;
+    max-width: 768px;
+  }
+  .popup > div.card > section.card__content > article p {
+    font-size: 1.2ch;
+    text-align: left;
+  }
+  .popup > div.card > header {
+    position: relative;
+  } 
+  .popup > div.card > header > a.button {
+    all: unset;
+    background: none !important;
+    border: none !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 42px;
+    width: 42px;
+    text-decoration: none;
+  }
+  .popup > div.card > header > img.control.expand,
+  .popup > div.card > header > img.control.collapse {
+    opacity: 0;
+  }
+  .popup > div.card > header > .title img {
+    object-fit: contain;
+    aspect-ratio: 1 / 2;
+  }
+
+/* = = = = = = = = = = = = = 
+Hero Image
+= = = = = = = = = = = = = */
+.hero-image {
+    width: 100%;
+    height: 33%;
+    position: relative;
+    margin-bottom: 1rem;
+}
+.hero-image img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    pointer-events: all;
+}
+.hero-image svg {
+    opacity: .75;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+}
+.hero-image img,
+.hero-image svg {
+  transition: all 0.75s ease-in-out;
+}
+.hero-image a:hover > svg {
+  opacity: .5;
+}
+.hero-image a:hover > img {
+  filter: grayscale(0);
+}
