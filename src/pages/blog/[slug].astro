@@ -47,7 +47,7 @@ const relatedPosts = formattedPosts
   .slice(0, 3);
 ---
 
-<Layout title={title} description={description} page={title}>
+<Layout title={title} description={description} page={category}>
 
   <main>
     <div class="card-wrapper">
@@ -85,14 +85,12 @@ const relatedPosts = formattedPosts
                     filter='url(#noiseFilter)' />
                 </svg>
                     <Image
-                    src={image.src}
-                    alt={image.alt}
-                    width="400"
-                    height="250"
-                    format="webp"
-                    fit="cover"
-                    quality={80}
-                    aspectRatio="4:1"
+                      src={image.src}
+                      alt={image.alt}
+                      width="400"
+                      height="250"
+                      format="webp"
+                      quality={80}
                     />
                   </a>
             </section>
