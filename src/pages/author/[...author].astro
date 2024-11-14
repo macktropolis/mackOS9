@@ -1,0 +1,54 @@
+---
+// library imports
+import { getCollection, type CollectionEntry } from "astro:content";
+
+// layout imports
+import Layout from "../../layouts/Layout.astro";
+
+// component imports
+import Hero from "../../components/Hero.astro";
+import PostCard from "../../components/PostCard.astro";
+
+// utils imports
+import { slugify, formatBlogPosts } from "../../js/utils";
+
+// export formatted blog posts by author
+export async function getStaticPaths() {
+  const allPosts = await getCollection("blog");
+  const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts);
+  const allAuthors = [
+    ...new Set(formattedPosts.map((post) => post.data.author).flat()),
+  ];
+  return allAuthors.map((author) => {
+    const authorPosts = formattedPosts.filter(
+      (post) => post.data.author === author
+    );
+    return {
+      params: { author: slugify(author) },
+      props: {
+        authorName: author,
+        posts: authorPosts,
+      },
+    };
+  });
+}
+
+interface Props {
+  posts: CollectionEntry<"blog">[];
+  authorName: string;
+}
+
+// const { author } = Astro.params;
+const { posts, authorName } = Astro.props;
+const title = "Articles by " + authorName;
+---
+
+<Layout title={title} page={authorName}>
+  <main>
+      {
+        posts.map((post) => (
+          <PostCard data={post.data} url={post.slug} tagType="h2" />
+        ))
+      }
+    </main>
+</Layout>

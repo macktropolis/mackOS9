@@ -121,25 +121,6 @@ Cards
     padding: 4px;
     width: 38px;
 }
-.card__header .icon {
-    background: transparent url('/assets/images/finder.png') no-repeat 50%;
-    background-size: 75%;
-}
-.card__header .icon.filemaker {
-    background-image: url('/assets/images/filemaker.png');
-}
-.card__header .icon.sci-fi {
-    background-image: url('/assets/images/deathstar-II.png');
-}
-.card__header .icon.retro-gaming {
-background-image: url('/assets/images/playstation.png');
-}
-.card__header .icon.web-dev {
-        background-image: url('/assets/images/homepage-builder.png');
-}
-.card__header .icon.comic-books {
-    background-image: url('/assets/images/batwing.png');
-}
 .card__header img.control {
 background-color: hsl(var(--color-mid), 1);
 }
@@ -356,4 +337,27 @@ Hero Image
 }
 .hero-image a:hover > img {
   filter: grayscale(0);
+}
+
+/* = = = = = = = = = = = = = 
+Category Icon
+= = = = = = = = = = = = = */
+.icon {
+    background: transparent url('/assets/images/finder.png') no-repeat 50%;
+    background-size: 75%;
+}
+.icon.filemaker {
+    background-image: url('/assets/images/filemaker.png');
+}
+.icon.sci-fi {
+    background-image: url('/assets/images/deathstar-II.png');
+}
+.icon.retro-gaming {
+    background-image: url('/assets/images/playstation.png');
+}
+.icon.web-dev {
+    background-image: url('/assets/images/homepage-builder.png');
+}
+.icon.comic-books {
+    background-image: url('/assets/images/batwing.png');
 }

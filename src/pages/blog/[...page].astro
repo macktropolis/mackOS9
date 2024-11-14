@@ -1,13 +1,14 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 
+// data imports
+import * as site from "../../data/site.json";
+
 //  layout imports
 import Layout from "../../layouts/Layout.astro";
 
 //  component imports
-import Hero from "../../components/Hero.astro";
 import PostCard from "../../components/PostCard.astro";
-import Pagination from "../../components/Pagination.astro";
 
 //  utils imports
 import { formatBlogPosts } from "../../js/utils";
@@ -18,35 +19,28 @@ export async function getStaticPaths({ paginate }) {
   const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts);
 
   return paginate(formattedPosts, {
-    pageSize: 6,
+    // pageSize: 6,
   });
 }
 
 interface Props {
   posts: CollectionEntry<"blog">[];
   authorName: string;
+  page?: string;
+
 }
 
 const { page } = Astro.props;
-const blogTitle = "Astronut Blog";
-const blogDescription = "Articles on getting your Astro sites off the ground.";
+const blogTitle = "Mack Docs";
+const blogDescription = "Articles from Comic Books to Web Development and everything in between.";
 ---
 
-<Layout title={blogTitle}>
-  <Hero {blogTitle} {blogDescription}>
-    <h1 class="h1">Welcome to the {blogTitle}</h1>
-    <p>{blogDescription}</p>
-  </Hero>
-  <section class="flow content-grid" aria-label="Blog Articles">
-    <div class="full-width">
-      <div class="cards">
-        {
-          page.data.map((post) => (
-            <PostCard data={post.data} url={post.slug} tagType="h2" />
-          ))
-        }
-      </div>
-    </div>
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-  </section>
+<Layout title={blogTitle} page={blogTitle} description={blogDescription}>
+  <main>
+      {
+        page.data.map((post) => (
+          <PostCard data={post.data} url={post.slug} tagType="h2" />
+        ))
+      }
+    </main>
 </Layout>

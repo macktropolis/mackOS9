@@ -7,19 +7,22 @@ import * as site from "../data/site.json";
 
 // layout imports
 import Layout from '../layouts/Layout.astro';
+
+//  component imports
 import Hero from '../components/Hero.astro';
 import PostCard from '../components/PostCard.astro';
 
 // utils imports
 import { formatBlogPosts } from "../js/utils";
 
-const title = "Mack Richardson";
-const description = "FileMaker Developer, Web Developer, Blogger, Podcaster, Retro Gamer, Comic Book Reader & Dog Lover";
-
+// retrieve all blog posts
 const allPosts = await getCollection("blog");
 const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts, {
   // limit: 4,
 });
+
+const title = "Mack Richardson";
+const description = "FileMaker Developer, Web Developer, Blogger, Podcaster, Retro Gamer, Comic Book Reader & Dog Lover";
 ---
 
 <Layout title={title} description={description} />
