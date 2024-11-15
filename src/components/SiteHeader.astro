@@ -24,13 +24,13 @@ const { facebook, twitter, linkedin } = site;
         <a href="#">Contact</a>
         <ul class="submenu">
           <li><a href="mailto:mack@mackrichardson.com"><img src="/assets/images/mail.png" alt="" /> Email</a></li>
-          <li><a href={linkedin} target="_blank"><img src="/assets/images/network.png" title="" /> LinkedIn</a></li>
-          <li><a href={facebook} target="_blank"><img src="/assets/images/network.png" title="" /> Facebook</a></li>
-          <li><a href={twitter} target="_blank"><img src="/assets/images/network.png" title="" /> X/Twitter</a></li>
+          <li><a href={linkedin} target="_blank"><img src="/assets/images/linkedin.png" title="" /> LinkedIn</a></li>
+          <li><a href={facebook} target="_blank"><img src="/assets/images/facebook.png" title="" /> Facebook</a></li>
+          <li><a href={twitter} target="_blank"><img src="/assets/images/twitter.png" title="" /> X/Twitter</a></li>
         </ul>
       </li>
       <li>
-        <a href="/blog/">Categories</a>
+        <a href="/blog/">Articles</a>
         <CategoryCloud />
       </li>
       <li id="site-loc"> 
@@ -54,7 +54,6 @@ const { facebook, twitter, linkedin } = site;
       inset: 0 0 auto 0;
       z-index: 100;  
     }
-
     .site__nav {
       display: flex;
       flex-direction: row;
@@ -69,7 +68,6 @@ const { facebook, twitter, linkedin } = site;
       padding-left: 1rem;
       width: 100%;
     }
-
     .site__nav li {
       align-items: center;
       display: flex;
@@ -78,7 +76,9 @@ const { facebook, twitter, linkedin } = site;
       margin: 0;
       padding: 0;
     }
-
+    .site__nav li#apple-menu {
+      padding: 0 0.5rem;
+    }
     .site__nav li#apple-menu img {
       height: 20px;
       width: 20px;
@@ -94,23 +94,19 @@ const { facebook, twitter, linkedin } = site;
       text-decoration: none;
       width: 100%;
     }
-
     .site__nav a:hover,
     .site__nav a:active,
     .site__nav a:focus {
       background-color: hsl(var(--color-dark), 1);
       color: hsl(var(--color-light), 1);
     }
-
     .site__nav img {
       height: 16px;
       width: 16px;
     }
-
     .site__nav .menu {
       position: relative;
     }
-
     .site__nav .submenu {
         background-color: hsl(var(--color-base), 1);
         border: 2px solid hsl(var(--color-dark), 1);
@@ -121,24 +117,20 @@ const { facebook, twitter, linkedin } = site;
         top: 99%;
         visibility: hidden;
     }
-
     .site__nav li#apple-menu .submenu {
         left: 0;
     }
-    
     .site__nav li:hover .submenu {
         visibility: visible;
     }
-
     .site__nav .submenu li {
-        padding: 0;
+        padding: 0 !important;
     }
-
     .site__nav .submenu li a {
         display: block;
+        margin: 0;
         padding: .5rem 1rem;
     }
-
     .site__nav .submenu li a img {
         display: block;
         float: left;
@@ -146,7 +138,6 @@ const { facebook, twitter, linkedin } = site;
         margin-right: .5rem;
         width: 16px;
     }
-
     #site-loc {
         align-items: center;
         display: flex;
@@ -158,13 +149,11 @@ const { facebook, twitter, linkedin } = site;
         padding: 0 1rem;
         position: relative;
     }
-
     #site-loc > img,
     #site-loc > .icon {
         height: 24px !important;
         width: 24px !important;
     }
-
     #site-loc > .icon {
       background-size: 90%;
     }

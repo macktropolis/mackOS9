@@ -8,7 +8,6 @@ import Layout from "../../layouts/Layout.astro";
 
 //  component imports
 // import Hero from "../../components/Hero.astro";
-import CategoryCloud from "../../components/CategoryCloud.astro";
 import RelatedPosts from "../../components/RelatedPosts.astro";
 
 // utils imports
@@ -112,12 +111,16 @@ const relatedPosts = formattedPosts
       </div>
     </div><!-- end: .card-wrapper -->
   </main>
+  <RelatedPosts {relatedPosts} />
 </Layout>
 
 <style is:global>
 main {
     columns: unset;
     width: min(150ch, 95%);
+}
+aside.related {
+  width: min(150ch, 95%);
 }
 article p {
   margin-bottom: 2rem;

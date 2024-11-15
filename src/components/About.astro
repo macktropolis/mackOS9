@@ -1,12 +1,19 @@
 ---
+// data imports
+import * as site from "../data/site.json";
+
+// component imports
+import Social from "./Social.astro";
+
+const { author } = site;
 ---
 
-<div class="card alt featured">
+<div class="card alt featured about">
     <header class="card__header">
         <img src="/assets/images/title-bar-close.png" height="28" width="28" class="control close" alt="Close">
         <div class="title">
-            <h3 class="card__title">About Mack Richardson</h3>
-            <img src="/assets/images/mack.png" alt="">
+            <h3 class="card__title">About {author}</h3>
+            <img src="/assets/images/finder.png" alt="">
         </div>
         <img src="/assets/images/title-bar-expand.png" height="28" width="28" class="control expand">
         <img src="/assets/images/title-bar-collapse.png" height="28" width="28" class="control collapse">
@@ -14,8 +21,79 @@
     </header>
 
     <section class="card__content">
+        <img src="/assets/images/mack.png" alt="">
+        <h3>{author}</h3>
         <article>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate dolorem, illum nobis ipsum corporis, odio quos magnam temporibus itaque et quidem. Deleniti sed et, natus dolores iusto error accusamus quibusdam.</p>
+            <p>Mack Richardson is a software developer living the small town life in central North Carolina with his amazing wife, Lara, and his dog, Stubby. Besides creating efficient, user-friendly applications; he has a passion for vintage comics, books and toys.</p>
+            <table>
+                <tr>
+                    <td>Occupation</td>
+                    <td>Software Developer</td>
+                </tr>
+                <tr>
+                    <td>Employer</td>
+                    <td>Diamond Assets</td>
+                </tr>
+                <tr>
+                    <td>Skills</td>
+                    <td>Claris FileMaker Development, Web Development</td>
+                </tr>
+                <tr>
+                    <td>Hobbies</td>
+                    <td>Vintage Comic Books; Vintage Sci-Fi, Fantasy &amp; Horror Books; Comic Book &amp; Sci-Fi Toys
+                    </td>
+                </tr>
+            </table>
+            <a href="/about/" class="button center">More Info</a>
         </article>
+        <Social />
     </section>
 </div>
+<style>
+    .card__content {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+    }
+    .card__content h3 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin: 2rem 0 0 0;
+        text-align: center;
+    }
+    .card__content p {
+        font-size: 0.9rem !important;
+        text-align: left;
+    }
+    .card__content img {
+        display: block;
+        margin-inline: auto;
+        height: auto;
+        width: 50%;
+        max-width: 100px;
+        object-fit: contain;
+    }
+    table {
+        font-size: .8rem;
+        margin: 0 auto;
+        width: 90%;
+    }
+    td,
+    tr {
+        background-color: transparent;
+    }
+    td {
+        padding: .5rem;
+        width: 50%;
+    }
+    tr td:first-child {
+        opacity: 0.75;
+        text-align: right;
+        width: 35%;
+    }
+    .button.center {
+        display: block;
+        margin: 2rem auto;
+    }
+</style>

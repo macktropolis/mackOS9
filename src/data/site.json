@@ -3,7 +3,7 @@
     "description": "The personal website of Mack Richardson; FileMaker Developer, Web Developer, Comic Book Collector, Pulp Sci-Fi Fan, & Dog Lover.",
     "version": "9.0.0",
     "url": "https://mackrichardson.com",
-    "favicon": "/assets/favicon/favicon.ico",
+    "favicon": "/favicon.svg",
     "logo": "/assets/images/astronut-logo-h-social.png",
     "author": "Mack Richardson",
     "phone": "+1 336.403.1746",

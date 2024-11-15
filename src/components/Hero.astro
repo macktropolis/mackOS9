@@ -2,10 +2,11 @@
 interface Props {
 	title?: string;
 	description?: string;
+  author?: string;
 	
 }
 
-const { title, description } = Astro.props;
+const { author, title, description } = Astro.props;
 ---
 
 <div class="card-wrapper">
@@ -23,7 +24,7 @@ const { title, description } = Astro.props;
     <section class="card__content">
       <img src="/assets/images/mack.png" alt="Mack" class="avatar" id="mack">
       <article>
-        <h1>{title}</h1>
+        <h1>{author ?? "Mack Richardson"}</h1>
         <p>{description}</p>
           <a href="#popup1" class="button primary">More About Mack</a>
       </article>
