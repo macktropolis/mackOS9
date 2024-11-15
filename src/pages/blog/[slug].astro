@@ -117,7 +117,7 @@ const relatedPosts = formattedPosts
 <style is:global>
 main {
     columns: unset;
-    width: min(150ch, 95%);
+    width: min(130ch, 95%);
 }
 aside.related {
   width: min(150ch, 95%);
@@ -127,20 +127,57 @@ article p {
 }
 #content {
   padding: 2rem;
+  pointer-events: all;
+  position: relative;
+  z-index: 1;
 }
 #content h1 {
   font-size: 5ch;
   margin-bottom: 2rem;
   text-align: center;
 }
+#content h2 {
+  font-size: 3ch;
+  margin-bottom: 2rem;
+}
+#content h3 {
+  font-size: 2ch;
+  margin-bottom: 2rem;
+}
+#content h4 {
+  font-size: 1.5ch;
+  margin-bottom: 2rem;
+}
+#content h5 {
+  font-size: 1ch;
+  margin-bottom: 2rem;
+}
+#content h6 {
+  font-size: .5ch;
+  margin-bottom: 2rem;
+}
 #content p {
+  line-height: 150%;
   margin-bottom: 2rem;
 }
 #content p:last-of-type {
   margin-bottom: 0;
 }
-.hero-image {
-  height: 400px;
+#content img {
+  outline: 2px solid hsl(var(--color-dark), .75);
+  box-shadow: 8px 8px 0 hsl(var(--color-dark), .5);
+  object-fit: contain;
+}
+#content li {
+  line-height: 150%;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+}
+#content li:last-of-type {
+  margin-bottom: 0;
+}
+.hero-image img {
+  max-height: 400px;
 }
 .card__header a.button {
   all: unset;

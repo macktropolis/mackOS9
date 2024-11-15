@@ -1,4 +1,5 @@
 ---
+// component imports
 import CategoryCloud from "./CategoryCloud.astro";
 
 // data imports
@@ -8,7 +9,7 @@ import * as site from "../data/site.json";
 import { slugify } from "../js/utils";
 
 const { page } = Astro.props;
-const { facebook, twitter, linkedin } = site;
+const { author, facebook, twitter, linkedin } = site;
 ---
 
 <header class="site__header">
@@ -16,7 +17,15 @@ const { facebook, twitter, linkedin } = site;
       <li id="apple-menu">
         <img src="/assets/images/apple.png" alt="" class="home-icon">
           <ul class="submenu">
-            <li><a href="#popup1" title="">About Mack Richardson</a></li>
+            <li><a href="#popup1" title="">About {author}</a></li>
+            <li><hr></li>
+            <li>
+              <a href="#">
+                &copy<script type="text/javascript" is:inline>
+                  document.write(new Date().getFullYear());
+                </script>. {author}. All Rights Reserved.
+              </a>
+            </li>
         </ul>
       </li>
       <li><a href="/" title="Home">Home</a></li>
@@ -97,7 +106,7 @@ const { facebook, twitter, linkedin } = site;
     .site__nav a:hover,
     .site__nav a:active,
     .site__nav a:focus {
-      background-color: hsl(var(--color-dark), 1);
+      background-color: hsl(var(--color-selection), 1);
       color: hsl(var(--color-light), 1);
     }
     .site__nav img {

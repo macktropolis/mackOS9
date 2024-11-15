@@ -1,4 +1,7 @@
 ---
+// data imports
+import * as site from "../data/site.json";
+
 interface Props {
 	title?: string;
 	description?: string;
@@ -6,7 +9,9 @@ interface Props {
 	
 }
 
-const { author, title, description } = Astro.props;
+const { author, description } = Astro.props;
+const { version } = site;
+const title = "MackOS";
 ---
 
 <div class="card-wrapper">
@@ -14,7 +19,7 @@ const { author, title, description } = Astro.props;
     <header class="card__header">
       <img src="/assets/images/title-bar-close.png" height="28" width="28" class="control close" alt="Close">
       <div class="title">
-        <h3 class="card__title">Mack OS</h3>
+        <h3 class="card__title">{title} {version}</h3>
         <span class="icon">&nbsp;</span>
       </div>
       <img src="/assets/images/title-bar-expand.png" height="28" width="28" class="control expand">
