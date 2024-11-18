@@ -13,165 +13,177 @@ const { author, facebook, twitter, linkedin } = site;
 ---
 
 <header class="site__header">
-    <ul class="site__nav">
-      <li id="apple-menu">
-        <img src="/assets/images/apple.png" alt="" class="home-icon">
-          <ul class="submenu">
-            <li><a href="#popup1" title="">About {author}</a></li>
-            <li><hr></li>
-            <li>
-              <a href="#">
-                &copy<script type="text/javascript" is:inline>
-                  document.write(new Date().getFullYear());
-                </script>. {author}. All Rights Reserved.
-              </a>
-            </li>
-        </ul>
-      </li>
-      <li><a href="/" title="Home">Home</a></li>
-      <li>
-        <a href="#">Contact</a>
-        <ul class="submenu">
-          <li><a href="mailto:mack@mackrichardson.com"><img src="/assets/images/mail.png" alt="" /> Email</a></li>
-          <li><a href={linkedin} target="_blank"><img src="/assets/images/linkedin.png" title="" /> LinkedIn</a></li>
-          <li><a href={facebook} target="_blank"><img src="/assets/images/facebook.png" title="" /> Facebook</a></li>
-          <li><a href={twitter} target="_blank"><img src="/assets/images/twitter.png" title="" /> X/Twitter</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="/blog/">Articles</a>
-        <CategoryCloud />
-      </li>
-      <li id="site-loc"> 
-        <!-- <img src="/assets/images/finder.png" alt=""> -->
-        <span class={`icon ${slugify(page)}`}>&nbsp;</span>
-        {page}
-      </li>
-    </ul>
-  </header>
+  <ul class="site__nav">
+    <li id="apple-menu">
+      <img src="/assets/images/apple.png" alt="" class="home-icon" />
+      <ul class="submenu">
+        <li><a href="#popup1" title="">About {author}</a></li>
+        <li><hr /></li>
+        <li>
+          <a href="#">
+            &copy<script type="text/javascript" is:inline>
+              document.write(new Date().getFullYear());
+            </script>. {author}. All Rights Reserved.
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li><a href="/" title="Home">Home</a></li>
+    <li>
+      <a href="#">Contact</a>
+      <ul class="submenu">
+        <li>
+          <a href="mailto:mack@mackrichardson.com"
+            ><img src="/assets/images/mail.png" alt="" /> Email</a>
+        </li>
+        <li>
+          <a href={linkedin} target="_blank"
+            ><img src="/assets/images/linkedin.png" title="" /> LinkedIn</a>
+        </li>
+        <li>
+          <a href={facebook} target="_blank"
+            ><img src="/assets/images/facebook.png" title="" /> Facebook</a>
+        </li>
+        <li>
+          <a href={twitter} target="_blank"
+            ><img src="/assets/images/twitter.png" title="" /> X/Twitter</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="/blog/">Articles</a>
+      <CategoryCloud />
+    </li>
+    <li id="site-loc">
+      <!-- <img src="/assets/images/finder.png" alt=""> -->
+      <span class={`icon ${slugify(page)}`}>&nbsp;</span>
+      {page}
+    </li>
+  </ul>
+</header>
 
-
-  <style is:global>
-    header.site__header {
-      background-color: hsl(var(--color-base), 1);
-      border-bottom: 1px solid hsl(var(--color-dark), 1);
-      box-shadow: 0 1px 2px hsl(var(--color-dark), 1);
-      display: flex;
-      flex-grow: 1;
-      height: 28px;
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 100;  
-    }
-    .site__nav {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-items: center;
-      font-size: .9rem;
-      font-weight: bold;
-      height: 100%;
-      list-style-position: unset;
-      justify-content: center;
-      margin: 0;
-      padding-left: 1rem;
-      width: 100%;
-    }
-    .site__nav li {
-      align-items: center;
-      display: flex;
-      height: 100%;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-    }
-    .site__nav li#apple-menu {
-      padding: 0 0.5rem;
-    }
-    .site__nav li#apple-menu img {
-      height: 20px;
-      width: 20px;
-    }
-    .site__nav a {
-      color: hsl(var(--color-dark), 1);
-      align-items: center;
-      display: flex;
-      height: 100%;
-      justify-content: center;
-      margin: 0 .1rem;
-      padding: 0 .75rem;
-      text-decoration: none;
-      width: 100%;
-    }
-    .site__nav a:hover,
-    .site__nav a:active,
-    .site__nav a:focus {
-      background-color: hsl(var(--color-selection), 1);
-      color: hsl(var(--color-light), 1);
-    }
-    .site__nav img {
-      height: 16px;
-      width: 16px;
-    }
-    .site__nav .menu {
-      position: relative;
-    }
-    .site__nav .submenu {
-        background-color: hsl(var(--color-base), 1);
-        border: 2px solid hsl(var(--color-dark), 1);
-        box-shadow: 0 2px 2px hsl(var(--color-dark), 1);
-        font-size: inherit;
-        margin: 0;
-        position: absolute;
-        top: 99%;
-        visibility: hidden;
-    }
-    .site__nav li#apple-menu .submenu {
-        left: 0;
-    }
-    .site__nav li:hover .submenu {
-        visibility: visible;
-    }
-    .site__nav .submenu li {
-        padding: 0 !important;
-    }
-    .site__nav .submenu li a {
-        display: block;
-        margin: 0;
-        padding: .5rem 1rem;
-    }
-    .site__nav .submenu li a img {
-        display: block;
-        float: left;
-        height: 16px;
-        margin-right: .5rem;
-        width: 16px;
-    }
-    #site-loc {
-        align-items: center;
-        display: flex;
-        font-size: 1rem;
-        font-weight: bold;
-        gap: .5rem;
-        height: 100%;
-        margin-left: auto;
-        padding: 0 1rem;
-        position: relative;
-    }
-    #site-loc > img,
-    #site-loc > .icon {
-        height: 24px !important;
-        width: 24px !important;
-    }
-    #site-loc > .icon {
-      background-size: 90%;
-    }
-    #site-loc::before {
-        background: url("/assets/images/dot-separator.png") no-repeat 50%;
-        content: "";
-        height: 100%;
-        position: absolute;
-        inset: auto auto auto -10px;
-        width: 15px;
-    }
+<style is:global>
+  header.site__header {
+    background-color: hsl(var(--color-base), 1);
+    border-bottom: 1px solid hsl(var(--color-dark), 1);
+    box-shadow: 0 1px 2px hsl(var(--color-dark), 1);
+    display: flex;
+    flex-grow: 1;
+    height: 28px;
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+  }
+  .site__nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    font-size: 0.9rem;
+    font-weight: bold;
+    height: 100%;
+    list-style-position: unset;
+    justify-content: center;
+    margin: 0;
+    padding-left: 1rem;
+    width: 100%;
+  }
+  .site__nav li {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+  .site__nav li#apple-menu {
+    padding: 0 0.5rem;
+  }
+  .site__nav li#apple-menu img {
+    height: 20px;
+    width: 20px;
+  }
+  .site__nav a {
+    color: hsl(var(--color-dark), 1);
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin: 0 0.1rem;
+    padding: 0 0.75rem;
+    text-decoration: none;
+    width: 100%;
+  }
+  .site__nav a:hover,
+  .site__nav a:active,
+  .site__nav a:focus {
+    background-color: hsl(var(--color-selection), 1);
+    color: hsl(var(--color-light), 1);
+  }
+  .site__nav img {
+    height: 16px;
+    width: 16px;
+  }
+  .site__nav .menu {
+    position: relative;
+  }
+  .site__nav .submenu {
+    background-color: hsl(var(--color-base), 1);
+    border: 2px solid hsl(var(--color-dark), 1);
+    box-shadow: 0 2px 2px hsl(var(--color-dark), 1);
+    font-size: inherit;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 99%;
+    visibility: hidden;
+  }
+  .site__nav li#apple-menu .submenu {
+    left: 0;
+  }
+  .site__nav li:hover .submenu {
+    visibility: visible;
+  }
+  .site__nav .submenu li {
+    padding: 0 !important;
+  }
+  .site__nav .submenu li a {
+    display: block;
+    margin: 0;
+    padding: 0.5rem 1rem;
+  }
+  .site__nav .submenu li a img {
+    display: block;
+    float: left;
+    height: 16px;
+    margin-right: 0.5rem;
+    width: 16px;
+  }
+  #site-loc {
+    align-items: center;
+    display: flex;
+    font-size: 1rem;
+    font-weight: bold;
+    gap: 0.5rem;
+    height: 100%;
+    margin-left: auto;
+    padding: 0 1rem;
+    position: relative;
+  }
+  #site-loc > img,
+  #site-loc > .icon {
+    height: 24px !important;
+    width: 24px !important;
+  }
+  #site-loc > .icon {
+    background-size: 90%;
+  }
+  #site-loc::before {
+    background: url("/assets/images/dot-separator.png") no-repeat 50%;
+    content: "";
+    height: 100%;
+    position: absolute;
+    inset: auto auto auto -10px;
+    width: 15px;
+  }
 </style>

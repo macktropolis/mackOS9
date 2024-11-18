@@ -7,7 +7,7 @@ import "../styles/reset.css";
 import "../styles/global.css";
 
 interface Props {
-	title?: string;
+    title?: string;
     description?: string;
 }
 
@@ -20,12 +20,12 @@ const { title, description } = Astro.props;
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href={favicon} />
-    <link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css"/>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/open-props/normalize.min.css"/> -->
     <meta name="generator" content={Astro.generator} />
 
     <!-- Primary Meta Tags -->
     <title>{`${title} | ${siteName}`}</title>
-    
+
     <meta name="title" content={`${title} | ${siteName}`} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />

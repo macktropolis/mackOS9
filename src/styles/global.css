@@ -46,6 +46,10 @@ p {
     font-size: 1.2rem;
     line-height: 125%;
 }
+a {
+    color: hsl(var(--color-dark), 1);
+    text-decoration: none;
+}
 :where(p, ul, ol) a {
     text-decoration: underline;
 }

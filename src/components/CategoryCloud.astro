@@ -10,7 +10,9 @@ const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts);
 const allCategories = formattedPosts.map((cat) => cat.data.category).flat();
 
 // Get unique categories and sort them alphabetically
-const uniqueSortedCategories = [...new Set(allCategories)].sort((a, b) => a.localeCompare(b));
+const uniqueSortedCategories = [...new Set(allCategories)].sort((a, b) =>
+  a.localeCompare(b),
+);
 
 // Create the processedCats object with counts
 const processedCats = uniqueSortedCategories.reduce((acc, category) => {
@@ -28,7 +30,7 @@ const processedCats = uniqueSortedCategories.reduce((acc, category) => {
 
 // Example: Generating output for display
 const showCount = uniqueSortedCategories.map(
-  (category) => `${category} (${processedCats[category]})`
+  (category) => `${category} (${processedCats[category]})`,
 );
 ---
 
@@ -37,9 +39,27 @@ const showCount = uniqueSortedCategories.map(
     Object.entries(processedCats).map(([key, val]) => (
       <li>
         <a class="badge" href={`/category/${slugify(key)}/`}>
+          <span class={`icon ${slugify(key)}`}>&nbsp;</span>
           {key} {showCount && `(${val})`}
         </a>
       </li>
     ))
   }
 </ul>
+
+<style>
+  .submenu > li > a {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: start;
+    padding-block: 0.25rem;
+  }
+  .submenu > li > a > .icon {
+    display: inline-block;
+    height: 24px !important;
+    width: 24px !important;
+  }
+  .submenu > li > a > .icon {
+    background-size: 90% !important;
+  }
+</style>
