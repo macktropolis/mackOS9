@@ -34,19 +34,23 @@ const { author, facebook, twitter, linkedin } = site;
       <ul class="submenu">
         <li>
           <a href="mailto:mack@mackrichardson.com"
-            ><img src="/assets/images/mail.png" alt="" /> Email</a>
+            ><img src="/assets/images/mail.png" alt="" /> Email</a
+          >
         </li>
         <li>
           <a href={linkedin} target="_blank"
-            ><img src="/assets/images/linkedin.png" title="" /> LinkedIn</a>
+            ><img src="/assets/images/linkedin.png" title="" /> LinkedIn</a
+          >
         </li>
         <li>
           <a href={facebook} target="_blank"
-            ><img src="/assets/images/facebook.png" title="" /> Facebook</a>
+            ><img src="/assets/images/facebook.png" title="" /> Facebook</a
+          >
         </li>
         <li>
           <a href={twitter} target="_blank"
-            ><img src="/assets/images/twitter.png" title="" /> X/Twitter</a>
+            ><img src="/assets/images/twitter.png" title="" /> X/Twitter</a
+          >
         </li>
       </ul>
     </li>
@@ -80,7 +84,6 @@ const { author, facebook, twitter, linkedin } = site;
     flex-wrap: nowrap;
     align-items: center;
     font-size: 0.9rem;
-    font-weight: bold;
     height: 100%;
     list-style-position: unset;
     justify-content: center;
@@ -137,6 +140,7 @@ const { author, facebook, twitter, linkedin } = site;
     position: absolute;
     top: 99%;
     visibility: hidden;
+    z-index: 100;
   }
   .site__nav li#apple-menu .submenu {
     left: 0;
@@ -162,13 +166,13 @@ const { author, facebook, twitter, linkedin } = site;
   #site-loc {
     align-items: center;
     display: flex;
-    font-size: 1rem;
-    font-weight: bold;
+    font-size: clamp(0.8rem, 1rem, 1.2rem);
     gap: 0.5rem;
     height: 100%;
     margin-left: auto;
     padding: 0 1rem;
     position: relative;
+    text-wrap: nowrap;
   }
   #site-loc > img,
   #site-loc > .icon {
@@ -185,5 +189,11 @@ const { author, facebook, twitter, linkedin } = site;
     position: absolute;
     inset: auto auto auto -10px;
     width: 15px;
+  }
+  @media only screen and (max-width: 500px) {
+    #site-loc {
+      opacity: 0;
+      width: 0;
+    }
   }
 </style>

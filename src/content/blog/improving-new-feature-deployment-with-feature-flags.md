@@ -20,10 +20,8 @@ In FileMaker Pro, feature flags are a great way of isolating script code from us
 
 First, write a custom function, named `env.featureFlag`, with the following code:
 
-```FileMaker
-
+```
 $$~listFeatureFlags
-
 ```
 
 This is a very simple custom function. The `env.featureFlag` function does not require any parameters. It retrieves the list of enabled feature flags from the `$$~listFeatureFlags` global variable.
@@ -41,28 +39,24 @@ Using a custom function makes checking which feature flags are active more flexi
 
 To use Feature Flags, create two new scripts for toggling flags on and off.
 
-1. `Enable Feature Flag ( featureFlag )`
+1. `Enable Feature Flag ( featureFlag ) `
 
-```Script
-
+```
 Set Variable [ $featureFlag ; Value: script.getParameter ( "featureFlag" ) ] 
 
 Set Variable [ $$~listFeatureFlags ; Value: If ( list.hasValue ( env.featureFlags ; $featureFlag ) ; env.featureFlags // Do Nothing /** ELSE **/ ; List ( env.featureFlags ; $featureFlag ) ) ] 
 
 Refresh Window [] 
-
 ```
 
-2. `Disable Feature Flag ( featureFlag )`
+2. `Disable Feature Flag ( featureFlag ) `
 
-```Script
-
+```
 Set Variable [ $featureFlag ; Value: script.getParameter ( "featureFlag" ) ] 
 
 Set Variable [ $$~listFeatureFlags ; Value: If ( list.hasValue ( env.featureFlags ; $featureFlag ) ; Substitute ( ¶ & env.featureFlags &  ¶ ; [ ¶ & $featureFlag & ¶ ; "" ] ) // Do Nothing /** ELSE **/ ; env.featureFlags ) ] 
 
 Refresh Window []
-
 ```
 
  These scripts take the name of a feature flag and add (enable) or remove (disable) it from the `$$~listFeatureFlags` global variable.
@@ -71,31 +65,28 @@ Refresh Window []
 
 Next, create 2 scripts for each feature flag. One will enable the flag. The other will disable the flag. Here is an example of each script for a feature named, `newFeature.v1`:
 
-1. `ENABLE: New Feature ( newFeature.v1 )
+1. `ENABLE: New Feature ( newFeature.v1 ) `
 
-```Script
-
+```
 Set Variable [ $featureFlag ; Value: "newFeature.v1" ] 
 
 Set Variable [ $~trigger ; Value: JSONSetElement (  "" ;  [ "featureFlag" ; $featureFlag ; JSONString ] ) ] 
 
 Perform Script [ Specified: From list ; “Enable Feature Flag ( featureFlag )” ; Parameter: $~trigger ]
-
 ```
 
-2. `DISABLE: New Feature ( newFeature.v1 )
+2. `DISABLE: New Feature ( newFeature.v1 ) `
 
-```Script
-
+```
 Set Variable [ $featureFlag ; Value: "newFeature.v1" ] 
 
 Set Variable [ $~trigger ; Value: JSONSetElement ( "" ; [ "featureFlag" ; $featureFlag ; JSONString ] ) ] 
 
 Perform Script [ Specified: From list ; “Disable Feature Flag ( featureFlag )” ; Parameter: $~trigger ]
-
 ```
 
 With these two scripts, this new feature can be turned on or off using a number of methods, including:
+
 1. a start-up script which toggles new features on or off when the file is opened.
 2. attach the script to a button which can be hidden
 3. call the script from within other scripts.
@@ -108,15 +99,14 @@ Now it's time to incorporate feature flags into scripts where you want the to co
 
 Within a script that will use the new feature, use the `If` script step with the following condition:
 
-```Script Step
-
+```
 If [ list.hasValue ( env.featureFlags ; "newFeature.v1" ) ]
 	# Do something only if the feature flag has been enabled.
 End If
-
 ```
-- Replace "newFeature.v1" with the name of the feature flag you want to check.
-- The "list.hasValue" function checks if the specified feature flag exists in the enabled feature flags list.
+
+- Replace `newFeature.v1` with the name of the feature flag you want to check.
+- The `list.hasValue` function checks if the specified feature flag exists in the enabled feature flags list.
 
 By incorporating this code snippet into your scripts, you can selectively execute certain actions based on the status of a feature flag. This provides you with a convenient way to control the behavior of your FileMaker Pro solution dynamically.
 

@@ -58,9 +58,7 @@ At its root, every style is defined by the type of element to which it is tied. 
 Here is the style name format map, I use in my styles:
 
 ```
-
-[element type].[class name].[horizontal alignment].[vertical alignment].[bg(image|gradient|color)].[color(color)].[size(size).[style(bold|italic).[icon(color)].[border(size)].[radius(size)].[shadow(inner|outer)]
-
+[element type].[class name].[horizontal alignment].[vertical alignment].[bg(image|gradient|color)].[color(color)].[size(size).[style(bold|italic).[icon(color)].[border(size)].[radius(size)].[shadow(inner|outer)]d
 ```
 
 ***Note:** All parameters, other than the element prefix are optional but will be necessary to define variants of similar layout elements.*
@@ -107,24 +105,23 @@ Using this method gives you flexibility when defining new styles as your theme g
 
 Here are a few more specific examples to demonstrate how the naming convention works
 
-An edit box with text aligned to the left and top, a gray background, a border of 1 pt on all sides and a radius of 5 pt on all corners
-	`edit.left.top.bg(gray).border(1).radius(5)`
+An edit box with text aligned to the left and top, a gray background, a border of 1 pt on all sides and a radius of 5 pt on all corners: `edit.left.top.bg(gray).border(1).radius(5)`
  
-A dropdown list with text aligned to the center and middle, no background, a border of 2 pt on the bottom edge and no radius.
-	`ddl.center.middle.border(0020)`
+A dropdown list with text aligned to the center and middle, no background, a border of 2 pt on the bottom edge and no radius: `ddl.center.middle.border(0020)`
 
-A pop-up menu with a specialized role, such as navigation, that has a predefined set of styles to create a specific look can be given a class name instead of explicitly detailing the styles. Explicit styles could be paired with a class name to create different versions of the same element. Multiple class names can be used to create different versions of the same element.	
-	`menu.navigation`
-	`menu.navigation.dark`
-	`menu.navigation.light`
-	
+A pop-up menu with a specialized role, such as navigation, that has a predefined set of styles to create a specific look can be given a class name instead of explicitly detailing the styles. Explicit styles could be paired with a class name to create different versions of the same element. Multiple class names can be used to create different versions of the same element.
+
+```
+menu.navigation
+menu.navigation.dark
+menu.navigation.light
+```
 
 ### A Slight Hiccup
 
 One drawback to defining every style in the style name is length. Let's see the problem in one of the earlier examples. An edit box with text aligned to the left and top, a gray background, a border of 1 pt on all sides and a radius of 5 pt on all corners.
 
-The resulting name is
-	`edit.left.top.bg(gray).border(1).radius(5)`
+The resulting name is `edit.left.top.bg(gray).border(1).radius(5)`
 
 This is already a moderately long style name. Add an explicitly declared background color or other style and it can get really long, really fast.
 

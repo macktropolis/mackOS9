@@ -32,7 +32,7 @@ Let's start with the Security Settings we'll need. Open the `Security Manager` a
 
 <img src="/assets/images/blog/2023-03-30_18-50-53.gif" class="center" alt="" />
 
-Duplicate the `[Read-Only]` Privilege Set and uncheck everything under Other Privileges except `Disconnect user from server when idle` and click the `OK` button.
+Duplicate the `Read-Only` Privilege Set and uncheck everything under Other Privileges except `Disconnect user from server when idle` and click the `OK` button.
 
 <img src="/assets/images/blog/2023-03-30_13-49-42.png" class="center" alt="" />
 
@@ -70,8 +70,7 @@ If you allow new users to create an account, you will also need a layout to capt
 
 Now let's wire our components together into a cohesive log in routine. I use a `Startup` script which is triggered `OnFirstWindowOpen` as the wrapper for this routine.
 
-```FileMaker
-
+```
 # Startup
 
 Set Error Capture [ On ]
@@ -153,14 +152,11 @@ Adjust Window [ Resize to Fit ]
 Move/Resize Window [ Current Window ; Top: WindowCenter ( "vertical" ) ; Left: WindowCenter ( "horizontal" ) ] 
 # 
 Exit Script [ Text Result: $null ] 
-
-
 ```
 
 When this script runs, it checks if the current account is `[Guest]`. If it is, it triggers a log in subroutine which does the heavy lifting of login.
 
-```FileMaker
-
+```
 #  - Startup | Login
 
 Set Error Capture [ On ]
@@ -190,15 +186,13 @@ End If
 # 
 # ---------[ PASS VALIDATION PARAMETERS BACK INTO THE CALLING SCRIPT ]---------
 Exit Script [ Text Result: JSONSetElement (  	"" 	; [ "action" ; "validate" ; JSONString ] 	; [ "context" ; "login" ; JSONString ] ) ] 
-
 ```
 
 This script checks to make sure the user has filled in the required fields, username, and password. The values are then passed to the `Re-Login` script step. If the `Re-Login` completes successfully, validation parameters are passed back up to the `Startup` script. Otherwise, the user is warned about the failure and the script is halted.
 
 If you're allowing new account creation, you'll need a second script to take user data and create a new `Data Entry Only` or `Read-Only` account. 
 
-```FileMaker
-
+```
 #  - Startup | New Account and Login
 
 Set Error Capture [ On ]
@@ -249,7 +243,6 @@ End If
 # ---------[ PASS VALIDATION PARAMETERS BACK INTO THE CALLING SCRIPT ]---------
 Exit Script [ Text Result: JSONSetElement (  	"" 	; [ "action" ; "login" ; JSONString ] 	; [ "context" ; "login" ; JSONString ] ) ] 
 # 
-
 ```
 
 NOTE: If you're using the new account creation option, you'll want to give some thought to limiting record access to the record's creation account. The security model for cross-record access would need to be defined before building the system.
