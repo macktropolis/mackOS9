@@ -10,6 +10,7 @@ image:
 description: Discover the power of feature flags, a dynamic technique that empowers developers to control specific functionalities within applications with ease.
 draft: false
 category: FileMaker
+tags: ["filemaker"]  # Add tags here
 ---
 
 Feature flags are a powerful technique used in software development to enable or disable certain features within an application. They provide developers with the ability to control the availability of specific functionalities without the need for frequent code deployments or conditional logic.

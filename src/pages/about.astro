@@ -15,110 +15,192 @@ import Social from "../components/Social.astro";
 const { author } = site;
 
 const title = "About";
-const description = "Mack Richardson is a software developer living the small town life in central North Carolina with his amazing wife, Lara, and his dog, Stubby. Besides creating efficient, user-friendly applications; he has a passion for vintage comics, books and toys.";
+const description =
+  "Mack Richardson is a software developer living the small town life in central North Carolina with his amazing wife, Lara, and his dog, Stubby. Besides creating efficient, user-friendly applications; he has a passion for vintage comics, books and toys.";
 ---
 
 <Layout title={title} description={description} page={title}>
-
   <main>
-    <div class="card-wrapper">
+    <div class="card__wrapper">
       <div class="card post">
-          <header class="card__header">
-            <img src="/assets/images/title-bar-close.png" height="28" width="28" class="control close" alt="Close">
-            <div class="title">
-              <h3 class="card__title">
-                {title} {author}
-              </h3>
-              <span class="icon">&nbsp;</span>
-            </div>
-            <img src="/assets/images/title-bar-expand.png" height="28" width="28" class="control expand">
-            <img src="/assets/images/title-bar-collapse.png" height="28" width="28" class="control collapse">
-            <a href="/" class="button">&nbsp;</a>
+        <header class="card__header">
+          <img
+            src="/assets/images/title-bar-close.png"
+            height="28"
+            width="28"
+            class="control close"
+            alt="Close"
+          />
+          <div class="title">
+            <h3 class="card__title">
+              {title}
+              {author}
+            </h3>
+            <span class="icon">&nbsp;</span>
+          </div>
+          <img
+            src="/assets/images/title-bar-expand.png"
+            height="28"
+            width="28"
+            class="control expand"
+          />
+          <img
+            src="/assets/images/title-bar-collapse.png"
+            height="28"
+            width="28"
+            class="control collapse"
+          />
+          <a href="/" class="button">&nbsp;</a>
         </header>
-    
-          <section class="card__content">
-            <article>
 
+        <section class="card__content">
+          <article>
             <section id="content">
               <h1>{author}</h1>
-              <img src="/assets/images/mack-hoodie.png" alt="" class="avatar">
-              <p>Mack Richardson is a seasoned software developer who enjoys the charm and tranquility of small-town living in central North Carolina. He shares his life with his incredible wife, Lara, and their loyal and lovable dog, Stubby, who keeps them endlessly entertained.</p>
-              <p>By day, Mack is dedicated to crafting efficient, user-friendly applications that tackle real-world challenges with elegance and simplicity. His passion for technology lies in its potential to make life better for everyone, and he thrives on turning complex ideas into accessible solutions.</p>
-              <p>When he's not coding or debugging, Mack dives headfirst into his other great loves: vintage comic, sci-fi, fantasy, and horror books. His shelves are a treasure trove of captivating stories from bygone eras, brimming with iconic characters and timeless adventures. His enthusiasm doesn't stop at the page, either &mdash; his collection of comic book and sci-fi toys is a testament to his love for all things nostalgic and geeky.</p>
-              <p>Whether he's building the next big app, marveling to the adventures of Superman or Batman, hunting for a rare action figure, or learning new ways to bend technology to his will,  Mack brings creativity and passion to everything he does.</p>
+              <img
+                src="/assets/images/mack-hoodie.png"
+                alt=""
+                class="avatar mack-hoodie"
+              />
+              <p>
+                Mack Richardson is a seasoned software developer who enjoys the
+                charm and tranquility of small-town living in central North
+                Carolina. He shares his life with his incredible wife, Lara, and
+                their loyal and lovable dog, Stubby, who keeps them endlessly
+                entertained.
+              </p>
+              <p>
+                By day, Mack is dedicated to crafting efficient, user-friendly
+                applications that tackle real-world challenges with elegance and
+                simplicity. His passion for technology lies in its potential to
+                make life better for everyone, and he thrives on turning complex
+                ideas into accessible solutions.
+              </p>
+              <p>
+                When he's not coding or debugging, Mack dives headfirst into his
+                other great loves: vintage comic, sci-fi, fantasy, and horror
+                books. His shelves are a treasure trove of captivating stories
+                from bygone eras, brimming with iconic characters and timeless
+                adventures. His enthusiasm doesn't stop at the page, either
+                &mdash; his collection of comic book and sci-fi toys is a
+                testament to his love for all things nostalgic and geeky.
+              </p>
+              <p>
+                Whether he's building the next big app, marveling to the
+                adventures of Superman or Batman, hunting for a rare action
+                figure, or learning new ways to bend technology to his will,
+                Mack brings creativity and passion to everything he does.
+              </p>
+              <h3>Mack's Business Side</h3>
+              <div class="hire-mack">
+                <img
+                  src="/assets/images/mack-tie.png"
+                  alt=""
+                  class="avatar left mack-tie"
+                />
+                <p>
+                  Mack has a wealth of experience in software development, with
+                  a focus on web and business applications. He's worked with a
+                  variety of technologies and platforms, such as Claris
+                  FileMaker Pro, WordPress and Astro SSG. His expertise extends
+                  to databases, API integrations and deployment pipelines,
+                  making him a versatile and adaptable developer.
+                </p>
+                <a
+                  href="https://hiremack.com"
+                  target="_blank"
+                  class="button primary">
+                  See Mack's Full Work Experience</a
+                >
+              </div>
+              <h3>Even More Mack</h3>
+              <Social />
             </section>
-            <h3>Learn More or Get In Touch</h3>
-            <Social />
           </article>
           <section class="card__meta">
-            <p>
-              Last Updated: 2024-11-14
-            </p>
+            <p>Last Updated: 2024-11-20</p>
           </section>
-
         </section>
-      </div>
-    </div><!-- end: .card-wrapper -->
+      </div><!-- end: .card-wrapper -->
+    </div>
   </main>
-</Layout>
 
-<style is:global>
-main {
-    columns: unset;
-    width: min(150ch, 95%);
-}
-aside.related {
-  width: min(150ch, 95%);
-}
-article p {
-  margin-bottom: 2rem;
-}
-#content {
-  padding: 2rem;
-}
-#content h1 {
-  font-size: 5ch;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-#content p {
-  margin-bottom: 2rem;
-}
-#content p:last-of-type {
-  margin-bottom: 0;
-}
-.card__content h3 {
-    border-bottom: 3px double hsl(var(--color-dark), 1);
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 2rem 0;
-    padding-bottom: 1rem;
-    text-align: center;
-}
-.avatar {
-  display: flow-root;
-  float: left;
-  margin: 2rem 2rem 2rem -2rem;
-  height: auto;
-  width: 50%;
-  max-width: 300px;
-  object-fit: contain;
-  shape-margin: 2rem;
-  shape-outside: url(/assets/images/mack.png);
-}
-.card__header a.button {
-  all: unset;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 36px;
-  width: 36px;
-}
-.control.collapse,
-.control.expand {
-  opacity: 0;
-}
-.social {
-  margin-bottom: 2rem;
-}
-</style>
+  <style is:global>
+    main {
+      columns: unset;
+      width: min(100ch, 95%);
+    }
+    aside.related {
+      width: min(150ch, 95%);
+    }
+    article p {
+      margin-bottom: 2rem;
+    }
+    #content {
+      display: flow-root;
+      padding: 2rem;
+    }
+    #content h1 {
+      font-size: 5ch;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    #content p {
+      margin-bottom: 2rem;
+    }
+    #content p:last-of-type {
+      margin-bottom: 0;
+    }
+    .card__content h3 {
+      border-bottom: 3px double hsl(var(--color-dark), 1);
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 2rem 0;
+      padding-bottom: 1rem;
+      text-align: center;
+    }
+    .avatar {
+      float: left;
+      margin: 0 2rem 1rem -2rem;
+      height: auto;
+      width: 50%;
+      max-width: 300px;
+      object-fit: contain;
+      shape-margin: 2rem;
+    }
+    .avatar.mack-hoodie {
+      shape-outside: url(/assets/images/mack.png);
+    }
+    .avatar.right {
+      float: right;
+      margin: 0 -2rem 2rem 2rem;
+    }
+    .avatar.mack-tie {
+      shape-outside: url(/assets/images/mack-tie.png);
+      margin: 0 1rem 1rem 0;
+      max-width: 200px;
+    }
+    .hire-mack {
+      display: flow-root;
+    }
+    .hire-mack > .button {
+      display: block;
+      margin: 2rem auto;
+    }
+    .card__header a.button {
+      all: unset;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 36px;
+      width: 36px;
+    }
+    .control.collapse,
+    .control.expand {
+      opacity: 0;
+    }
+    .social {
+      margin-bottom: 2rem;
+    }
+  </style>
+</Layout>

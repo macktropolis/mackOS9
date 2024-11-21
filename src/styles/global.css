@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 @font-face {
-    font-family: 'Chiq-Reduced-Bold';
-    src:url('/assets/fonts/Chiq-Reduced-Bold.ttf.woff') format('woff'),
-        url('/assets/fonts/Chiq-Reduced-Bold.ttf.svg#Chiq-Reduced-Bold') format('svg'),
-        url('/assets/fonts/Chiq-Reduced-Bold.ttf.eot'),
-        url('/assets/fonts/Chiq-Reduced-Bold.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-family: 'CheckboxFLF';
+    src:url('/assets/fonts/CheckboxFLF.ttf.woff') format('woff'),
+        url('/assets/fonts/CheckboxFLF.ttf.svg#CheckboxFLF') format('svg'),
+        url('/assets/fonts/CheckboxFLF.ttf.eot'),
+        url('/assets/fonts/CheckboxFLF.ttf.eot?#iefix') format('embedded-opentype'); 
     font-weight: normal;
     font-style: normal;
 }
@@ -18,22 +18,26 @@
     --color-mid: 0, 0%, 80%;
     --color-mid-2: 0, 0%, 40%;
     --color-selection: 240, 50%, 40%;
+    --color-bright: 359, 38%, 57%;
+    --color-bright-2: 196, 41%, 59%;
 
     --gradient-color: 220, 92%, 75%;
     --gradient-color-2: 214, 91%, 74%;
     --gradient-color-3: 246, 97%, 85%;
 
-    --font-sans: 'Chiq-Reduced-Bold', sans-serif;
+    --font-sans: 'CheckboxFLF', sans-serif;
     --font-serif: 'PT Serif', serif;
     --font-mono: monospace;
 }
 body {
-    background: hsl(var(--gradient-color), 1);
+    background-color: hsl(var(--color-base), 1);
+    color: hsl(var(--color-dark), 1);
     font-family: var(--font-sans);
     font-size: 100%;
     height: 100vh;
     padding-top: 5rem;
     scroll-behavior: smooth;
+    text-wrap: pretty;
 }
 body::after {
     background: linear-gradient(
@@ -50,21 +54,29 @@ body::after {
     z-index: -1;
 }
 h1, h2, h3, h4, h5, h6 {
-    font-size: clamp(1.2rem, 1.4rem, 1.6rem);
+    font-size: clamp(1.6rem, 2rem, 2.5rem);
     font-family: var(--font-serif);
     font-weight: 400;
+    letter-spacing: -1px;
+    line-height: 125%;
     margin-bottom: 1rem;
 }
 p {
-    font-size: clamp(1rem, 1.1rem, 1.2rem);
-    line-height: 175%;
+    font-size: clamp(0.9rem, 1rem, 1.1rem);
+    line-height: 150%;
+    margin-bottom: 1rem;
 }
 a {
-    color: hsl(var(--color-dark), 1);
+    color: hsl(var(--color-selection), 1);
     text-decoration: none;
 }
 :where(p, ul, ol) a {
     text-decoration: underline;
+}
+:where(h1, h2, h3, h4, h5, h6) a,
+a:where(.button) {
+    color: hsl(var(--color-dark), 1);
+    text-decoration: none;
 }
 ul,
 ol {
@@ -98,7 +110,6 @@ code {
     font-family: var(--font-mono);
     text-wrap: pretty;
 }
-
 /* = = = = = = = = = = = = = 
 Main & Aside
 = = = = = = = = = = = = = */
@@ -114,7 +125,7 @@ aside.related {
 /* = = = = = = = = = = = = = 
 Cards
 = = = = = = = = = = = = = */
-.card-wrapper {
+.card__wrapper {
     break-inside: avoid;
     padding-bottom: 1rem;
 }
@@ -188,6 +199,7 @@ Cards
     border: 2px solid hsl(var(--color-dark, 1));
     padding: 1rem;
     position: relative;
+    z-index: 50;
 }
 .card.alt .card__content article {
     background-color: transparent;
@@ -195,8 +207,8 @@ Cards
     text-align: center;
 }
 .card__content article::before {
-    border-top: 2px solid hsl(0, 0%, 55%);
-    border-left: 2px solid hsl(0, 0%, 55%);
+    border-top: 2px solid hsl(var(--color-base));
+    border-left: 2px solid hsl(var(--color-base));
     border-right: 2px solid hsl(var(--color-light, 1));
     border-bottom: 2px solid hsl(var(--color-light, 1));
     content: "";
@@ -212,6 +224,10 @@ Cards
     margin-top: 1rem;
     text-align: right;
 }
+.card__content h2 {
+    position: relative;
+    z-index: 1;
+  }
 
 /* = = = = = = = = = = = = = 
 Featured Card 
@@ -231,7 +247,7 @@ Featured Card
     display: block;
     height: auto;
     margin-inline: auto;
-    width: min(30%, 200px);
+    width: min(40%, 300px);
 }
 
 /* = = = = = = = = = = = = = 
@@ -344,6 +360,8 @@ Hero Image
     margin-bottom: 1rem;
 }
 .hero-image img {
+    outline: 2px solid hsl(var(--color-dark), 0.75);
+    box-shadow: 8px 8px 0 hsl(var(--color-dark), 0.5);
     display: block;
     height: 100%;
     max-height: 200px;
@@ -352,15 +370,67 @@ Hero Image
     filter: grayscale(100%);
     pointer-events: all;
 }
+.hero-image img.top {
+    object-fit: cover;
+    object-position: top;
+}
+.hero-image img.top.tall {
+    object-position: center 30%;
+}
+.hero-image img.bottom {
+    object-fit: cover;
+    object-position: bottom;
+  }
+.hero-image img.bottom.tall {
+    object-position: center 70%;
+}
+.hero-image .corner-box {
+    background-color: hsl(var(--color-bright-2), 1);
+    border-bottom: 1px solid hsl(var(--color-light), 0.25);
+    box-shadow: 0 5px 0 hsl(var(--color-dark), 0.25);
+    display: grid;
+    justify-content: end;
+    align-items: start;
+    position: absolute;
+    top: 130px;
+    left: -165px;
+    padding: 10rem 8rem 1rem 8rem;
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    width: 400px;
+    z-index: 100;
+}
+.hero-image .corner-box::before {
+    background-color: hsl(var(--color-bright), 1);
+    box-shadow: -5px 0 0 hsl(var(--color-dark), 0.5);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 150px;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+.hero-image .corner-box img.md-logo {
+    outline: none;
+    box-shadow: none;
+    filter: grayscale(0%);
+    height: auto;
+    position: absolute;
+    bottom: 10px;
+    left: 30%;
+    width: 180px;
+    z-index: 1;
+}
 .hero-image svg {
     opacity: .75;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 2px;
+    right: 2px;
     left: 0;
     bottom: 0;
-    width: 100%;
-    height: 100%;
+    width: calc( 100% - 2px );
+    height: calc( 100% - 2px );
     z-index: 5;
 }
 .hero-image img,
@@ -396,3 +466,44 @@ Category Icon
 .icon.comic-books {
     background-image: url('/assets/images/batwing.png');
 }
+.icon.toys {
+    background-image: url('/assets/images/optimus-prime.png');
+}
+
+/* = = = = = = = = = = = = = 
+Classes
+= = = = = = = = = = = = = */
+.avatar {
+    filter: drop-shadow(5px 5px 0 hsl(var(--color-dark), 0.25));
+}
+
+/* = = = = = = = = = = = = = 
+Tag Cloud
+= = = = = = = = = = = = = */
+.tag-cloud {
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 1rem;
+  }
+  .tag-cloud small {
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+  }
+  .tag-cloud ul.tags {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: small;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .tag-cloud ul.tags li {
+    margin: 0;
+    padding: 0;
+  }
+  .tag-cloud ul.tags a {
+    position: relative;
+    z-index: 1;
+  }

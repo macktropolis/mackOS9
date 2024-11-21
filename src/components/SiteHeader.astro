@@ -9,7 +9,7 @@ import * as site from "../data/site.json";
 import { slugify } from "../js/utils";
 
 const { page } = Astro.props;
-const { author, facebook, twitter, linkedin } = site;
+const { author, facebook, twitter, linkedin, youtube } = site;
 ---
 
 <header class="site__header">
@@ -50,6 +50,11 @@ const { author, facebook, twitter, linkedin } = site;
         <li>
           <a href={twitter} target="_blank"
             ><img src="/assets/images/twitter.png" title="" /> X/Twitter</a
+          >
+        </li>
+        <li>
+          <a href={youtube} target="_blank"
+            ><img src="/assets/images/youtube.png" title="" /> YouTube</a
           >
         </li>
       </ul>

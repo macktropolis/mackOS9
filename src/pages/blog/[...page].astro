@@ -2,7 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 
 // data imports
-import * as site from "../../data/site.json";
+// import * as site from "../../data/site.json";
 
 //  layout imports
 import Layout from "../../layouts/Layout.astro";
@@ -27,20 +27,20 @@ interface Props {
   posts: CollectionEntry<"blog">[];
   authorName: string;
   page?: string;
-
 }
 
 const { page } = Astro.props;
-const blogTitle = "Mack Docs";
-const blogDescription = "Articles from Comic Books to Web Development and everything in between.";
+const blogTitle = "Articles";
+const blogDescription =
+  "Articles from Comic Books to Web Development and everything in between.";
 ---
 
 <Layout title={blogTitle} page={blogTitle} description={blogDescription}>
   <main>
-      {
-        page.data.map((post) => (
-          <PostCard data={post.data} url={post.slug} tagType="h2" />
-        ))
-      }
-    </main>
+    {
+      page.data.map((post) => (
+        <PostCard data={post.data} url={post.slug} tagType="h2" />
+      ))
+    }
+  </main>
 </Layout>

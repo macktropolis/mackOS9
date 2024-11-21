@@ -7,10 +7,10 @@ import { slugify, formatDate } from "../js/utils";
 
 const { data, url, tagType } = Astro.props;
 const Tag = tagType;
-const { title, date, author, image, description, category } = data;
+const { title, date, author, image, description, category, tags } = data;
 ---
 
-<div class="card-wrapper">
+<div class="card__wrapper">
   <div class="card post">
     <header class="card__header">
       <img
@@ -69,13 +69,33 @@ const { title, date, author, image, description, category } = data;
           </a>
         </section>
 
-        <h1>
+        <h2>
           <a href={`/blog/${slugify(url)}`}>{title}</a>
-        </h1>
+        </h2>
 
         <p>{description}</p>
 
         <a href={`/blog/${slugify(url)}`} class="button">Read More</a>
+
+        {
+          tags && (
+            <div class="tag-cloud">
+              <small>Tags:</small>
+              <ul class="tags">
+                {tags.map((tag) => (
+                  <li>
+                    <a
+                      href={`/tags/${slugify(tag)}`}
+                      aria-hidden="true"
+                      tabindex="-1">
+                      {tag}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
       </article>
       <section class="card__meta">
         <p>

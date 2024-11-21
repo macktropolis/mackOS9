@@ -1,15 +1,16 @@
 ---
-title: A CSS-Like Approach to Managing Claris FileMaker Themes
+title: "A CSS-Like Approach to Managing Claris FileMaker Themes"
 date: 2023-02-08
-author: Mack Richardson
+author: "Mack Richardson"
 image:
   {
     src: "/assets/images/blog/code.jpg",
     alt: "",
   }
-description: FileMaker Themes and a CSS-inspired naming system streamline UI design, making layouts consistent, scalable, and easier to maintain.
+description: "FileMaker Themes and a CSS-inspired naming system streamline UI design, making layouts consistent, scalable, and easier to maintain."
 draft: false
-category: FileMaker
+category: "FileMaker"
+tags: ["css", "filemaker"]  # Add tags here
 ---
 
 In the days before FileMaker 13, maintaining a consistent set of UI elements for a FileMaker app could be a serious challenge. I used a dedicated FileMaker file to keep my layout designs and elements. When doing UI work on a solution, I would keep this file open nearby to grab elements as needed. 

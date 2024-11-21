@@ -6,12 +6,14 @@ import { Image } from "astro:assets";
 import { slugify, formatDate } from "../js/utils";
 
 const { relatedPosts } = Astro.props;
+const tags = relatedPosts.map((post) => post.data.tags).flat();
+const uniqueTags = [...new Set(tags)];
 ---
 
 <aside class="related">
 {
   relatedPosts.map((post) => (
-    <div class="card-wrapper">
+    <div class="card__wrapper">
       <div class="card post">
         <header class="card__header">
             <img src="/assets/images/title-bar-close.png" height="28" width="28" class="control close" alt="Close">
@@ -62,6 +64,26 @@ const { relatedPosts } = Astro.props;
         <p>{post.data.description}</p>
 
         <a href={`/blog/${post.slug}/`} class="button">Read More</a>
+
+        {
+          uniqueTags && (
+            <div class="tag-cloud">
+              <small>Tags:</small>
+              <ul class="tags">
+                {uniqueTags.map((tag) => (
+                  <li>
+                    <a
+                      href={`/tags/${slugify(tag)}`}
+                      aria-hidden="true"
+                      tabindex="-1">
+                      {tag}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+        }
 
       </article>
       <section class="card__meta">

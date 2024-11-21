@@ -3,42 +3,57 @@
 import * as site from "../data/site.json";
 
 interface Props {
-	title?: string;
-	description?: string;
+  title?: string;
+  description?: string;
   author?: string;
-	
 }
 
-const { author, description } = Astro.props;
+const { title, description } = Astro.props;
 const { version } = site;
-const title = "MackOS";
+const headerTitle = "MackOS";
 ---
 
-<div class="card-wrapper">
+<div class="card__wrapper">
   <div class="card alt featured" id="about">
     <header class="card__header">
-      <img src="/assets/images/title-bar-close.png" height="28" width="28" class="control close" alt="Close">
+      <img
+        src="/assets/images/title-bar-close.png"
+        height="28"
+        width="28"
+        class="control close"
+        alt="Close"
+      />
       <div class="title">
-        <h3 class="card__title">{title} {version}</h3>
+        <h3 class="card__title">{headerTitle} {version}</h3>
         <span class="icon">&nbsp;</span>
       </div>
-      <img src="/assets/images/title-bar-expand.png" height="28" width="28" class="control expand">
-      <img src="/assets/images/title-bar-collapse.png" height="28" width="28" class="control collapse">
+      <img
+        src="/assets/images/title-bar-expand.png"
+        height="28"
+        width="28"
+        class="control expand"
+      />
+      <img
+        src="/assets/images/title-bar-collapse.png"
+        height="28"
+        width="28"
+        class="control collapse"
+      />
     </header>
 
     <section class="card__content">
-      <img src="/assets/images/mack.png" alt="Mack" class="avatar" id="mack">
+      <img src="/assets/images/mack.png" alt="Mack" class="avatar" id="mack" />
       <article>
-        <h1>{author ?? "Mack Richardson"}</h1>
+        <h1>{title ?? "Mack Richardson"}</h1>
         <p>{description}</p>
-          <a href="#popup1" class="button primary">More About Mack</a>
+        <a href="/about/" class="button primary">About Mack</a>
       </article>
     </section>
   </div>
 </div><!-- end: .card-wrapper -->
 
 <style>
-    .control {
-        opacity: 0;
-    }
+  .control {
+    opacity: 0;
+  }
 </style>

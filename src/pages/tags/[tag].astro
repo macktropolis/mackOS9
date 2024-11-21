@@ -15,22 +15,26 @@ import PostCard from "../../components/PostCard.astro";
 // utils imports
 import { slugify, formatBlogPosts } from "../../js/utils";
 
-// export formatted blog posts by category
+// export formatted blog posts by tag
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
   const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts);
-  const allCategories = [
-    ...new Set(formattedPosts.map((post) => post.data.category).flat()),
+  const allTags = [
+    ...new Set(
+      formattedPosts
+        .map((post) => post.data.tags) // Access the tags field
+        .flat(), // Flatten tags from all posts into a single array
+    ),
   ];
-  return allCategories.map((category) => {
-    const categoryPosts = formattedPosts.filter(
-      (post) => post.data.category === category,
+  return allTags.map((tag) => {
+    const tagPosts = formattedPosts.filter(
+      (post) => post.data.tags.includes(tag), // Match posts with the current tag
     );
     return {
-      params: { category: slugify(category) },
+      params: { tag: slugify(tag) },
       props: {
-        categoryName: category,
-        posts: categoryPosts,
+        tagName: tag,
+        posts: tagPosts,
       },
     };
   });
@@ -38,17 +42,16 @@ export async function getStaticPaths() {
 
 interface Props {
   posts: CollectionEntry<"blog">[];
-  categoryName: string;
+  tagName: string;
 }
 
-const { category } = Astro.params;
-const { posts, categoryName } = Astro.props;
-const title = categoryName + " Articles";
+const { tag } = Astro.params;
+const { posts, tagName } = Astro.props;
+const title = tagName + " Articles";
 ---
 
-<Layout title={title} page={categoryName}>
+<Layout title={title} page={tagName}>
   <main>
-    <!-- <Hero title={title} /> -->
     {
       posts.map((post) => (
         <PostCard data={post.data} url={post.slug} tagType="h2" />

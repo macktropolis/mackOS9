@@ -2,31 +2,43 @@
 // data imports
 import * as site from "../data/site.json";
 
-const { email, facebook, twitter, linkedin } = site;
+const { email, facebook, twitter, linkedin, youtube } = site;
 ---
 
 <div class="social">
-    <a href={`mailto:${email}`} class="button"><img src="/assets/images/mail.png" alt="" /> Email</a>
-    <a href={linkedin} class="button" target="_blank"><img src="/assets/images/linkedin.png" title="" /> LinkedIn</a>
-    <a href={facebook} class="button" target="_blank"><img src="/assets/images/facebook.png" title="" /> Facebook</a>
-    <a href={twitter} class="button" target="_blank"><img src="/assets/images/twitter.png" title="" /> X/Twitter</a>
+    <a href={`mailto:${email}`} class="button"
+        ><img src="/assets/images/mail.png" alt="" /> Email</a
+    >
+    <a href={linkedin} class="button" target="_blank"
+        ><img src="/assets/images/linkedin.png" title="" /> LinkedIn</a
+    >
+    <a href={facebook} class="button" target="_blank"
+        ><img src="/assets/images/facebook.png" title="" /> Facebook</a
+    >
+    <a href={twitter} class="button" target="_blank"
+        ><img src="/assets/images/twitter.png" title="" /> X/Twitter</a
+    >
+    <a href={youtube} class="button" target="_blank"
+        ><img src="/assets/images/youtube.png" title="" />YouTube</a
+    >
 </div>
 <style>
-.social {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1rem;
-}
-.social > .button {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
-.social > .button > img {
-    height: 24px;
-    width: 24px;
-}
+    .social {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+    .social > .button {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .social > .button > img {
+        height: 24px;
+        width: 24px;
+    }
 </style>

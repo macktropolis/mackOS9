@@ -6,11 +6,11 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import * as site from "../data/site.json";
 
 // layout imports
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
 //  component imports
-import Hero from '../components/Hero.astro';
-import PostCard from '../components/PostCard.astro';
+import Hero from "../components/Hero.astro";
+import PostCard from "../components/PostCard.astro";
 
 // utils imports
 import { formatBlogPosts } from "../js/utils";
@@ -18,23 +18,20 @@ import { formatBlogPosts } from "../js/utils";
 // retrieve all blog posts
 const allPosts = await getCollection("blog");
 const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts, {
-  // limit: 4,
+	// limit: 4,
 });
 
-const { description } = site;
+const { author, description } = site;
 const title = "Home";
 ---
 
 <Layout title={title} description={description} />
-	<main>
+<main>
+	<Hero title={author} description={description} />
 
-		<Hero title={title} description={description} />
-
-		  {
-			formattedPosts.map((post) => (
-			  <PostCard data={post.data} url={post.slug} tagType="h3" />
-			))
-		  }
-
-	</main>
-</Layout>
+	{
+		formattedPosts.map((post) => (
+			<PostCard data={post.data} url={post.slug} tagType="h3" />
+		))
+	}
+</main>

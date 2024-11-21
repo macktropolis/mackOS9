@@ -31,7 +31,8 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, date, category, author, image } = post.data;
+const { title, description, date, category, tags, author, image, mackdaddy } =
+  post.data;
 
 const { Content } = await post.render();
 
@@ -44,11 +45,13 @@ const relatedPosts = formattedPosts
     (post) => post.data.category === category && post.data.title !== title,
   )
   .slice(0, 3);
+
+const hasSpecificTag = tags?.includes("mackdaddy"); // Replace "specific-tag" with the tag you want to check
 ---
 
 <Layout title={title} description={description} page={category}>
   <main>
-    <div class="card-wrapper">
+    <div class="card__wrapper">
       <div class="card post">
         <header class="card__header">
           <img
@@ -100,12 +103,27 @@ const relatedPosts = formattedPosts
                 <Image
                   src={image.src}
                   alt={image.alt}
+                  class={image.class}
                   width="400"
                   height="250"
                   format="webp"
                   quality={80}
                 />
               </a>
+              {
+                hasSpecificTag && (
+                  <div class="corner-box">
+                    <a
+                      href="https://www.youtube.com/@mackdaddyfun"
+                      target="_blank">
+                      <img
+                        src="/assets/images/mackdaddy-logo@3x.png"
+                        class="no-border md-logo"
+                      />
+                    </a>
+                  </div>
+                )
+              }
             </section>
 
             <section id="content">
@@ -130,10 +148,10 @@ const relatedPosts = formattedPosts
   main {
     columns: unset;
     margin-inline: auto;
-    width: min(130ch, 95%);
+    width: min(100ch, 95%);
   }
   aside.related {
-    width: min(130ch, 95%);
+    width: min(100ch, 95%);
   }
   .card-wrapper {
     width: 100%;
@@ -176,14 +194,28 @@ const relatedPosts = formattedPosts
   #content p {
     margin-bottom: 2rem;
   }
+  #content p.center {
+    text-align: center;
+  }
   #content p:last-of-type {
     margin-bottom: 0;
   }
-  #content img {
+  #content :where(img, iframe) {
     outline: 2px solid hsl(var(--color-dark), 0.75);
     box-shadow: 8px 8px 0 hsl(var(--color-dark), 0.5);
+  }
+  #content img {
     object-fit: contain;
     height: auto;
+    max-width: 100%;
+  }
+  #content img.no-border {
+    outline: none;
+    box-shadow: none;
+  }
+  #content iframe {
+    display: block;
+    margin: 2rem auto;
     max-width: 100%;
   }
   #content li {
