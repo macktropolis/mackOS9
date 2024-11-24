@@ -95,13 +95,13 @@ const limitedRelatedPosts = relatedPosts.slice(0, 4);
                 )}
               </article>
               <section class="card__meta">
-        <p>
-          <!-- <a href={`/category/${slugify(post.data.category)}/`} class="badge">{post.data.category}</a> 
-          &bull; -->
-          <a href={`/author/${slugify(post.data.author)}/`}>{post.data.author}</a>
-          &bull; Posted: {formatDate(post.data.date)}
-        </p>
-      </section>
+                <p>
+                  <!-- <a href={`/category/${slugify(post.data.category)}/`} class="badge">{post.data.category}</a> 
+                  &bull; -->
+                  <a href={`/author/${slugify(post.data.author)}/`}>{post.data.author}</a>
+                  &bull; Posted: {formatDate(post.data.date)}
+                </p>
+              </section>
             </div>
           </div>
         </div>
@@ -114,9 +114,8 @@ const limitedRelatedPosts = relatedPosts.slice(0, 4);
     background-color: transparent;
     font-size: clamp(1.75rem, 2rem, 3rem);
   }
-  .related .hero-image {
+  .related .hero-image img {
     max-height: 200px;
-    overflow: hidden;
   }
   .close {
     opacity: 0;

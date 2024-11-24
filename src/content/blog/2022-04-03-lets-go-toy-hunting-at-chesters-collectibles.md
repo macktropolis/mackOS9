@@ -10,8 +10,8 @@ image:
   }
 description: We're toy hunting at Chester's Collectibles and we find some 80s & 90s gems.
 draft: false
-category: Toys
-tags: ["mackdaddy", "toys", "collectibles"]  # Add tags here
+category: MackDaddy Fun & Games
+tags: ["toys", "collectibles"]  # Add tags here
 ---
 
 <p class="center">Today we're toy hunting at Chester's Collectibles and we find some 80s & 90s gems.</p>

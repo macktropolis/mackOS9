@@ -10,8 +10,8 @@ image:
   }
 description: The mercury is creeping near 100 degrees but a quick pop in to Target nets an even HOTTER Marvel Legends figure.
 draft: false
-category: Toys
-tags: ["mackdaddy", "toys"]  # Add tags here
+category: MackDaddy Fun & Games
+tags: ["collectibles", "toys"]  # Add tags here
 ---
 
 <p class="center">The mercury is creeping near 100 degrees but a quick pop in to Target nets an even HOTTER Marvel Legends figure.</p>

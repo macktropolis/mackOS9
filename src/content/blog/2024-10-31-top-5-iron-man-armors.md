@@ -1,5 +1,5 @@
 ---
-title: "Top 5 Best Iron Man Armors"
+title: "Mack's Top 5 Iron Man Armors"
 date: 2024-10-31
 author: "Mack Richardson"
 image:
@@ -97,7 +97,7 @@ The red and gold Iron Man Model 4 is the seminal Iron Man armor. This armor esta
     border-radius: 100%;
     color: hsl(var(--color-light), 1);
     display: inline-block;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.25rem;
   }
   section.list h5 {
     border-bottom: none !important;
@@ -165,7 +165,7 @@ The red and gold Iron Man Model 4 is the seminal Iron Man armor. This armor esta
       margin:  0 auto 2rem auto !important;
       max-width: 100%;
     }
-    h3 > strong {
+    section.list h3 > strong {
       display: block;
       margin: 0 auto 1rem auto;
       width: fit-content;

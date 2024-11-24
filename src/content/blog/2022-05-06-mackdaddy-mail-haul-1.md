@@ -9,8 +9,8 @@ image:
   }
 description: It's time to unbox some toys!
 draft: false
-category: Toys
-tags: ["mackdaddy", "toys"]  # Add tags here
+category: MackDaddy Fun & Games
+tags: ["toys", "comics", "collectibles"]  # Add tags here
 ---
 
 <p class="center">The Mack Cave has been getting cluttered with boxes over the last few weeks. Let's unbox some toys!</p>

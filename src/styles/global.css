@@ -477,6 +477,10 @@ Category Icon
 .icon.retro-gaming {
     background-image: url('/assets/images/playstation.png');
 }
+.icon.mackdaddy-fun-games {
+    background-image: url('/assets/images/mackdaddy-8bit.png');
+    filter: drop-shadow(0 1px 0 hsl(var(--color-dark), 1));
+}
 .icon.web-dev {
     background-image: url('/assets/images/homepage-builder.png');
 }
