@@ -5,8 +5,7 @@ import { Image } from "astro:assets";
 // utils imports
 import { slugify, formatDate } from "../js/utils";
 
-const { data, url, tagType } = Astro.props;
-const Tag = tagType;
+const { data, url } = Astro.props;
 const { title, date, author, image, description, category, tags } = data;
 ---
 
@@ -61,6 +60,7 @@ const { title, date, author, image, description, category, tags } = data;
             <Image
               src={image.src}
               alt={image.alt}
+              class={image.class}
               width="400"
               height="250"
               format="webp"

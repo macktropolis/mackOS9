@@ -4,7 +4,7 @@ date: 2022-05-02
 author: Mack Richardson
 image:
   {
-    src: "/assets/images/blog/md-microtoyboxes.jpg",
+    src: "/assets/images/blog/2022-05-02-micro-toy-boxes/md-microtoyboxes.jpg",
     alt: "Micro Toy Boxes",
   }
 description: We're toy hunting at Chester's Collectibles and we find some 80s & 90s gems.

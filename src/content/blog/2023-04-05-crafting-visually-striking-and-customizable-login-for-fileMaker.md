@@ -4,7 +4,7 @@ date: 2023-04-05
 author: Mack Richardson
 image:
   {
-    src: "/assets/images/blog/login.jpg",
+    src: "/assets/images/blog/2023-04-05-crafting-visually-striking-and-customizable-login-for-fileMaker/login.jpg",
     alt: "",
   }
 description: Build a flexible login routine that can be themed to fit the UI for any solution, and also provide useful information and feedback to the user.
@@ -15,11 +15,11 @@ tags: ["filemaker"]  # Add tags here
 
 One of the *(many)* things I love about the FileMaker platform is the wide array of tools it gives developers to build beautiful, useful user interfaces. Unfortunately, you only get one chance to make a first impression. For countless users, this sparse *(and less helpful than it should be)*, log in dialog box is their first interaction with FileMaker...
 
-<img src="/assets/images/blog/2023-03-30_12-04-33.png" class="center" alt="" />
+<img src="/assets/images/blog/2023-04-05-crafting-visually-striking-and-customizable-login-for-fileMaker/2023-03-30_12-04-33.png" class="center" alt="" />
 
 ..but it doesn't have to be. It could be so much better!
 
-<img src="/assets/images/blog/2023-03-30_22-37-47.gif" class="center" alt="" />
+<img src="/assets/images/blog/2023-04-05-crafting-visually-striking-and-customizable-login-for-fileMaker/2023-03-30_22-37-47.gif" class="center" alt="" />
 
 ## FileMaker Saves FileMaker
 
@@ -31,19 +31,19 @@ Let's have a look at what we'll need to make this work.
 
 Let's start with the Security Settings we'll need. Open the `Security Manager` and click the `Advanced Settings` button.
 
-<img src="/assets/images/blog/2023-03-30_18-50-53.gif" class="center" alt="" />
+<img src="/assets/images/blog/2023-04-05-crafting-visually-striking-and-customizable-login-for-fileMaker/2023-03-30_18-50-53.gif" class="center" alt="" />
 
 Duplicate the `Read-Only` Privilege Set and uncheck everything under Other Privileges except `Disconnect user from server when idle` and click the `OK` button.
 
-<img src="/assets/images/blog/2023-03-30_13-49-42.png" class="center" alt="" />
+<img src="/assets/images/blog/2023-04-05-crafting-visually-striking-and-customizable-login-for-fileMaker/2023-03-30_13-49-42.png" class="center" alt="" />
 
 Now, in the `Security Manager`, activate the `Guest` user account (if it isn't already active) and assign it the `Restricted Access` Privilege Set we just created. Click the `OK` button and close the `Security Manager`.
 
-<img src="/assets/images/blog/2023-03-30_13-51-02.png" class="center" alt="" />
+<img src="/assets/images/blog/2023-04-05-crafting-visually-striking-and-customizable-login-for-fileMaker/2023-03-30_13-51-02.png" class="center" alt="" />
 
 Open the `File Options` for the FileMaker file, turn on the `Log in using:` option and select `Guest Account`. Now every time the file is opened the restricted guest account will be used.
 
-<img src="/assets/images/blog/2023-03-30_17-06-09.png" class="center" alt="" />
+<img src="/assets/images/blog/2023-04-05-crafting-visually-striking-and-customizable-login-for-fileMaker/2023-03-30_17-06-09.png" class="center" alt="" />
 
 Our security settings are all set up and we're ready to start building our database.
 
@@ -51,7 +51,7 @@ Our security settings are all set up and we're ready to start building our datab
 
 You'll need two global fields to capture the username and password data to be passed during the `Re-Login` or `Create Account`. I named these fields `user_USERNAME` and `user_PASSWORD` but feel free to use your own naming convention.
 
-<img src="/assets/images/blog/2023-03-30_19-39-04.png" class="center" alt="" />
+<img src="/assets/images/blog/2023-04-05-crafting-visually-striking-and-customizable-login-for-fileMaker/2023-03-30_19-39-04.png" class="center" alt="" />
 
 In this example, I'm only capturing the username and password to log in or create a new account but you could create an entire bank of fields if you needed to capture more user information (e.g. full name, email address, etc.) to store in a `Users` table.
 
@@ -61,11 +61,11 @@ Note: You may have noticed the `user_PASSWORD` field has two repetitions. This s
 
 Now, in Layout Mode, create a layout that will be called whenever the first window is opened.
 
-<img src="/assets/images/blog/2023-03-30_19-54-13.png" class="center" alt="" />
+<img src="/assets/images/blog/2023-04-05-crafting-visually-striking-and-customizable-login-for-fileMaker/2023-03-30_19-54-13.png" class="center" alt="" />
 
 If you allow new users to create an account, you will also need a layout to capture and validate the username and password entries.
 
-<img src="/assets/images/blog/2023-03-30_19-54-49.png" class="center" alt="" />
+<img src="/assets/images/blog/2023-04-05-crafting-visually-striking-and-customizable-login-for-fileMaker/2023-03-30_19-54-49.png" class="center" alt="" />
 
 ### Scripts
 
