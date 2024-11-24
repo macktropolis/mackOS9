@@ -591,3 +591,13 @@ Classes
     float: right;
     margin: 0 0 2rem 2rem;
   }
+  img.round {
+    border-radius: 100%;
+    float: left;
+    object-fit: cover !important;
+    shape-outside: circle();
+    margin: 0 2rem 2rem 0;
+    padding: 0;
+    height: 350px !important;
+    width: 350px !important;
+  }

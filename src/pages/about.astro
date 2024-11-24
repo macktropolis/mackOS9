@@ -12,7 +12,7 @@ import Layout from "../layouts/Layout.astro";
 // import Hero from "../../components/Hero.astro";
 import Social from "../components/Social.astro";
 
-const { author } = site;
+const { author, youtube } = site;
 
 const title = "About";
 const description =
@@ -113,6 +113,25 @@ const description =
                   See Mack's Full Work Experience</a
                 >
               </div>
+              <h3>Mack's Fun Side</h3>
+              <div class="mackdaddy-fun">
+                <img
+                  src="/assets/images/mackdaddy-8bit.png"
+                  alt=""
+                  class="avatar left mackdaddy"
+                />
+                <p>
+                  Mack has a wealth of experience in software development, with
+                  a focus on web and business applications. He's worked with a
+                  variety of technologies and platforms, such as Claris
+                  FileMaker Pro, WordPress and Astro SSG. His expertise extends
+                  to databases, API integrations and deployment pipelines,
+                  making him a versatile and adaptable developer.
+                </p>
+                <a href={youtube} target="_blank" class="button primary">
+                  See MackDaddy Fun &amp; Games on YouTube</a
+                >
+              </div>
               <h3>Even More Mack</h3>
               <Social />
             </section>
@@ -164,10 +183,15 @@ const description =
       margin: 0 1rem 1rem 0;
       max-width: 200px;
     }
-    .hire-mack {
+    .avatar.mackdaddy {
+      shape-outside: url(/assets/images/mackdaddy-8bit.png);
+      margin: 0 1rem 1rem 0;
+      max-width: 150px;
+    }
+    :where(.hire-mack, .mackdaddy-fun) {
       display: flow-root;
     }
-    .hire-mack > .button {
+    :where(.hire-mack, .mackdaddy-fun) > .button {
       display: block;
       margin: 2rem auto;
     }
