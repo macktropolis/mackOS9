@@ -46,117 +46,130 @@ const relatedPosts = formattedPosts
   )
   .slice(0, 3);
 
-const hasSpecificTag = tags?.includes("mackdaddy"); // Replace "specific-tag" with the tag you want to check
+// const hasSpecificTag = tags?.includes("mackdaddy");
+// Replace "specific-tag" with the tag you want to check
 ---
 
 <Layout title={title} description={description} page={category}>
-  <main>
-    <div class="card__wrapper">
-      <div class="card post">
-        <header class="card__header">
-          <img
-            src="/assets/images/title-bar-close.png"
-            height="28"
-            width="28"
-            class="control close"
-            alt="Close"
-          />
-          <div class="title">
-            <h3 class="card__title">
-              <a href={`/category/${slugify(category)}/`} class="badge"
-                >{category}</a
-              >
-            </h3>
-            <span class={`icon ${slugify(category)}`}>&nbsp;</span>
-          </div>
-          <img
-            src="/assets/images/title-bar-expand.png"
-            height="28"
-            width="28"
-            class="control expand"
-          />
-          <img
-            src="/assets/images/title-bar-collapse.png"
-            height="28"
-            width="28"
-            class="control collapse"
-          />
-          <a href="/" class="button">&nbsp;</a>
-        </header>
+  <div id="slug">
+    <main>
+      <div class="card__wrapper">
+        <div class="card post">
+          <header class="card__header">
+            <img
+              src="/assets/images/title-bar-close.png"
+              height="28"
+              width="28"
+              class="control close"
+              alt="Close"
+            />
+            <div class="title">
+              <h3 class="card__title">
+                <a href={`/category/${slugify(category)}/`} class="badge"
+                  >{category}</a
+                >
+              </h3>
+              <span class={`icon ${slugify(category)}`}>&nbsp;</span>
+            </div>
+            <img
+              src="/assets/images/title-bar-expand.png"
+              height="28"
+              width="28"
+              class="control expand"
+            />
+            <img
+              src="/assets/images/title-bar-collapse.png"
+              height="28"
+              width="28"
+              class="control collapse"
+            />
+            <a href="/" class="button">&nbsp;</a>
+          </header>
 
-        <section class="card__content">
-          <article>
-            <section class="hero-image">
-              <a href="#">
-                <svg xmlns="http://www.w3.org/2000/svg">
-                  <filter id="noiseFilter">
-                    <feTurbulence
-                      type="fractalNoise"
-                      baseFrequency="0.65"
-                      numOctaves="3"
-                      stitchTiles="stitch"></feTurbulence>
-                  </filter>
+          <section class="card__content">
+            <article>
+              <section class="hero-image">
+                <a href="#">
+                  <svg xmlns="http://www.w3.org/2000/svg">
+                    <filter id="noiseFilter">
+                      <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.65"
+                        numOctaves="3"
+                        stitchTiles="stitch"></feTurbulence>
+                    </filter>
 
-                  <rect width="100%" height="100%" filter="url(#noiseFilter)"
-                  ></rect>
-                </svg>
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  class={image.class}
-                  width="400"
-                  height="250"
-                  format="webp"
-                  quality={80}
-                />
-              </a>
-              {
-                category === "MackDaddy Fun & Games" && (
-                  <div class="corner-box">
-                    <a
-                      href="https://www.youtube.com/@mackdaddyfun"
-                      target="_blank">
-                      <img
-                        src="/assets/images/mackdaddy-logo@3x.png"
-                        class="no-border md-logo"
-                      />
-                    </a>
-                  </div>
-                )
-              }
+                    <rect width="100%" height="100%" filter="url(#noiseFilter)"
+                    ></rect>
+                  </svg>
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    class={image.class}
+                    width="400"
+                    height="250"
+                    format="webp"
+                    quality={80}
+                  />
+                </a>
+                {
+                  category === "MackDaddy Fun & Games" && (
+                    <div class="corner-box">
+                      <a
+                        href="https://www.youtube.com/@mackdaddyfun"
+                        target="_blank">
+                        <img
+                          src="/assets/images/mackdaddy-logo@3x.png"
+                          class="no-border md-logo"
+                        />
+                      </a>
+                    </div>
+                  )
+                }
+              </section>
+
+              <section id="content">
+                <h1>{title}</h1>
+                <Content />
+              </section>
+            </article>
+            <section class="card__meta">
+              <p>
+                <a href={`/author/${slugify(author)}/`}>{author}</a>
+                &bull; Posted: {formatDate(date)}
+              </p>
             </section>
-
-            <section id="content">
-              <h1>{title}</h1>
-              <Content />
-            </section>
-          </article>
-          <section class="card__meta">
-            <p>
-              <a href={`/author/${slugify(author)}/`}>{author}</a>
-              &bull; Posted: {formatDate(date)}
-            </p>
           </section>
-        </section>
-      </div>
-    </div><!-- end: .card-wrapper -->
-  </main>
-  <RelatedPosts {relatedPosts} />
+        </div>
+      </div><!-- end: .card-wrapper -->
+    </main>
+    <RelatedPosts {relatedPosts} />
+  </div>
 </Layout>
 
 <style is:global>
+  #slug {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: start;
+    margin: 0;
+    padding: 0;
+  }
   main {
     columns: unset;
-    margin-inline: auto;
-    width: min(100ch, 95%);
+    margin: 0;
+    width: min(130ch, 95%);
   }
   aside.related {
-    width: min(130ch, 95%);
+    width: min(60ch, 95%);
   }
   .card-wrapper {
     width: 100%;
   }
   #content {
+    display: flow-root;
     overflow-y: hidden;
     padding: 2rem;
     pointer-events: all;

@@ -119,11 +119,46 @@ code {
     font-family: var(--font-mono);
     text-wrap: pretty;
 }
+blockquote {
+    border-block: 10px solid hsl(var(--color-dark), 0.25);
+    display: block;
+    font-family: var(--font-serif);
+    font-size: xx-large;
+    padding: 2rem 0;
+    margin: 2rem 0;
+    width: 100%;
+}
+
+@media screen and (min-width: 576px) {
+    
+    blockquote {
+        border: none;
+        border-left: 10px solid hsl(var(--color-dark), 0.25);
+        padding: 2rem;
+        margin: 2rem 0;
+        width: fit-content;
+    }
+
+    blockquote.float {
+        float: left;
+        margin: 0 2rem 2rem 0;
+        width: 50%;
+    }
+    blockquote.float.right {
+        border: none;
+        border-right: 10px solid hsl(var(--color-dark), 0.25);
+        float: right;
+        margin: 0 0 2rem 2rem;
+        text-align: right;
+        width: 50%;
+    }
+
+}
+
 /* = = = = = = = = = = = = = 
 Main & Aside
 = = = = = = = = = = = = = */
-main,
-aside.related {
+main {
     columns: 400px;
     column-gap: 1rem;
     margin: 0 auto;
@@ -538,4 +573,21 @@ Tag Cloud
   .tag-cloud ul.tags a {
     position: relative;
     z-index: 1;
+  }
+
+  .card__title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+/* = = = = = = = = = = = = = 
+Classes
+= = = = = = = = = = = = = */
+  .float {
+    float: left;
+    margin: 0 2rem 2rem 0;
+  }
+  .float.right {
+    float: right;
+    margin: 0 0 2rem 2rem;
   }

@@ -1,26 +1,22 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import SiteHeader from '../components/SiteHeader.astro';
-import BaseEnd from '../components/BaseEnd.astro';
-import About from '../components/About.astro';
+import BaseHead from "../components/BaseHead.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import BaseEnd from "../components/BaseEnd.astro";
+import About from "../components/About.astro";
 
-const { title, page } = Astro.props;
+const { title, page, content } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	
 	<BaseHead title={title ?? "Mack Richardson"} />
 	<SiteHeader page={page ?? "Home"} />
-	
+
 	<body>
 		<slot />
-	</body>
-
-	<div id="popup1" class="popup">
+	</body><div id="popup1" class="popup">
 		<About />
 	</div>
-	
-	<BaseEnd />
 
+	<BaseEnd />
 </html>

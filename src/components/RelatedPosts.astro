@@ -8,7 +8,7 @@ import { slugify, formatDate } from "../js/utils";
 const { relatedPosts } = Astro.props;
 
 // Limit the number of related posts to 4
-const limitedRelatedPosts = relatedPosts.slice(0, 4);
+const limitedRelatedPosts = relatedPosts.slice(0, 3);
 ---
 
 <aside class="related">
@@ -28,7 +28,7 @@ const limitedRelatedPosts = relatedPosts.slice(0, 4);
               />
               <div class="title">
                 <h3 class="card__title">
-                  More from {post.data.category}&hellip;
+                  More from {post.data.category}
                 </h3>
                 <span class={`icon ${slugify(post.data.category)}`}>
                   &nbsp;
