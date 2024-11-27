@@ -32,16 +32,16 @@ interface Props {
 
 const { page } = Astro.props;
 const headerTitle = "Articles";
-const blogTitle = "Blog Articles";
-const blogDescription =
+const title = "Blog Articles";
+const description =
   "I write about comic books, coding and everything in between.";
 ---
 
-<Layout title={blogTitle} page={blogTitle} description={blogDescription}>
+<Layout title={title} page={title} description={description}>
   <Hero
     headerTitle={headerTitle}
-    title={blogTitle}
-    description={blogDescription}
+    title={title}
+    description={description}
   />
   <main>
     {

@@ -9,7 +9,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 // component imports
-// import Hero from "../../components/Hero.astro";
+import Hero from "../../components/SectionHeader.astro";
 import PostCard from "../../components/PostCard.astro";
 
 // utils imports
@@ -39,14 +39,24 @@ export async function getStaticPaths() {
 interface Props {
   posts: CollectionEntry<"blog">[];
   categoryName: string;
+  title?: string;
+  description?: string;
 }
 
 const { category } = Astro.params;
 const { posts, categoryName } = Astro.props;
-const title = categoryName + " Articles";
+const headerTitle = "Articles";
+const title = "Blog Articles";
+const description =
+  "I write about comic books, coding and everything in between.";
 ---
 
 <Layout title={title} page={categoryName}>
+  <Hero
+    headerTitle={ headerTitle }
+    title={ title }
+    description={ description }
+  />
   <main>
     <!-- <Hero title={title} /> -->
     {

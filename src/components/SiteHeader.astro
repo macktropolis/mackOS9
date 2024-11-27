@@ -21,18 +21,19 @@ const { author, facebook, twitter, linkedin, youtube } = site;
         class="home-icon"
       />
       <ul class="submenu">
-        <li><a href="#popup1" title="">About {author}</a></li>
-        <li><hr /></li>
-        <li>
-          <a href="#">
-            &copy<script type="text/javascript" is:inline>
-              document.write(new Date().getFullYear());
-            </script>. {author}. All Rights Reserved.
-          </a>
+        <li class="info">
+          <div class="flex">
+            <img src="/assets/images/mack-red.png" class="avatar" />
+            👋 Hi! I'm Mack. I'm a Filemaker and Web Developer living the small town life in North Carolina.
+          </div>
         </li>
       </ul>
     </li>
     <li><a href="/" title="Home">Home</a></li>
+    <li>
+      <a href="/blog/">Files</a>
+      <CategoryCloud />
+    </li>
     <li>
       <a href="#">Contact</a>
       <ul class="submenu">
@@ -62,10 +63,16 @@ const { author, facebook, twitter, linkedin, youtube } = site;
           >
         </li>
       </ul>
-    </li>
-    <li>
-      <a href="/blog/">Articles</a>
-      <CategoryCloud />
+      <li>
+        <a href="#popup1" title="About">About</a>
+        <ul class="submenu">
+          <li class="info">
+              &copy<script type="text/javascript" is:inline>
+                document.write(new Date().getFullYear());
+              </script>. {author}. All Rights Reserved.
+          </li>
+        </ul>
+      </li>
     </li>
     <li id="site-loc">
       <!-- <img src="/assets/images/finder.png" alt=""> -->
@@ -98,25 +105,27 @@ const { author, facebook, twitter, linkedin, youtube } = site;
     list-style-position: unset;
     justify-content: center;
     margin: 0;
-    padding-left: 1rem;
+    padding: 0;
     width: 100%;
   }
   .site__nav li {
     align-items: center;
+    color: hsl(var(--color-dark), 1);
     display: flex;
     height: 100%;
     justify-content: center;
     margin: 0;
     padding: 0;
+    max-width: 50ch;
   }
   .site__nav li#apple-menu {
-    padding: 0 1rem;
+    padding: 0 1.5rem;
   }
-  .site__nav li#apple-menu img {
+  .site__nav li#apple-menu > img {
     height: 24px;
     width: 24px;
   }
-  .site__nav a {
+.site__nav a {
     color: hsl(var(--color-dark), 1);
     align-items: center;
     display: flex;
@@ -127,7 +136,6 @@ const { author, facebook, twitter, linkedin, youtube } = site;
     text-decoration: none;
     width: 100%;
   }
-
   .site__nav li#apple-menu:hover,
   .site__nav a:hover,
   .site__nav a:active,
@@ -166,6 +174,9 @@ const { author, facebook, twitter, linkedin, youtube } = site;
   }
   .site__nav .submenu li {
     padding: 0 !important;
+  }
+  .site__nav .submenu li.info {
+    padding: 0.5rem 1rem !important;
   }
   .site__nav .submenu li a {
     display: block;

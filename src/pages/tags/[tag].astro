@@ -9,7 +9,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 // component imports
-// import Hero from "../../components/Hero.astro";
+import Hero from "../../components/SectionHeader.astro";
 import PostCard from "../../components/PostCard.astro";
 
 // utils imports
@@ -47,10 +47,18 @@ interface Props {
 
 const { tag } = Astro.params;
 const { posts, tagName } = Astro.props;
-const title = tagName + " Articles";
+const headerTitle = "Articles";
+const title = "Blog Articles";
+const description =
+  "I write about comic books, coding and everything in between.";
 ---
 
 <Layout title={title} page={tagName}>
+  <Hero
+    headerTitle={headerTitle}
+    title={title}
+    description={description}
+  />
   <main>
     {
       posts.map((post) => (
