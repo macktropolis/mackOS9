@@ -37,7 +37,6 @@ body {
     height: 100vh;
     padding-top: 5rem;
     scroll-behavior: smooth;
-    text-wrap: pretty;
 }
 body::after {
     background: linear-gradient(
@@ -67,6 +66,7 @@ p {
     font-size: clamp(0.9rem, 1rem, 1.1rem);
     line-height: 150%;
     margin-bottom: 1rem;
+    text-wrap: pretty;
 }
 a {
     color: hsl(var(--color-selection), 1);
@@ -84,6 +84,7 @@ a:where(.button) {
     background-color: hsl(var(--color-dark), 1);
     border: none;
     color: hsl(var(--color-light), 1);
+    margin-block: 3rem !important;
     padding: 1rem;
     text-align: center;
 }
@@ -155,6 +156,17 @@ blockquote {
 
 }
 
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* = = = = = = = = = = = = = 
 Main & Aside
 = = = = = = = = = = = = = */
@@ -170,6 +182,11 @@ main {
 Cards
 = = = = = = = = = = = = = */
 .card__wrapper {
+    /*
+    animation: appear linear;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+    */
     break-inside: avoid;
     padding-bottom: 1rem;
 }
@@ -516,11 +533,11 @@ Category Icon
     background-image: url('/assets/images/mackdaddy-8bit.png');
     filter: drop-shadow(0 1px 0 hsl(var(--color-dark), 1));
 }
-.icon.web-dev {
+.icon.coding {
     background-image: url('/assets/images/homepage-builder.png');
 }
 .icon.comic-books {
-    background-image: url('/assets/images/batwing.png');
+    background-image: url('/assets/images/superman-logo.png');
 }
 .icon.toys {
     background-image: url('/assets/images/optimus-prime.png');
@@ -552,12 +569,12 @@ Tag Cloud
     display: flex;
     justify-content: flex-start;
     margin-top: 1rem;
-  }
-  .tag-cloud small {
+}
+.tag-cloud small {
     font-size: 0.8rem;
     margin-right: 0.5rem;
-  }
-  .tag-cloud ul.tags {
+}
+.tag-cloud ul.tags {
     display: flex;
     flex-wrap: wrap;
     font-size: small;
@@ -565,33 +582,45 @@ Tag Cloud
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  .tag-cloud ul.tags li {
-    margin: 0;
+}
+.tag-cloud ul.tags li {
+    margin: 0 0 0.5rem 0;
     padding: 0;
-  }
-  .tag-cloud ul.tags a {
+}
+.tag-cloud ul.tags a {
+    background-color: hsl(var(--color-dark), 0.75);
+    color: hsl(var(--color-light),1);
+    padding: 0.25rem 0.5rem;
     position: relative;
+    text-decoration: none !important;
+    transition: background-color 0.5s ease-in-out;
     z-index: 1;
-  }
-
-  .card__title {
+}
+.tag-cloud ul.tags a:hover {
+    background-color: hsl(var(--color-selection), 1);
+}
+.card__title {
     white-space: nowrap;
     text-overflow: ellipsis;
-  }
+}
 
 /* = = = = = = = = = = = = = 
 Classes
 = = = = = = = = = = = = = */
-  .float {
+.footnote {
+    color: hsl(var(--color-dark), 0.5);
+    font-size: x-small;
+    margin: 2rem 0 0 0;
+}
+.float {
     float: left;
     margin: 0 2rem 2rem 0;
-  }
-  .float.right {
+}
+.float.right {
     float: right;
     margin: 0 0 2rem 2rem;
-  }
-  img.round {
+}
+img.round {
     border-radius: 100%;
     float: left;
     object-fit: cover !important;
@@ -600,4 +629,87 @@ Classes
     padding: 0;
     height: 350px !important;
     width: 350px !important;
-  }
+}
+
+/* = = = = = = = = = = = = = 
+Listicle Styles
+= = = = = = = = = = = = = */
+section.listicle-item h3 > strong {
+    background-color: hsl(var(--color-dark), 1);
+    border-radius: 100%;
+    color: hsl(var(--color-light), 1);
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0.5rem 1.25rem;
+}
+section.listicle-item h5 {
+    border-bottom: none !important;
+    border-top: 3px double hsl(var(--color-dark), 1);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    text-align: right;
+}
+section.listicle-item {
+    display: flow-root;
+    margin-bottom: 2rem
+}
+section.listicle-item:last-of-type {
+    margin-bottom: 0;
+}
+section.listicle-item img.primary {
+    max-width: 300px !important;
+    shape-margin: 1rem;
+}
+section#content section.listicle-item:nth-child(even) > img.primary {
+    float: left;
+    margin: 0 1rem 0 1rem;
+}
+section#content section.listicle-item:nth-child(odd) > img.primary {
+    float: right;
+    margin: 0 0 1rem 1rem;
+}
+section#content section.listicle-item img.secondary {
+    shape-margin: 1rem;
+    shape-outside: circle();
+    width: 150px;
+}
+section#content section.listicle-item:nth-child(even) > img.secondary {
+    float: right;
+    margin: 0 0 1rem 1rem;
+}
+section#content section.listicle-item:nth-child(odd) > img.secondary {
+    float: left;
+    margin: 0 1rem 1rem 0;
+}
+section#content section.listicle-item:nth-child(odd) h5 {
+    text-align: left;
+}
+section#content section.listicle-item:last-of-type {
+    margin-bottom: 0;
+}
+section#content section.listicle-item:first-of-type {
+    margin-top: 2rem;
+}
+
+@media screen and (max-width: 576px) {
+    section.listicle-item {
+        display: flex;
+        flex-direction: column;
+    }
+    section.listicle-item img.primary,
+    section.listicle-item img.secondary {
+        clear: both;
+        display: block;
+        float: none !important;
+        margin:  0 auto 2rem auto !important;
+        width: 100% !important;
+    }
+    section.listicle-item h5 {
+    text-align: right !important;
+    }
+    section.listicle-item h3 > strong {
+        display: block;
+        margin: 0 auto 1rem auto;
+        width: fit-content;
+    }
+}

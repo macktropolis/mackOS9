@@ -15,7 +15,11 @@ const { author, facebook, twitter, linkedin, youtube } = site;
 <header class="site__header">
   <ul class="site__nav">
     <li id="apple-menu">
-      <img src="/assets/images/apple.png" alt="" class="home-icon" />
+      <img
+        src="/assets/images/mack-headshot-8bit-color-small.png"
+        alt=""
+        class="home-icon"
+      />
       <ul class="submenu">
         <li><a href="#popup1" title="">About {author}</a></li>
         <li><hr /></li>
@@ -106,11 +110,11 @@ const { author, facebook, twitter, linkedin, youtube } = site;
     padding: 0;
   }
   .site__nav li#apple-menu {
-    padding: 0 0.5rem;
+    padding: 0 1rem;
   }
   .site__nav li#apple-menu img {
-    height: 20px;
-    width: 20px;
+    height: 24px;
+    width: 24px;
   }
   .site__nav a {
     color: hsl(var(--color-dark), 1);
@@ -119,15 +123,18 @@ const { author, facebook, twitter, linkedin, youtube } = site;
     height: 100%;
     justify-content: center;
     margin: 0 0.1rem;
-    padding: 0 0.75rem;
+    padding: 0 1rem;
     text-decoration: none;
     width: 100%;
   }
+
+  .site__nav li#apple-menu:hover,
   .site__nav a:hover,
   .site__nav a:active,
   .site__nav a:focus {
     background-color: hsl(var(--color-selection), 1);
     color: hsl(var(--color-light), 1);
+    cursor: pointer;
   }
   .site__nav hr {
     margin: 0;

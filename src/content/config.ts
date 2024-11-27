@@ -27,7 +27,7 @@ const blog = defineCollection({
       "Retro Gaming",
       "Sci-Fi",
       "Toys",
-      "Web Dev"
+      "Coding"
     ]),
     tags: z.array(z.string()).optional(), // Add this line
   }),

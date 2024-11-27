@@ -11,6 +11,7 @@ const { relatedPosts } = Astro.props;
 const limitedRelatedPosts = relatedPosts.slice(0, 3);
 ---
 {limitedRelatedPosts.length > 0 && (
+
   <aside class="related">
     {
       limitedRelatedPosts.map((post) => {
@@ -109,6 +110,7 @@ const limitedRelatedPosts = relatedPosts.slice(0, 3);
       })
     }
   </aside>
+
 )}
 
 <style>

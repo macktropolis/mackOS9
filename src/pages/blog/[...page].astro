@@ -8,6 +8,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 //  component imports
+import Hero from "../../components/SectionHeader.astro";
 import PostCard from "../../components/PostCard.astro";
 
 //  utils imports
@@ -30,14 +31,21 @@ interface Props {
 }
 
 const { page } = Astro.props;
-const blogTitle = "Articles";
+const headerTitle = "Articles";
+const blogTitle = "Blog Articles";
 const blogDescription =
-  "Articles from Comic Books to Web Development and everything in between.";
+  "I write about comic books, coding and everything in between.";
 ---
 
 <Layout title={blogTitle} page={blogTitle} description={blogDescription}>
+  <Hero
+    headerTitle={headerTitle}
+    title={blogTitle}
+    description={blogDescription}
+  />
   <main>
     {
+      // @ts-ignore
       page.data.map((post) => (
         <PostCard data={post.data} url={post.slug} tagType="h2" />
       ))
