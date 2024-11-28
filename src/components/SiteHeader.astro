@@ -16,16 +16,19 @@ const { author, facebook, twitter, linkedin, youtube } = site;
 <header class="site__header">
   <ul class="site__nav">
     <li id="apple-menu">
-      <img
-        src="/assets/images/mack-headshot-8bit-color-small.png"
-        alt=""
-        class="home-icon"
-      />
+      <a href="/" title="Mack Richardson Homepage"
+        ><img
+          src="/assets/images/mack-headshot-8bit-color-small.png"
+          alt=""
+          class="home-icon"
+        /></a
+      >
       <ul class="submenu">
         <li class="info">
           <div class="flex">
-            <img src="/assets/images/m-logo.png" class="avatar" />
-            👋 Hi! I'm Mack. I'm a Filemaker and Web Developer living the small town life in North Carolina.
+            <img src="/assets/images/mack-red.png" class="avatar" />
+            👋 Hi! I'm Mack. I'm a Filemaker and Web Developer living the small town
+            life in North Carolina.
           </div>
         </li>
       </ul>
@@ -44,9 +47,9 @@ const { author, facebook, twitter, linkedin, youtube } = site;
         <a href="#popup1" title="About">About</a>
         <ul class="submenu about">
           <li class="info">
-              &copy<script type="text/javascript" is:inline>
-                document.write(new Date().getFullYear());
-              </script>. {author}. All Rights Reserved.
+            &copy<script type="text/javascript" is:inline>
+              document.write(new Date().getFullYear());
+            </script>. {author}. All Rights Reserved.
           </li>
         </ul>
       </li>
@@ -94,14 +97,7 @@ const { author, facebook, twitter, linkedin, youtube } = site;
     margin: 0;
     padding: 0;
   }
-.site__nav li#apple-menu {
-    padding: 0 1.5rem;
-  }
-.site__nav li#apple-menu > img {
-    height: 24px;
-    width: 24px;
-  }
-.site__nav a {
+  .site__nav a {
     color: hsl(var(--color-dark), 1);
     align-items: center;
     display: flex;
@@ -112,7 +108,6 @@ const { author, facebook, twitter, linkedin, youtube } = site;
     text-decoration: none;
     width: 100%;
   }
-  .site__nav li#apple-menu:hover,
   .site__nav a:hover,
   .site__nav a:active,
   .site__nav a:focus {
@@ -126,6 +121,10 @@ const { author, facebook, twitter, linkedin, youtube } = site;
   .site__nav img {
     height: 16px;
     width: 16px;
+  }
+  .site__nav li#apple-menu img {
+    height: 24px;
+    width: 24px;
   }
   .site__nav .menu {
     position: relative;
@@ -171,8 +170,7 @@ const { author, facebook, twitter, linkedin, youtube } = site;
     position: relative;
     width: 16px;
   }
-  .site__nav
-  #site-loc {
+  .site__nav #site-loc {
     align-items: center;
     display: flex;
     font-size: clamp(0.8rem, 1rem, 1.2rem);

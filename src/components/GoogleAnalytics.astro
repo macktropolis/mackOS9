@@ -5,11 +5,13 @@
     script.src = "https://www.googletagmanager.com/gtag/js?id=G-W6EF5LD9QT";
     document.head.appendChild(script);
 
+    // @ts-ignore
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () {
+      // @ts-ignore
       window.dataLayer.push(arguments);
     };
-    window.gtag('js', new Date());
-    window.gtag('config', 'G-W6EF5LD9QT');
+    window.gtag("js", new Date());
+    window.gtag("config", "G-W6EF5LD9QT");
   }
 </script>

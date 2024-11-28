@@ -52,7 +52,7 @@ const relatedPosts = formattedPosts
 
 <Layout title={title} description={description} page={category}>
   <div id="slug">
-    <main>
+    <main id="single-post">
       <div class="card__wrapper">
         <div class="card post">
           <header class="card__header">
@@ -130,6 +130,25 @@ const relatedPosts = formattedPosts
 
               <section id="content">
                 <h1>{title}</h1>
+                {
+                  tags && (
+                    <div class="tag-cloud">
+                      <!-- <small>Tags:</small> -->
+                      <ul class="tags">
+                        {tags.map((tag) => (
+                          <li>
+                            <a
+                              href={`/tags/${slugify(tag)}`}
+                              aria-hidden="true"
+                              tabindex="-1">
+                              {tag}
+                            </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                }
                 <Content />
               </section>
             </article>
@@ -181,7 +200,6 @@ const relatedPosts = formattedPosts
   }
   #content h1 {
     font-size: clamp(3ch, 5ch, 2rem);
-    margin-bottom: 2rem;
     text-align: center;
   }
   #content :where(h2, h3) {
@@ -243,7 +261,14 @@ const relatedPosts = formattedPosts
     background-color: hsl(var(--color-mid), 1);
     display: inline-block;
   }
-  .hero-image img {
+  #content .tag-cloud {
+    margin: 0;
+    padding: 0;
+  }
+  #content .tag-cloud li {
+    padding-left: 0;
+  }
+ #single-post .hero-image img {
     max-height: 400px;
   }
   .card__header a.button {
