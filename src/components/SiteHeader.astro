@@ -1,5 +1,6 @@
 ---
 // component imports
+import ContactLinks from "./ContactLinks.astro";
 import CategoryCloud from "./CategoryCloud.astro";
 
 // data imports
@@ -23,7 +24,7 @@ const { author, facebook, twitter, linkedin, youtube } = site;
       <ul class="submenu">
         <li class="info">
           <div class="flex">
-            <img src="/assets/images/mack-red.png" class="avatar" />
+            <img src="/assets/images/m-logo.png" class="avatar" />
             👋 Hi! I'm Mack. I'm a Filemaker and Web Developer living the small town life in North Carolina.
           </div>
         </li>
@@ -37,35 +38,11 @@ const { author, facebook, twitter, linkedin, youtube } = site;
     <li>
       <a href="#">Contact</a>
       <ul class="submenu">
-        <li>
-          <a href="mailto:mack@mackrichardson.com"
-            ><img src="/assets/images/mail.png" alt="" /> Email</a
-          >
-        </li>
-        <li>
-          <a href={linkedin} target="_blank"
-            ><img src="/assets/images/linkedin.png" title="" /> LinkedIn</a
-          >
-        </li>
-        <li>
-          <a href={facebook} target="_blank"
-            ><img src="/assets/images/facebook.png" title="" /> Facebook</a
-          >
-        </li>
-        <li>
-          <a href={twitter} target="_blank"
-            ><img src="/assets/images/twitter.png" title="" /> X/Twitter</a
-          >
-        </li>
-        <li>
-          <a href={youtube} target="_blank"
-            ><img src="/assets/images/youtube.png" title="" /> YouTube</a
-          >
-        </li>
+        <ContactLinks />
       </ul>
       <li>
         <a href="#popup1" title="About">About</a>
-        <ul class="submenu">
+        <ul class="submenu about">
           <li class="info">
               &copy<script type="text/javascript" is:inline>
                 document.write(new Date().getFullYear());
@@ -116,12 +93,11 @@ const { author, facebook, twitter, linkedin, youtube } = site;
     justify-content: center;
     margin: 0;
     padding: 0;
-    max-width: 50ch;
   }
-  .site__nav li#apple-menu {
+.site__nav li#apple-menu {
     padding: 0 1.5rem;
   }
-  .site__nav li#apple-menu > img {
+.site__nav li#apple-menu > img {
     height: 24px;
     width: 24px;
   }
@@ -168,12 +144,16 @@ const { author, facebook, twitter, linkedin, youtube } = site;
   }
   .site__nav li#apple-menu .submenu {
     left: 0;
+    max-width: 40ch;
   }
   .site__nav li:hover .submenu {
     visibility: visible;
   }
   .site__nav .submenu li {
     padding: 0 !important;
+  }
+  .site__nav .submenu.about li {
+    max-width: 25ch;
   }
   .site__nav .submenu li.info {
     padding: 0.5rem 1rem !important;
@@ -188,8 +168,10 @@ const { author, facebook, twitter, linkedin, youtube } = site;
     float: left;
     height: 16px;
     margin-right: 0.5rem;
+    position: relative;
     width: 16px;
   }
+  .site__nav
   #site-loc {
     align-items: center;
     display: flex;
