@@ -14,13 +14,16 @@ category: "Random Fun"
 tags: ["dc comics", "bizarro", "thanksgiving", "holiday fun"]  # Add tags here
 ---
 
-Unhappy and unsafe Thanksgiving wishes from Bizarro World!
+Unhappy and unsafe Thanksgiving wishes from Bizarro World! What are you unthankful for this year?
 
 <img src="/assets/images/blog/bizarro-thanksgiving.jpg" alt="Bizarro Thanksgiving" />
 
 But seriously&hellip;
 
 **Happy Thanksgiving!** I hope you have a wonderful day filled with family, friends, and good food. And if you're not in the U.S. or don't celebrate Thanksgiving, I hope you have a wonderful day filled with family, friends, and good food anyway! 🦃🍁🍽️
+
+
+<small class="footnote">Image credit: <a href="https://comiccoverage.typepad.com/comic_coverage/2007/11/unhappy-bizarro.html" alt="Comics Coverage" target="_blank">_UnHappy Bizarro Thanksgiving_</a>, 2007-11-21, Mark Engblom. <a href="https://en.wikipedia.org/wiki/Bizarro" alt="Wikipedia" target="_blank">Bizarro</a> is a character from DC Comics.</small>
 
 <style lang="scss">
   #content {
