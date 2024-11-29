@@ -21,13 +21,15 @@ const blog = defineCollection({
     draft: z.boolean().default(false),
     mackdaddy: z.boolean().default(false),
     category: z.enum([
+      "Coding",
       "Comic Books",
       "FileMaker",
       "MackDaddy Fun & Games",
       "Retro Gaming",
       "Sci-Fi",
+      "Random Fun",
+      "Tech",
       "Toys",
-      "Coding"
     ]),
     tags: z.array(z.string()).optional(), // Add this line
   }),

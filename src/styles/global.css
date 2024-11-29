@@ -539,8 +539,14 @@ Category Icon
 .icon.comic-books {
     background-image: url('/assets/images/word-balloon.png');
 }
+.icon.tech {
+    background-image: url('/assets/images/macos-x.png');
+}
 .icon.toys {
     background-image: url('/assets/images/optimus-prime.png');
+}
+.icon.random-fun {
+    background-image: url('/assets/images/lego-block-yellow.png');
 }
 
 /* = = = = = = = = = = = = = 

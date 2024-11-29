@@ -85,7 +85,7 @@ The Model 2 Mk I _(aka Horned Helmet)_ ushered in the classic red and gold look 
 
 ### Model 4
 
-<img src="/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-4.png" class="primary no-border">
+<img src="/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-4-a.png" class="primary no-border">
 
 The red and gold Iron Man Model 4 is the seminal Iron Man armor. This armor established the look of Iron Man not just for the decade that it featured in the pages of **Iron Man**, **Avengers** and other Mighty Marvel tomes but it’s influence is still seen today in every media outlet featuring the Golden Avenger. The Model 4 was a perfect example of superhero armor. It still allowed Tony _(and Rhodey during his time as Iron Man)_ to show off his rippling muscles as well as any spandex and the helmet mask somehow managed to convey the emotion of the wearer _(although this feature may have been artistic license)_. The Model 4 captured my overactive imagination while I was a child and never let go.
 
@@ -115,7 +115,6 @@ The red and gold Iron Man Model 4 is the seminal Iron Man armor. This armor esta
     max-width: 200px !important;
   }
   section.six img.primary {
-    shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-4.png);
-    max-width: 200px !important;
+    shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-4-a.png);
   }
 </style>
