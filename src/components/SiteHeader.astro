@@ -34,8 +34,8 @@ const { author, facebook, twitter, linkedin, youtube } = site;
         <li><hr /></li>
         <li>
           <a href="#popup1">
-            <img src="/assets/images/help.png" alt="About Mack Richardson" />
-            About Mack&hellip;
+            <img src="/assets/images/m-logo.png" alt="About Mack Richardson" />
+            About Mack Richardson&hellip;
           </a>
         </li>
         <li>
@@ -43,7 +43,11 @@ const { author, facebook, twitter, linkedin, youtube } = site;
             href="https://mackrichardson.media"
             target="_blank"
             title="Mack Richardson Media">
-            <img src="/assets/images/m-logo.png" alt="Mack Richardson Media" />
+            <img
+              src="/assets/images/m-logo.png"
+              alt="Mack Richardson Media"
+              class="filter-green"
+            />
             Mack Richardson Media
           </a>
         </li>
@@ -52,8 +56,12 @@ const { author, facebook, twitter, linkedin, youtube } = site;
             href="https://hiremack.com"
             target="_blank"
             title="Mack Richardson Professional History">
-            <img src="/assets/images/m-logo.png" alt="Hire Mack" />
-            Mack Richardson's Professional History'
+            <img
+              src="/assets/images/m-logo.png"
+              class="filter-gray"
+              alt="Hire Mack"
+            />
+            Mack Richardson's Resum&eacute;
           </a>
         </li>
         <li><hr /></li>
@@ -83,6 +91,13 @@ const { author, facebook, twitter, linkedin, youtube } = site;
   </ul>
 
   <style is:global>
+    img.filter-green {
+      filter: grayscale(100%) brightness(80%) sepia(300%) hue-rotate(75deg)
+        saturate(800%);
+    }
+    img.filter-gray {
+      filter: grayscale(100%);
+    }
     header.site__header {
       background-color: hsl(var(--color-base), 1);
       border-bottom: 1px solid hsl(var(--color-dark), 1);
