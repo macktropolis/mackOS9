@@ -31,6 +31,37 @@ const { author, facebook, twitter, linkedin, youtube } = site;
             life in North Carolina.
           </div>
         </li>
+        <li><hr /></li>
+        <li>
+          <a href="#popup1">
+            <img src="/assets/images/help.png" alt="About Mack Richardson" />
+            About Mack&hellip;
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://mackrichardson.media"
+            target="_blank"
+            title="Mack Richardson Media">
+            <img src="/assets/images/m-logo.png" alt="Mack Richardson Media" />
+            Mack Richardson Media
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://hiremack.com"
+            target="_blank"
+            title="Mack Richardson Professional History">
+            <img src="/assets/images/m-logo.png" alt="Hire Mack" />
+            Mack Richardson's Professional History'
+          </a>
+        </li>
+        <li><hr /></li>
+        <li class="info">
+          &copy<script type="text/javascript" is:inline>
+            document.write(new Date().getFullYear());
+          </script>. {author}. All Rights Reserved.
+        </li>
       </ul>
     </li>
     <li><a href="/" title="Home">Home</a></li>
@@ -43,164 +74,152 @@ const { author, facebook, twitter, linkedin, youtube } = site;
       <ul class="submenu">
         <ContactLinks />
       </ul>
-      <li>
-        <a href="#popup1" title="About">About</a>
-        <ul class="submenu about">
-          <li class="info">
-            &copy<script type="text/javascript" is:inline>
-              document.write(new Date().getFullYear());
-            </script>. {author}. All Rights Reserved.
-          </li>
-        </ul>
+      <li id="site-loc">
+        <!-- <img src="/assets/images/finder.png" alt=""> -->
+        <span class={`icon ${slugify(page)}`}>&nbsp;</span>
+        {page}
       </li>
     </li>
-    <li id="site-loc">
-      <!-- <img src="/assets/images/finder.png" alt=""> -->
-      <span class={`icon ${slugify(page)}`}>&nbsp;</span>
-      {page}
-    </li>
   </ul>
-</header>
 
-<style is:global>
-  header.site__header {
-    background-color: hsl(var(--color-base), 1);
-    border-bottom: 1px solid hsl(var(--color-dark), 1);
-    box-shadow: 0 1px 2px hsl(var(--color-dark), 1);
-    display: flex;
-    flex-grow: 1;
-    font-family: var(--font-sans);
-    height: 28px;
-    position: fixed;
-    inset: 0 0 auto 0;
-    z-index: 100;
-  }
-  .site__nav {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    font-size: 0.9rem;
-    height: 100%;
-    list-style-position: unset;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-  .site__nav li {
-    align-items: center;
-    color: hsl(var(--color-dark), 1);
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-  }
-  .site__nav a {
-    color: hsl(var(--color-dark), 1);
-    align-items: center;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    margin: 0;
-    padding: 0 1rem;
-    text-decoration: none;
-    width: 100%;
-  }
-  .site__nav a:hover,
-  .site__nav a:active,
-  .site__nav a:focus {
-    background-color: hsl(var(--color-selection), 1);
-    color: hsl(var(--color-light), 1);
-    cursor: pointer;
-  }
-  .site__nav hr {
-    margin: 0;
-  }
-  .site__nav img {
-    height: 16px;
-    width: 16px;
-  }
-  .site__nav li#apple-menu img {
-    height: 24px;
-    width: 24px;
-  }
-  .site__nav .menu {
-    position: relative;
-  }
-  .site__nav .submenu {
-    background-color: hsl(var(--color-base), 1);
-    border: 2px solid hsl(var(--color-dark), 1);
-    box-shadow: 0 2px 2px hsl(var(--color-dark), 1);
-    font-size: inherit;
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 99%;
-    visibility: hidden;
-    z-index: 100;
-  }
-  .site__nav li#apple-menu .submenu {
-    left: 0;
-    max-width: 40ch;
-  }
-  .site__nav li:hover .submenu {
-    visibility: visible;
-  }
-  .site__nav .submenu li {
-    padding: 0 !important;
-  }
-  .site__nav .submenu.about li {
-    max-width: 25ch;
-  }
-  .site__nav .submenu li.info {
-    padding: 0.5rem 1rem !important;
-  }
-  .site__nav .submenu li a {
-    display: block;
-    margin: 0;
-    padding: 0.5rem 1rem;
-  }
-  .site__nav .submenu li a img {
-    display: block;
-    float: left;
-    height: 16px;
-    margin-right: 0.5rem;
-    position: relative;
-    width: 16px;
-  }
-  .site__nav #site-loc {
-    align-items: center;
-    display: flex;
-    font-size: clamp(0.8rem, 1rem, 1.2rem);
-    gap: 0.5rem;
-    height: 100%;
-    margin-left: auto;
-    padding: 0 1rem;
-    position: relative;
-    text-wrap: nowrap;
-  }
-  #site-loc > img,
-  #site-loc > .icon {
-    height: 24px !important;
-    width: 24px !important;
-  }
-  #site-loc > .icon {
-    background-size: 90%;
-  }
-  #site-loc::before {
-    background: url("/assets/images/dot-separator.png") no-repeat 50%;
-    content: "";
-    height: 100%;
-    position: absolute;
-    inset: auto auto auto -10px;
-    width: 15px;
-  }
-  @media only screen and (max-width: 500px) {
-    #site-loc {
-      opacity: 0;
-      width: 0;
+  <style is:global>
+    header.site__header {
+      background-color: hsl(var(--color-base), 1);
+      border-bottom: 1px solid hsl(var(--color-dark), 1);
+      box-shadow: 0 1px 2px hsl(var(--color-dark), 1);
+      display: flex;
+      flex-grow: 1;
+      font-family: var(--font-sans);
+      height: 28px;
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 100;
     }
-  }
-</style>
+    .site__nav {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      font-size: 0.9rem;
+      height: 100%;
+      list-style-position: unset;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+    }
+    .site__nav li {
+      align-items: center;
+      color: hsl(var(--color-dark), 1);
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+    .site__nav a {
+      color: hsl(var(--color-dark), 1);
+      align-items: center;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      margin: 0;
+      padding: 0 1rem;
+      text-decoration: none;
+      width: 100%;
+    }
+    .site__nav a:hover,
+    .site__nav a:active,
+    .site__nav a:focus {
+      background-color: hsl(var(--color-selection), 1);
+      color: hsl(var(--color-light), 1);
+      cursor: pointer;
+    }
+    .site__nav hr {
+      margin: 0;
+    }
+    .site__nav img {
+      height: 16px;
+      width: 16px;
+    }
+    .site__nav li#apple-menu img {
+      height: 24px;
+      width: 24px;
+    }
+    .site__nav .menu {
+      position: relative;
+    }
+    .site__nav .submenu {
+      background-color: hsl(var(--color-base), 1);
+      border: 2px solid hsl(var(--color-dark), 1);
+      box-shadow: 0 2px 2px hsl(var(--color-dark), 1);
+      font-size: inherit;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 99%;
+      visibility: hidden;
+      z-index: 100;
+    }
+    .site__nav li#apple-menu .submenu {
+      left: 0;
+      max-width: 50ch;
+    }
+    .site__nav li:hover .submenu {
+      visibility: visible;
+    }
+    .site__nav .submenu li {
+      padding: 0 !important;
+    }
+    .site__nav .submenu li.info {
+      padding: 0.5rem 1rem !important;
+    }
+    .site__nav .submenu li a {
+      display: flex;
+      justify-content: flex-start;
+      margin: 0;
+      padding: 0.5rem 1rem;
+    }
+    .site__nav .submenu li a img {
+      display: block;
+      float: left;
+      height: 16px;
+      margin-right: 0.5rem;
+      position: relative;
+      width: 16px;
+    }
+    .site__nav #site-loc {
+      align-items: center;
+      display: flex;
+      font-size: clamp(0.8rem, 1rem, 1.2rem);
+      gap: 0.5rem;
+      height: 100%;
+      margin-left: auto;
+      padding: 0 1rem;
+      position: relative;
+      text-wrap: nowrap;
+    }
+    #site-loc > img,
+    #site-loc > .icon {
+      height: 24px !important;
+      width: 24px !important;
+    }
+    #site-loc > .icon {
+      background-size: 90%;
+    }
+    #site-loc::before {
+      background: url("/assets/images/dot-separator.png") no-repeat 50%;
+      content: "";
+      height: 100%;
+      position: absolute;
+      inset: auto auto auto -10px;
+      width: 15px;
+    }
+    @media only screen and (max-width: 500px) {
+      #site-loc {
+        opacity: 0;
+        width: 0;
+      }
+    }
+  </style>
+</header>
