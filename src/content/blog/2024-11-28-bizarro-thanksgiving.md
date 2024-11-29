@@ -29,7 +29,7 @@ But seriously&hellip;
   #content {
     img {
       display: block;
-      width: min(85%, 95%);
+      width: clamp(85%, 100%);
       height: auto;
       margin: 2rem auto;
     }

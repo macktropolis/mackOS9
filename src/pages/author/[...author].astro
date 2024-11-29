@@ -6,7 +6,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 
 // component imports
-import Hero from "../../components/Hero.astro";
+import Hero from "../../components/SectionHeader.astro";
 import PostCard from "../../components/PostCard.astro";
 
 // utils imports
@@ -21,7 +21,7 @@ export async function getStaticPaths() {
   ];
   return allAuthors.map((author) => {
     const authorPosts = formattedPosts.filter(
-      (post) => post.data.author === author
+      (post) => post.data.author === author,
     );
     return {
       params: { author: slugify(author) },
@@ -40,15 +40,18 @@ interface Props {
 
 // const { author } = Astro.params;
 const { posts, authorName } = Astro.props;
-const title = "Articles by " + authorName;
+const headerTitle = "Files";
+const title = "Blog Articles";
+const description = "Articles by " + authorName;
 ---
 
 <Layout title={title} page={authorName}>
+  <Hero headerTitle={headerTitle} title={title} description={description} />
   <main>
-      {
-        posts.map((post) => (
-          <PostCard data={post.data} url={post.slug} tagType="h2" />
-        ))
-      }
-    </main>
+    {
+      posts.map((post) => (
+        <PostCard data={post.data} url={post.slug} tagType="h2" />
+      ))
+    }
+  </main>
 </Layout>

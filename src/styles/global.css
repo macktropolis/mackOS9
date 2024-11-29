@@ -572,9 +572,11 @@ Tag Cloud
 = = = = = = = = = = = = = */
 .tag-cloud {
     align-items: center;
+    clear: both;
     display: flex;
     justify-content: flex-start;
     margin: 1rem 0;
+    margin-bottom: clamp(2.5rem, 3rem, 3.5rem);
 }
 .tag-cloud small {
     font-size: 0.8rem;
@@ -583,22 +585,23 @@ Tag Cloud
 .tag-cloud ul.tags {
     display: flex;
     flex-wrap: wrap;
-    font-size: small;
-    gap: 0.5rem;
+    gap: 1rem;
+    font-size: clamp(0.8rem, 1rem, 1.2rem);
     list-style: none;
     padding: 0;
     margin: 0;
 }
 .tag-cloud ul.tags li {
-    margin: 0 0 0.5rem 0;
-    padding: 0;
+    display: inline-block;
+    margin: 0 0 0.25rem 0 !important;
+    padding: 0 !important;
 }
-
 #content .tag-cloud ul.tags a,
 .tag-cloud ul.tags a {
     background-color: hsl(var(--color-dark), 0.75);
     color: hsl(var(--color-light),1);
-    padding: 0.25rem 0.5rem;
+    margin: 0;
+    padding: 0.5rem;
     position: relative;
     text-decoration: none !important;
     transition: background-color 0.5s ease-in-out;
@@ -608,14 +611,15 @@ Tag Cloud
 .tag-cloud ul.tags a:hover {
     background-color: hsl(var(--color-selection), 1);
 }
+
+/* = = = = = = = = = = = = = 
+Classes
+= = = = = = = = = = = = = */
 .card__title {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-/* = = = = = = = = = = = = = 
-Classes
-= = = = = = = = = = = = = */
 .flex {
     display: flex;
     gap: 0.5rem;
