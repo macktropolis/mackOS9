@@ -72,11 +72,7 @@ const { title, date, author, image, description, category, tags } = data;
         <h2>
           <a href={`/blog/${slugify(url)}`}>{title}</a>
         </h2>
-
-        <p>{description}</p>
-
-        <a href={`/blog/${slugify(url)}`} class="button">Read More</a>
-
+        
         {
           tags && (
             <div class="tag-cloud">
@@ -96,6 +92,10 @@ const { title, date, author, image, description, category, tags } = data;
             </div>
           )
         }
+
+        <p>{description}</p>
+
+        <a href={`/blog/${slugify(url)}`} class="button">Read More</a>
       </article>
       <section class="card__meta">
         <p>

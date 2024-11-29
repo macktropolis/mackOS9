@@ -37,12 +37,8 @@ const description =
   "I write about comic books, coding and everything in between.";
 ---
 
-<Layout title={title} page={title} description={description}>
-  <Hero
-    headerTitle={headerTitle}
-    title={title}
-    description={description}
-  />
+<Layout title={title} page={headerTitle} description={description}>
+  <Hero headerTitle={headerTitle} title={title} description={description} />
   <main>
     {
       // @ts-ignore

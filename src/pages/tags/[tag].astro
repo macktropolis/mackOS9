@@ -49,16 +49,11 @@ const { tag } = Astro.params;
 const { posts, tagName } = Astro.props;
 const headerTitle = "Files";
 const title = "Blog Articles";
-const description =
-  "I write about comic books, coding and everything in between.";
+const description = "Articles tagged with '" + tagName + "'";
 ---
 
 <Layout title={title} page={tagName}>
-  <Hero
-    headerTitle={headerTitle}
-    title={title}
-    description={description}
-  />
+  <Hero headerTitle={headerTitle} title={title} description={description} />
   <main>
     {
       posts.map((post) => (

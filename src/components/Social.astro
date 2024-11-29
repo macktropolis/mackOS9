@@ -41,4 +41,12 @@ const { email, facebook, twitter, linkedin, youtube } = site;
         height: 24px;
         width: 24px;
     }
+    @media screen and (max-width: 576px) {
+        .social {
+            flex-direction: column;
+        }
+        .social > .button {
+            width: 100%;
+        }
+    }
 </style>

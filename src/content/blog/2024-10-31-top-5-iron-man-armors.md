@@ -37,7 +37,7 @@ Here are my Top 5 picks for the best armors of **The Invincible Iron Man**!
 
 Tony Stark is Marvel's Man with a Plan &hellip; much like Bruce Wayne in the DC Universe. So it comes as little surprise that he would develop armors with special functions &hellip; such as taking down the Hulk. Unfortunately, the Hulkbuster armors never really got the job done against the Green-Skinned Goliath. The Hulkbuster Mark II was even possessed by the demon <a title="The Demon Zom" href="http://en.wikipedia.org/wiki/Zom" target="_blank">Zom</a> and attempted to destroy New York City, giving Tony a bigger headache than it ever gave the Hulk. However, like the <a title="Edsel" href="http://en.wikipedia.org/wiki/Edsel" target="_blank">Edsel</a> and <a title="DeLorean DMC-12" href="http://en.wikipedia.org/wiki/DeLorean_DMC-12" target="_blank">DeLorean DMC-12</a>, even though it’s a lemon it’s a beautiful piece of machinery. The Hulkbuster armor is a fan favorite and has appeared in the <a title="Marvel Cinematic Universe" href="http://en.wikipedia.org/wiki/Marvel_Cinematic_Universe" target="_blank">Marvel Cinematic Universe</a> in both **Avengers: Age of Ultron** and **Avengers: Infinity War**. This beastly add-on to the Iron Man arsenal worked better in the movies than it ever did in the comics and was worn by the Hulk himself _(in Bruce Banner mode)_ during the **Infinity War**. 
 
-_**Personal Note:** I still think Marvel Studios missed out on a great movie moment by not having Bruce Banner regain his Hulk powers and "bustin'" out of the Hulkbuster armor during the battle of Wakanda._
+_**Personal Note:** I still think Marvel Studios missed out on a great movie moment by not having Bruce Banner regain his Hulk powers and **bust** out of the Hulkbuster armor during the battle of Wakanda._
 
 ##### **First Appearance:** Iron Man (Vol. 1) #304</h5>
 
@@ -85,7 +85,7 @@ The Model 2 Mk I _(aka Horned Helmet)_ ushered in the classic red and gold look 
 
 ### Model 4
 
-<img src="/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-4.png" class="primary no-border">
+<img src="/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-4-a.png" class="primary no-border">
 
 The red and gold Iron Man Model 4 is the seminal Iron Man armor. This armor established the look of Iron Man not just for the decade that it featured in the pages of **Iron Man**, **Avengers** and other Mighty Marvel tomes but it’s influence is still seen today in every media outlet featuring the Golden Avenger. The Model 4 was a perfect example of superhero armor. It still allowed Tony _(and Rhodey during his time as Iron Man)_ to show off his rippling muscles as well as any spandex and the helmet mask somehow managed to convey the emotion of the wearer _(although this feature may have been artistic license)_. The Model 4 captured my overactive imagination while I was a child and never let go.
 
@@ -99,6 +99,7 @@ The red and gold Iron Man Model 4 is the seminal Iron Man armor. This armor esta
   }
   section.two img.primary {
     shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-8.png);
+    shape-margin: 2rem;
   }
   section.three img.primary {
     shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-ultimate.png);
@@ -106,6 +107,7 @@ The red and gold Iron Man Model 4 is the seminal Iron Man armor. This armor esta
   }
   section.four img.primary {
     shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-13-hulkbuster.png);
+    shape-margin: 2.5rem;
     max-width: 250px !important;
   }
   section.five img.primary {
@@ -113,7 +115,6 @@ The red and gold Iron Man Model 4 is the seminal Iron Man armor. This armor esta
     max-width: 200px !important;
   }
   section.six img.primary {
-    shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-4.png);
-    max-width: 200px !important;
+    shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-4-a.png);
   }
 </style>

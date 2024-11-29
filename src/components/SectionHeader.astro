@@ -38,12 +38,18 @@ const { title, description, headerTitle } = Astro.props;
         width="28"
         class="control collapse"
       />
+      <a href="/" class="button">&nbsp;</a>
     </header>
 
     <section class="card__content">
       <article>
         <h1>{title ?? "Blog Articles"}</h1>
-        <p>{description ?? "I write about comic books, coding and everything in between."}</p>
+        <p>
+          {
+            description ??
+              "I write about comic books, coding and everything in between."
+          }
+        </p>
       </article>
     </section>
   </div>
@@ -53,9 +59,19 @@ const { title, description, headerTitle } = Astro.props;
   .control {
     opacity: 0;
   }
+  .control.close {
+    opacity: 1;
+  }
   .card__wrapper {
-    margin: 0 auto 2rem auto;
-    max-width: 95%;
-    width: fit-content;
+    margin: 0 auto;
+    width: 95%;
+  }
+  .card__header a.button {
+    all: unset;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 36px;
+    width: 36px;
   }
 </style>
