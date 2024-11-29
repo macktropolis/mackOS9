@@ -3,7 +3,7 @@
     "description": "  The website of Mack Richardson: a FileMaker & Web Developer, Vintage Comic, Sci-Fi, Fantasy & Horror book Collector, and Retro Toy Hunter.",
     "version": "9.0",
     "url": "https://mackrichardson.com",
-    "favicon": "/assets/images/favicon",
+    "favicon": "/favicon",
     "logo": "/assets/images/astronut-logo-h-social.png",
     "author": "Mack Richardson",
     "phone": "+1 336.403.1746",
