@@ -1,0 +1,90 @@
+---
+// data imports
+import * as site from "../data/site.json";
+
+const title = "Richardson Family Holiday Cards";
+const description = "Sending the cheer every year. (Well, almost.)";
+const headerTitle = "Holiday Cards";
+---
+
+<div class="card__wrapper">
+  <div class="card alt featured" id="about">
+    <header class="card__header">
+      <img
+        src="/assets/images/title-bar-close.png"
+        height="28"
+        width="28"
+        class="control close"
+        alt="Close"
+      />
+      <div class="title">
+        <h3 class="card__title">{headerTitle}</h3>
+        <span class="icon christmas">&nbsp;</span>
+      </div>
+      <img
+        src="/assets/images/title-bar-expand.png"
+        height="28"
+        width="28"
+        class="control expand"
+      />
+      <img
+        src="/assets/images/title-bar-collapse.png"
+        height="28"
+        width="28"
+        class="control collapse"
+      />
+    </header>
+
+    <section class="card__content">
+      <article>
+        <h1>{title}</h1>
+        <p>{description}</p>
+        <a href="/holiday-cards/" class="button primary" target="_blank"
+          >See Them All</a
+        >
+      </article>
+    </section>
+  </div>
+</div><!-- end: .card-wrapper -->
+
+<style>
+  :root {
+    --blue: 240, 56%, 98%;
+    --dark-blue: 240, 32%, 29%;
+    --white: 0, 0%, 100%;
+  }
+  .card.featured .card__content {
+    position: relative;
+  }
+  .card.featured .card__content:before {
+    content: " ";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-image: url("/assets/images/holiday-cards/alpine.jpg");
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+  }
+  h1 {
+    color: hsl(var(--dark-blue));
+    border-bottom-color: hsl(var(--dark-blue));
+    font-family: "Mountains of Christmas", cursive;
+    font-weight: bold;
+    text-shadow:
+      1px 1px 0 hsl(var(--blue)),
+      2px 2px 0 hsl(var(--blue)),
+      3px 3px 0 hsl(var(--blue)),
+      4px 4px 0 hsl(var(--blue));
+  }
+  p {
+    color: hsl(var(--dark-blue));
+  }
+  .control {
+    opacity: 0;
+  }
+</style>

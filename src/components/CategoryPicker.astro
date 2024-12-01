@@ -88,12 +88,14 @@ const { title } = Astro.props;
   .control {
     opacity: 0;
   }
-  .card__content {
+  .card.featured .card__content {
     background-color: white;
+    display: block;
+    padding: 0;
   }
   .categories {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     list-style: none;
@@ -101,14 +103,13 @@ const { title } = Astro.props;
     padding: 0;
     position: relative;
     z-index: 10;
-    width: 100%;
+    width: 100% !important;
   }
   .categories > li {
-    border-bottom: 1px solid hsl(var(--color-dark), 0.5);
-    flex: 1 1 10rem;
-    display: flex;
+    display: block;
     margin: 0;
-    padding: 0.5rem 0;
+    padding: 0;
+    width: 100%;
   }
   .categories li span.icon {
     background-position: cover;
@@ -120,14 +121,19 @@ const { title } = Astro.props;
   .categories li a {
     display: flex;
     align-items: center;
+    cursor: pointer;
     justify-content: center;
     line-height: 100%;
     margin: 0 !important;
-    padding: 0.5rem 2rem;
+    padding: 1rem 2rem;
     pointer-events: all;
     text-wrap: nowrap;
     text-decoration: none;
     max-width: 100%;
     width: 100%;
+  }
+  .categories li a:hover {
+    background-color: hsl(var(--color-selection), 1);
+    color: hsl(var(--color-light), 1);
   }
 </style>

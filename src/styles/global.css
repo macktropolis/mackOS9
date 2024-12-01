@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
 
 @font-face {
     font-family: 'CheckboxFLF';
@@ -130,7 +131,7 @@ blockquote {
     width: 100%;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (min-width: 992px) {
     
     blockquote {
         border: none;
@@ -553,6 +554,9 @@ Category Icon
 }
 .icon.picker {
     background-image: url('/assets/images/hand.png');
+}
+.icon.christmas {
+    background-image: url('/assets/images/christmas-tree.png');
 }
 /* = = = = = = = = = = = = = 
 Avatars

@@ -1,14 +1,18 @@
+:root {
+  --blue: 240, 56%, 98%;
+  --dark-blue: 240, 32%, 29%;
+  --white: 0, 0%, 100%;
+}
 html {
   font-size: 100%;
 }
 body {
-  background-color: #101a24;
-  color: white;
+  color: hsl(var(--dark-blue));
   font-family: "Mountains of Christmas", cursive;
   height: 100vh;
 }
 body::before {
-  background-image: url(/assets/img/snowy-bg.jpg);
+  background-image: url('/assets/images/holiday-cards/alpine.jpg');
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,13 +27,19 @@ body::before {
   z-index: -10;
 }
 h1 {
-  font-size: 4rem;
+  color: hsl(var(--blue));
+  font-size: clamp(2rem, 3rem, 4rem);
   line-height: 100%;
   margin-bottom: 1rem;
+  text-shadow:
+      1px 1px 0 hsl(var(--dark-blue)),
+      2px 2px 0 hsl(var(--dark-blue)),
+      3px 3px 0 hsl(var(--dark-blue)),
+      4px 4px 0 hsl(var(--dark-blue));
 }
 h2 {
-  color: red;
-  font-size: 3rem;
+  color: hsl(var(--dark-blue));
+  font-size: clamp(1rem, 2rem, 3rem);
   opacity: 0.8;
 }
 img {
@@ -40,15 +50,14 @@ figure {
   margin-bottom: 5rem;
 }
 figcaption {
-  background-color: green;
+  background-color: hsl(var(--dark-blue));
+  color: hsl(var(--white));
   font-size: 2rem;
   margin-bottom: 1rem;
   overflow: hidden;
   padding: 1.5rem;
   position: relative;
-}
-figure:nth-child(even) > figcaption {
-  background-color: red;
+  text-align: center;
 }
 figcaption::after {
   background-image: url("/assets/img/snowflake.svg");
@@ -74,8 +83,8 @@ figure:nth-child(odd) > figcaption::after {
 
 .site__wrapper {
   margin-inline: auto;
-  padding: 2rem;
-  width: min(100%, 1440px);
+  padding: 2rem 0;
+  width: min(95vw, 1440px);
 }
 
 /* CLASSES */

@@ -42,8 +42,13 @@ const headerTitle = "MackOS";
     </header>
 
     <section class="card__content">
-      <img src="/assets/images/mack.png" alt="Mack" class="avatar" id="mack" />
       <article>
+        <img
+          src="/assets/images/mack.png"
+          alt="Mack"
+          class="avatar"
+          id="mack"
+        />
         <h1>{title ?? "Mack Richardson"}</h1>
         <p>{description}</p>
         <a href="/about/" class="button primary">About Mack</a>
@@ -55,5 +60,21 @@ const headerTitle = "MackOS";
 <style>
   .control {
     opacity: 0;
+  }
+  .card__content article {
+    display: flow-root;
+  }
+  .card__content article h1 {
+    font-size: 2rem;
+  }
+  .card__content article p {
+    font-size: clamp(0.5rem, 0.75rem, 1rem);
+  }
+  .card__content article .avatar {
+    float: left;
+    height: 128px !important;
+    width: 128px !important;
+    shape-outside: url("/assets/images/mack.png");
+    shape-margin: 1rem;
   }
 </style>
