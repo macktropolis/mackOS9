@@ -16,12 +16,13 @@ const limitedRelatedPosts = relatedPosts.slice(0, 3);
 
 {
   limitedRelatedPosts.length > 0 && (
-    <aside class="related">
-      {limitedRelatedPosts.map((post) => {
-        const uniqueTags = [...new Set(post.data.tags)];
-        return <PostCard data={post.data} url={post.slug} tagType="h2" />;
-      })}
-    </aside>
+    <>
+      {limitedRelatedPosts.map(
+        (post: { data: { tags: string[] }; slug: string }) => (
+          <PostCard data={post.data} url={post.slug} tagType="h2" />
+        ),
+      )}
+    </>
   )
 }
 

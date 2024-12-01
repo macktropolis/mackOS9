@@ -10,7 +10,7 @@ image:
   }
 description: "A lookback at Frank Miller's long, Dark Knight of the soul."
 draft: false
-category: "Comic Books"
+category: "Comics"
 tags: ["dc comics", "batman", "frank miller"]  # Add tags here
 ---
 

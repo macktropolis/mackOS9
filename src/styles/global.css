@@ -539,8 +539,8 @@ Category Icon
 .icon.coding {
     background-image: url('/assets/images/homepage-builder.png');
 }
-.icon.comic-books {
-    background-image: url('/assets/images/superhero.png');
+.icon.comics {
+    background-image: url('/assets/images/comic-book.png');
 }
 .icon.tech {
     background-image: url('/assets/images/macos-x.png');
@@ -551,7 +551,9 @@ Category Icon
 .icon.random-fun {
     background-image: url('/assets/images/lego-block-yellow.png');
 }
-
+.icon.picker {
+    background-image: url('/assets/images/hand.png');
+}
 /* = = = = = = = = = = = = = 
 Avatars
 = = = = = = = = = = = = = */

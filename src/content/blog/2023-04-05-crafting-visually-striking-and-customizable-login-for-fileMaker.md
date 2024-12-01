@@ -10,7 +10,7 @@ image:
 description: Build a flexible login routine that can be themed to fit the UI for any solution, and also provide useful information and feedback to the user.
 draft: false
 category: FileMaker
-tags: ["filemaker"]  # Add tags here
+tags: ["login", "security", "ui", "ux"]  # Add tags here
 ---
 
 One of the *(many)* things I love about the FileMaker platform is the wide array of tools it gives developers to build beautiful, useful user interfaces. Unfortunately, you only get one chance to make a first impression. For countless users, this sparse *(and less helpful than it should be)*, log in dialog box is their first interaction with FileMaker...

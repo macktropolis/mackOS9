@@ -9,7 +9,7 @@ image:
   }
 description: "My favorite armors from the the Golden Avenger's long comic book history."
 draft: false
-category: "Comic Books"
+category: Comics
 tags: ["marvel comics", "iron man"]  # Add tags here
 ---
 
@@ -107,7 +107,7 @@ The red and gold Iron Man Model 4 is the seminal Iron Man armor. This armor esta
   }
   section.four img.primary {
     shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-13-hulkbuster.png);
-    shape-margin: 2.5rem;
+    shape-margin: 1.5rem;
     max-width: 250px !important;
   }
   section.five img.primary {

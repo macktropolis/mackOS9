@@ -8,6 +8,7 @@ import Layout from "../../layouts/Layout.astro";
 
 //  component imports
 //  import Hero from "../../components/SectionHeader.astro";
+import Categories from "../../components/CategoryPicker.astro";
 import RelatedPosts from "../../components/RelatedPosts.astro";
 
 // utils imports
@@ -48,6 +49,8 @@ const relatedPosts = formattedPosts
 
 // const hasSpecificTag = tags?.includes("mackdaddy");
 // Replace "specific-tag" with the tag you want to check
+
+const categoryTitle = "More Article Categories";
 ---
 
 <Layout title={title} description={description} page={category}>
@@ -162,7 +165,10 @@ const relatedPosts = formattedPosts
         </div>
       </div><!-- end: .card-wrapper -->
     </main>
-    <RelatedPosts {relatedPosts} />
+    <aside class="related">
+      <Categories title={categoryTitle} />
+      <RelatedPosts {relatedPosts} />
+    </aside>
   </div>
 </Layout>
 
@@ -181,8 +187,11 @@ const relatedPosts = formattedPosts
     margin: 0;
     width: min(130ch, 95%);
   }
+  #slug > main {
+    padding-bottom: 0;
+  }
   aside.related {
-    width: min(60ch, 95%);
+    width: min(130ch, 95%);
   }
   .card-wrapper {
     width: 100%;
@@ -275,5 +284,11 @@ const relatedPosts = formattedPosts
   .control.collapse,
   .control.expand {
     opacity: 0;
+  }
+
+  @media screen and (min-width: 1517px) {
+    aside.related {
+      width: min(60ch, 95%);
+    }
   }
 </style>

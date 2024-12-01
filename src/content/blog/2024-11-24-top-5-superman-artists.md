@@ -10,7 +10,7 @@ image:
   }
 description: "A look at the greatest artists who defined the Man of Steel from his debut in 1939 to the present day."
 draft: false
-category: "Comic Books"
+category: "Comics"
 tags: ["dc comics", "superman"]  # Add tags here
 ---
 

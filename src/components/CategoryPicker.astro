@@ -1,0 +1,133 @@
+---
+// data imports
+import * as site from "../data/site.json";
+
+// library imports
+import { getCollection, type CollectionEntry } from "astro:content";
+
+// utils imports
+import { formatBlogPosts, slugify } from "../js/utils";
+
+const allPosts = await getCollection("blog");
+const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts);
+const allCategories = formattedPosts.map((cat) => cat.data.category).flat();
+
+// Get unique categories and sort them alphabetically
+const uniqueSortedCategories = [...new Set(allCategories)].sort((a, b) =>
+  a.localeCompare(b),
+);
+
+// Create the processedCats object with counts
+const processedCats = uniqueSortedCategories.reduce((acc, category) => {
+  // Count occurrences of each category
+  const value = allCategories.filter((cat) => cat === category).length;
+
+  return {
+    ...acc,
+    [category]: value,
+  };
+}, {});
+
+// Log or display the count of posts in each category
+// console.log("Category counts:", processedCats);
+
+// Example: Generating output for display
+const showCount = uniqueSortedCategories.map(
+  (category) => `${category} (${processedCats[category]})`,
+);
+
+const { title } = Astro.props;
+---
+
+<div class="card__wrapper">
+  <div class="card alt featured" id="category-picker">
+    <header class="card__header">
+      <img
+        src="/assets/images/title-bar-close.png"
+        height="28"
+        width="28"
+        class="control close"
+        alt="Close"
+      />
+      <div class="title">
+        <h3 class="card__title">{title ?? "Pick a Category"}</h3>
+        <span class="icon picker">&nbsp;</span>
+      </div>
+      <img
+        src="/assets/images/title-bar-expand.png"
+        height="28"
+        width="28"
+        class="control expand"
+      />
+      <img
+        src="/assets/images/title-bar-collapse.png"
+        height="28"
+        width="28"
+        class="control collapse"
+      />
+    </header>
+
+    <section class="card__content">
+      <ul class="categories">
+        {
+          Object.entries(processedCats).map(([key, val]) => (
+            <li>
+              <a class="badge" href={`/category/${slugify(key)}/`}>
+                <span class={`icon ${slugify(key)}`}>&nbsp;</span>
+                {key} {showCount && `(${val})`}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </div>
+</div><!-- end: .card-wrapper -->
+
+<style>
+  .control {
+    opacity: 0;
+  }
+  .card__content {
+    background-color: white;
+  }
+  .categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+  }
+  .categories > li {
+    border-bottom: 1px solid hsl(var(--color-dark), 0.5);
+    flex: 1 1 10rem;
+    display: flex;
+    margin: 0;
+    padding: 0.5rem 0;
+  }
+  .categories li span.icon {
+    background-position: cover;
+    display: inline-block;
+    height: 32px;
+    width: 32px;
+    margin-right: 0.5rem;
+  }
+  .categories li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 100%;
+    margin: 0 !important;
+    padding: 0.5rem 2rem;
+    pointer-events: all;
+    text-wrap: nowrap;
+    text-decoration: none;
+    max-width: 100%;
+    width: 100%;
+  }
+</style>

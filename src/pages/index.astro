@@ -10,6 +10,7 @@ import Layout from "../layouts/Layout.astro";
 
 //  component imports
 import Hero from "../components/Hero.astro";
+import Categories from "../components/CategoryPicker.astro";
 import PostCard from "../components/PostCard.astro";
 
 // utils imports
@@ -28,7 +29,7 @@ const title = "Home";
 <Layout title={title} description={description} />
 <main>
 	<Hero title={author} description={description} />
-
+	<Categories />
 	{
 		formattedPosts.map((post) => (
 			<PostCard data={post.data} url={post.slug} tagType="h3" />

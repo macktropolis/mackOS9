@@ -10,6 +10,7 @@ import Layout from "../../layouts/Layout.astro";
 
 // component imports
 import Hero from "../../components/SectionHeader.astro";
+import Categories from "../../components/CategoryPicker.astro";
 import PostCard from "../../components/PostCard.astro";
 
 // utils imports
@@ -48,6 +49,7 @@ interface Props {
 const { tag } = Astro.params;
 const { posts, tagName } = Astro.props;
 const headerTitle = "Files";
+const categoryTitle = "More Article Categories";
 const title = "Blog Articles";
 const description = "Articles tagged with '" + tagName + "'";
 ---
@@ -55,6 +57,7 @@ const description = "Articles tagged with '" + tagName + "'";
 <Layout title={title} page={tagName}>
   <Hero headerTitle={headerTitle} title={title} description={description} />
   <main>
+    <Categories title={categoryTitle} />
     {
       posts.map((post) => (
         <PostCard data={post.data} url={post.slug} tagType="h2" />

@@ -22,7 +22,7 @@ const blog = defineCollection({
     mackdaddy: z.boolean().default(false),
     category: z.enum([
       "Coding",
-      "Comic Books",
+      "Comics",
       "FileMaker",
       "MackDaddy Fun & Games",
       "Retro Gaming",
