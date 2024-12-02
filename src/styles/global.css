@@ -53,6 +53,10 @@ body::after {
     bottom: 0;
     z-index: -1;
 }
+body.mackdaddy-fun-games::after {
+    background: rgb(85,174,196);
+    background: linear-gradient(90deg, rgba(85,174,196,1) 0%, rgba(85,174,196,1) 25%, rgba(47,138,170,1) 25%, rgba(201,99,104,1) 26%, rgba(201,99,104,1) 26%);
+}
 h1, h2, h3, h4, h5, h6 {
     border-bottom: 3px double hsl(var(--color-dark), 1);
     font-size: clamp(1.6rem, 2rem, 2.5rem);
@@ -238,8 +242,13 @@ Cards
     margin: 0;
     padding: 0;
 }
-.card__header .icon,
 .card__header img {
+    height: 38px;
+    margin: 0;
+    padding: 4px;
+    width: 38px;
+}
+.card__header .icon {
     height: 32px;
     margin-right: 3px;
     padding: 4px 0;

@@ -50,9 +50,10 @@ const headerTitle = "Files";
 const categoryTitle = "More Article Categories";
 const title = "Blog Articles";
 const description = "Articles in the '" + categoryName + "' category";
+const categorySlug = slugify(categoryName);
 ---
 
-<Layout title={title} page={categoryName}>
+<Layout title={title} page={categoryName} categorySlug={categorySlug}>
   <Hero headerTitle={headerTitle} title={title} description={description} />
   <main>
     <!-- <Hero title={title} /> -->

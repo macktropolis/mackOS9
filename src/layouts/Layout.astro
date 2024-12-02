@@ -6,7 +6,7 @@ import About from "../components/Popup-About.astro";
 import HolidayCards from "../components/Popup-HolidayCards.astro";
 import Article from "../components/Popup-Article.astro";
 
-const { title, page, content } = Astro.props;
+const { title, page, content, categorySlug } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,7 +14,7 @@ const { title, page, content } = Astro.props;
 	<BaseHead title={title ?? "Mack Richardson"} />
 	<SiteHeader page={page ?? "Home"} />
 
-	<body>
+	<body class={categorySlug ?? ""}>
 		<slot />
 	</body><div id="popup1" class="popup">
 		<About />
