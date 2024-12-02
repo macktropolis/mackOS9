@@ -94,16 +94,16 @@ const { title } = Astro.props;
     padding: 0;
   }
   .categories {
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     list-style: none;
     margin: 0;
     padding: 0;
     position: relative;
-    z-index: 10;
     width: 100% !important;
+    z-index: 10;
   }
   .categories > li {
     display: block;
@@ -115,21 +115,24 @@ const { title } = Astro.props;
     background-position: cover;
     display: inline-block;
     height: 32px;
-    width: 32px;
     margin-right: 0.5rem;
+    width: 32px;
   }
   .categories li a {
-    display: flex;
     align-items: center;
+    color: hsl(var(--color-dark), 1);
     cursor: pointer;
-    justify-content: center;
+    display: flex;
+    font-family: var(--font-sans);
+    justify-content: flex-start;
     line-height: 100%;
     margin: 0 !important;
+    max-width: 100%;
     padding: 1rem 2rem;
     pointer-events: all;
-    text-wrap: nowrap;
+    text-align: left;
     text-decoration: none;
-    max-width: 100%;
+    text-wrap: nowrap;
     width: 100%;
   }
   .categories li a:hover {

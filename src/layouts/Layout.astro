@@ -2,7 +2,8 @@
 import BaseHead from "../components/BaseHead.astro";
 import SiteHeader from "../components/SiteHeader.astro";
 import BaseEnd from "../components/BaseEnd.astro";
-import About from "../components/About.astro";
+import About from "../components/Popup-About.astro";
+import HolidayCards from "../components/Popup-HolidayCards.astro";
 
 const { title, page, content } = Astro.props;
 ---
@@ -18,5 +19,8 @@ const { title, page, content } = Astro.props;
 		<About />
 	</div>
 
+	<div id="popup2" class="popup">
+		<HolidayCards />
+	</div>
 	<BaseEnd />
 </html>

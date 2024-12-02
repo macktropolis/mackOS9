@@ -388,6 +388,23 @@ CSS Only Modal Pop-up
     align-self: inherit;
     max-width: 700px;
   }
+    .popup > div.card.christmas {
+        align-self: inherit;
+        height: 85dvh;
+        max-width: 100%;
+        overflow-y: hidden;
+        width: 95dvw;
+    }
+    .popup > div.card.christmas .card__content {
+        display: block;
+        height: 100%;
+        padding: 0;
+        position: relative;
+    }
+    .popup > div.card.christmas .card__content iframe {
+        height: 100%;
+        width: 100%;
+    }
   .popup > div.card > section.card__content > article p {
     font-size: 1.2ch;
     text-align: left;
@@ -550,7 +567,7 @@ Category Icon
     background-image: url('/assets/images/optimus-prime.png');
 }
 .icon.random-fun {
-    background-image: url('/assets/images/lego-block-yellow.png');
+    background-image: url('/assets/images/rubik.png');
 }
 .icon.picker {
     background-image: url('/assets/images/hand.png');
@@ -587,9 +604,6 @@ Tag Cloud
     margin: 1rem 0;
     margin-bottom: clamp(1rem, 1.5rem, 2rem);
 }
-#slug__post .tag-cloud {
-    margin-bottom: 3rem;
-}
 .tag-cloud small {
     font-size: 0.8rem;
     margin-right: 0.5rem;
@@ -598,7 +612,6 @@ Tag Cloud
     display: flex;
     flex-wrap: wrap;
     column-gap: 0.5rem;
-    font-size: clamp(0.8rem, 1rem, 1.2rem);
     list-style: none;
     padding: 0;
     margin: 0;
@@ -612,6 +625,8 @@ Tag Cloud
 .tag-cloud ul.tags a {
     background-color: hsl(var(--color-dark), 0.75);
     color: hsl(var(--color-light),1);
+    font-family: var(--font-sans);
+    font-size: clamp(0.5rem, 0.75rem, 1rem);
     margin: 0;
     padding: 0.5rem;
     position: relative;
@@ -731,7 +746,7 @@ section#content section.listicle-item:first-of-type {
     margin-top: 2rem;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 600px) {
     section.listicle-item {
         display: flex;
         flex-direction: column;
@@ -751,5 +766,12 @@ section#content section.listicle-item:first-of-type {
         display: block;
         margin: 0 auto 1rem auto;
         width: fit-content;
+    }
+    .float,
+    .float.right,
+    img.round {
+        display: block;
+        float: none;
+        margin: 0 auto 2rem auto;
     }
 }

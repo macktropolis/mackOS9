@@ -1,0 +1,42 @@
+---
+// data imports
+import * as site from "../data/site.json";
+
+// component imports
+import Social from "./Social.astro";
+
+const { author } = site;
+---
+
+<div class="card alt featured christmas">
+    <header class="card__header">
+        <img
+            src="/assets/images/title-bar-close.png"
+            height="28"
+            width="28"
+            class="control close"
+            alt="Close"
+        />
+        <div class="title">
+            <h3 class="card__title">Holiday Cards</h3>
+            <img src="/assets/images/christmas-tree.png" alt="" />
+        </div>
+        <img
+            src="/assets/images/title-bar-expand.png"
+            height="28"
+            width="28"
+            class="control expand"
+        />
+        <img
+            src="/assets/images/title-bar-collapse.png"
+            height="28"
+            width="28"
+            class="control collapse"
+        />
+        <a href="#" class="button">&nbsp;</a>
+    </header>
+
+    <section class="card__content">
+        <iframe src="/holiday-cards/"></iframe>
+    </section>
+</div>
