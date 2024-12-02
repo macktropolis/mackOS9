@@ -222,7 +222,6 @@ Cards
     flex-direction: row-reverse;
     font-family: var(--font-sans);
     font-size: 1rem;
-    column-gap: .5rem;
     margin-left: auto;
     max-width: 50ch;
     overflow: hidden;
@@ -237,13 +236,14 @@ Cards
     font-size: 1.1rem;
     line-height: 100%;
     margin: 0;
-    padding-bottom: 0;
+    padding: 0;
 }
 .card__header .icon,
-.card__header img{
-    height: 38px;
-    padding: 4px;
-    width: 38px;
+.card__header img {
+    height: 32px;
+    margin-right: 3px;
+    padding: 4px 0;
+    width: 32px;
 }
 .card__header img.control {
     background-color: hsl(var(--color-mid), 1);

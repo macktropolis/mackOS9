@@ -3,11 +3,10 @@
 import * as site from "../data/site.json";
 
 // component imports
-// import Social from "./Social.astro";
+import Social from "./Social.astro";
 
 const { author } = site;
-const title = "Holiday Cards";
-const icon = "/assets/images/christmas-tree.png";
+const { url, title, icon } = Astro.props;
 ---
 
 <div class="card alt featured christmas">
@@ -20,8 +19,8 @@ const icon = "/assets/images/christmas-tree.png";
             alt="Close"
         />
         <div class="title">
-            <h3 class="card__title">{title}</h3>
-            <img src={icon} alt="" />
+            <h3 class="card__title">Holiday Cards</h3>
+            <img src="/assets/images/christmas-tree.png" alt="" />
         </div>
         <img
             src="/assets/images/title-bar-expand.png"
