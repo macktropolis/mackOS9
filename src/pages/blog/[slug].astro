@@ -179,19 +179,20 @@ const categoryTitle = "More Article Categories";
     gap: 1rem;
     justify-content: center;
     align-items: start;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
+    width: min(150ch, 100%);
   }
   main {
     columns: unset;
     margin: 0;
-    width: min(130ch, 95%);
+    width: min(100ch, 95%);
   }
   #slug > main {
     padding-bottom: 0;
   }
   aside.related {
-    width: min(130ch, 95%);
+    width: min(40ch, 95%);
   }
   .card-wrapper {
     width: 100%;
@@ -208,7 +209,9 @@ const categoryTitle = "More Article Categories";
     color: hsl(var(--color-selection), 1);
   }
   #content h1 {
-    font-size: clamp(3ch, 5ch, 2rem);
+    font-size: clamp(3ch, 5ch, 7ch);
+    line-height: 100%;
+    padding-bottom: 2rem;
     text-align: center;
   }
   #content :where(h2, h3) {
@@ -284,11 +287,5 @@ const categoryTitle = "More Article Categories";
   .control.collapse,
   .control.expand {
     opacity: 0;
-  }
-
-  @media screen and (min-width: 1517px) {
-    aside.related {
-      width: min(60ch, 95%);
-    }
   }
 </style>

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/apple-garamond');
+@import url('https://fonts.cdnfonts.com/css/geneva01');
 @import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&display=swap');
 
 @font-face {
@@ -27,13 +28,15 @@
     --gradient-color-3: 246, 97%, 85%;
 
     --font-sans: 'CheckboxFLF', sans-serif;
-    --font-serif: 'PT Serif', serif;
+    --font-sans-alt: 'Geneva', 'Gill Sans', sans-serif;
+    --font-serif: 'Apple Garamond', sans-serif;
+    --font-serif-light: 'Apple Garamond Light', sans-serif;
     --font-mono: monospace;
 }
 body {
     background-color: hsl(var(--color-base), 1);
     color: hsl(var(--color-dark), 1);
-    font-family: var(--font-mono);
+    font-family: var(--font-sans-alt);
     font-size: 100%;
     height: 100vh;
     padding-top: 5rem;
@@ -53,23 +56,25 @@ body::after {
     bottom: 0;
     z-index: -1;
 }
+/*
 body.mackdaddy-fun-games::after {
-    background: rgb(85,174,196);
+    background: hsl(192, 48%, 55%);
     background: linear-gradient(90deg, rgba(85,174,196,1) 0%, rgba(85,174,196,1) 25%, rgba(47,138,170,1) 25%, rgba(201,99,104,1) 26%, rgba(201,99,104,1) 26%);
 }
+*/
 h1, h2, h3, h4, h5, h6 {
     border-bottom: 3px double hsl(var(--color-dark), 1);
     font-size: clamp(1.6rem, 2rem, 2.5rem);
-    font-family: var(--font-serif);
-    font-weight: 400;
+    font-family: var(--font-serif-light);
+    font-weight: normal;
     letter-spacing: -1px;
     line-height: 125%;
     margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
 }
 p {
-    font-size: clamp(0.9rem, 1rem, 1.1rem);
-    line-height: 150%;
+    font-size: clamp(1rem, 1.1rem, 1.15rem);
+    line-height: 200%;
     margin-bottom: 1rem;
     text-wrap: pretty;
 }
@@ -291,16 +296,18 @@ Cards
 .card.alt .card__content article::before {
     display: none;
 }
+.card__content h2 {
+    font-size: clamp(2ch, 3ch, 4ch);
+    line-height: 100%;
+    position: relative;
+    z-index: 1;
+  }
 .card__content .card__meta p {
     font-size: small;
     margin-bottom: 0;
     margin-top: 1rem;
     text-align: right;
 }
-.card__content h2 {
-    position: relative;
-    z-index: 1;
-  }
 
 /* = = = = = = = = = = = = = 
 Featured Card 
@@ -383,45 +390,47 @@ CSS Only Modal Pop-up
     left: 0;
     right: 0;
     z-index: 10000;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: hsla(0, 0%, 0%, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 2rem;
-  }
-  .popup:target {
+}
+.popup:target {
     opacity: 1;
     pointer-events: all;
-  }
-  .popup > div.card {
+}
+.popup > div.card {
     align-self: inherit;
     max-width: 700px;
-  }
-    .popup > div.card.christmas {
-        align-self: inherit;
-        height: 85dvh;
-        max-width: 100%;
-        overflow-y: hidden;
-        width: 95dvw;
-    }
-    .popup > div.card.christmas .card__content {
-        display: block;
-        height: 100%;
-        padding: 0;
-        position: relative;
-    }
-    .popup > div.card.christmas .card__content iframe {
-        height: 100%;
-        width: 100%;
-    }
-  .popup > div.card > section.card__content > article p {
+}
+
+/* Holiday Card Pop-up */
+.popup > div.card.christmas {
+    align-self: inherit;
+    height: 90dvh;
+    max-width: 100%;
+    overflow-y: hidden;
+    width: 95dvw;
+}
+.popup > div.card.christmas .card__content {
+    display: block;
+    height: 100%;
+    padding: 0;
+    position: relative;
+}
+.popup > div.card.christmas .card__content iframe {
+    height: 100%;
+    width: 100%;
+}
+.popup > div.card > section.card__content > article p {
     font-size: 1.2ch;
     text-align: left;
-  }
-  .popup > div.card > header {
+}
+.popup > div.card > header {
     position: relative;
-  } 
-  .popup > div.card > header > a.button {
+} 
+.popup > div.card > header > a.button {
     all: unset;
     background: none !important;
     border: none !important;
@@ -431,15 +440,15 @@ CSS Only Modal Pop-up
     height: 42px;
     width: 42px;
     text-decoration: none;
-  }
-  .popup > div.card > header > img.control.expand,
-  .popup > div.card > header > img.control.collapse {
+}
+.popup > div.card > header > img.control.expand,
+.popup > div.card > header > img.control.collapse {
     opacity: 0;
-  }
-  .popup > div.card > header > .title img {
+}
+.popup > div.card > header > .title img {
     object-fit: contain;
     aspect-ratio: 1 / 2;
-  }
+}
 
 /* = = = = = = = = = = = = = 
 Hero Image

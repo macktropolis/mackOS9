@@ -7,13 +7,15 @@ interface Props {
   description?: string;
   author?: string;
   headerTitle?: string;
+  category?: string;
+  categorySlug?: string;
 }
 
-const { title, description, headerTitle } = Astro.props;
+const { title, description, headerTitle, category, categorySlug } = Astro.props;
 ---
 
 <div class="card__wrapper">
-  <div class="card alt featured" id="about">
+  <div class="card alt featured">
     <header class="card__header">
       <img
         src="/assets/images/title-bar-close.png"
@@ -23,8 +25,8 @@ const { title, description, headerTitle } = Astro.props;
         alt="Close"
       />
       <div class="title">
-        <h3 class="card__title">{headerTitle ?? "Articles"}</h3>
-        <span class="icon">&nbsp;</span>
+        <h3 class="card__title">{category}</h3>
+        <span class={`icon ${categorySlug}`}>&nbsp;</span>
       </div>
       <img
         src="/assets/images/title-bar-expand.png"
@@ -41,13 +43,13 @@ const { title, description, headerTitle } = Astro.props;
       <a href="/" class="button">&nbsp;</a>
     </header>
 
-    <section class="card__content">
+    <section class={`card__content ${categorySlug}`}>
       <article>
         <h1>{title ?? "Blog Articles"}</h1>
         <p>
           {
-            description ??
-              "I write about comic books, coding and everything in between."
+            title ??
+              "Blog Articles"
           }
         </p>
       </article>
@@ -59,12 +61,19 @@ const { title, description, headerTitle } = Astro.props;
   .control {
     opacity: 0;
   }
+  h1 {
+    border: none;
+    margin: 0;
+  }
+  p {
+    display: none;
+  }
   .control.close {
     opacity: 1;
   }
   .card__wrapper {
     margin: 0 auto;
-    width: 95%;
+    width: 100%;
   }
   .card__header a.button {
     all: unset;
@@ -73,5 +82,48 @@ const { title, description, headerTitle } = Astro.props;
     left: 0;
     height: 36px;
     width: 36px;
+  }
+  .card__content {
+    position: relative;
+  }
+  .card__content.coding {
+    background-image: url("/assets/images/backgrounds/code.jpg");
+    background-size: cover;
+  }
+  .card__content.comics {
+    background-image: url("/assets/images/backgrounds/comics.jpg");
+    background-size: cover;
+  }
+  .card__content.filemaker {
+    background-image: url("/assets/images/backgrounds/filemaker.jpg");
+    background-size: cover;
+  }
+  .card__content.random-fun {
+    background-image: url("/assets/images/backgrounds/rpg.jpg");
+    background-size: cover;
+  }
+  .card__content.sci-fi {
+    background-image: url("/assets/images/backgrounds/sci-fi.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  .card__content.coding:before,
+  .card__content.comics:before,
+  .card__content.sci-fi:before,
+  .card__content.random-fun:before {
+    content: "";
+    background-color: hsl(var(--color-dark), 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .card__content.coding h1,
+  .card__content.comics h1,
+  .card__content.filemaker h1,
+  .card__content.random-fun h1,
+  .card__content.sci-fi h1 {
+    color: hsl(var(--color-light), 1);
   }
 </style>
