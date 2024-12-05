@@ -39,7 +39,7 @@ h1 {
       4px 4px 0 hsl(var(--dark-blue));
 }
 h2 {
-  color: hsl(var(--dark-blue));
+  color: hsl(var(--white), 0.5);
   font-size: clamp(1rem, 2rem, 3rem);
   opacity: 0.8;
 }
