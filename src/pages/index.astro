@@ -13,6 +13,7 @@ import Hero from "../components/Hero.astro";
 import Christmas from "../components/Christmas.astro";
 import Categories from "../components/CategoryPicker.astro";
 import PostCard from "../components/PostCard.astro";
+import Search from "../components/Search.astro";
 
 // utils imports
 import { formatBlogPosts } from "../js/utils";
@@ -31,6 +32,7 @@ const title = "Home";
 <main>
 	<Hero title={author} description={description} />
 	<Christmas />
+	<Search />
 	<Categories />
 	{
 		formattedPosts.map((post) => (

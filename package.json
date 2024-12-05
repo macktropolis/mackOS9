@@ -5,12 +5,15 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build && pagefind --site dist && cp -r dist/pagefind public/",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.16.16",
+    "astro": "^5.0.2",
     "astro-icon": "^1.1.2"
+  },
+  "devDependencies": {
+    "pagefind": "^1.2.0"
   }
 }
