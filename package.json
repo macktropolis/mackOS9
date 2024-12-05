@@ -1,7 +1,7 @@
 {
-  "name": "volumes-memory-tau-01-projects-web-mackosbasic",
+  "name": "MackOS",
   "type": "module",
-  "version": "0.0.1",
+  "version": "9.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
