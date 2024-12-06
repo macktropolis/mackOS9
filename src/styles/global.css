@@ -725,17 +725,60 @@ img.round {
 /* = = = = = = = = = = = = = 
 Listicle Styles
 = = = = = = = = = = = = = */
+section.listicle-item h3 {
+    border: none !important;
+    font-size: clamp(2rem, 3rem, 3.5rem);
+    text-align: center;
+}
 section.listicle-item h3 > strong {
     background-color: hsl(var(--color-dark), 1);
     border-radius: 100%;
     color: hsl(var(--color-light), 1);
     display: inline-block;
-    margin-right: 1rem;
-    padding: 0.5rem 1.25rem;
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 2.5rem, 3rem);
+    font-weight: bolder;
+    margin-right: 0.5rem;
+    margin-bottom: -1rem;
+    overflow: hidden;
+    padding: 0 1.5rem;
+    position: relative;
+}
+/*
+section.listicle-item h3 > strong::before{
+    background-color: hsl(39, 100%, 50%);
+    background-image: url("/assets/images/backgrounds/halftone-orange.gif");
+    background-position: 70%;
+    background-repeat: repeat;
+    background-size: 800%;
+    content: "";
+    filter: blur(2px) opacity(50%);
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    bottom: -0.5rem;
+    left: -0.5rem;
+    z-index: -1;
+}
+*/
+section.listicle-item:nth-child(odd) h3 > strong {
+    color: hsl(var(--color-light), 1) !important;
+    text-shadow: 2px 2px 0 hsl(var(--color-dark), 1);
+}
+/*
+section.listicle-item:nth-child(odd) h3 > strong::before {
+    background-color: hsl(284, 99%, 36%);
+    background-image: url("/assets/images/backgrounds/halftone-magenta.gif");
+    background-position: 50%;
+}
+*/
+section.listicle-item h3 > :where(em, i) {
+    font-size: 1.25ch;
 }
 section.listicle-item h5 {
     border-bottom: none !important;
     border-top: 3px double hsl(var(--color-dark), 1);
+    font-size: 1.25ch !important;
     margin-top: 2rem;
     padding-top: 1rem;
     text-align: right;

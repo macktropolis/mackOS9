@@ -30,9 +30,7 @@ I love classic _Doctor Who_. I love Logos. So let's have a look at how the logo 
 
 <section class="listicle-item">
 
-  ### **1** William Hartnell
-  
-  #### 1963-1965
+  ### **1** William Hartnell _(1963-1965)_
   
   <img src="/assets/images/blog/2024-11-05-regeneration-of-a-logo/doctor_1.png" alt="The First Doctor — William Hartnell" class="secondary no-border" />
 
@@ -44,9 +42,7 @@ I love classic _Doctor Who_. I love Logos. So let's have a look at how the logo 
 
 <section class="listicle-item">
 
-  ### **2** Patrick Troughton
-  
-  #### 1966-1969
+  ### **2** Patrick Troughton _(1966-1969)_
   
   <img src="/assets/images/blog/2024-11-05-regeneration-of-a-logo/doctor_2.png" alt="The Second Doctor — Patrick Troughton" class="secondary no-border" />
   
@@ -58,9 +54,7 @@ I love classic _Doctor Who_. I love Logos. So let's have a look at how the logo 
 
 <section class="listicle-item">
 
-  ### **3** Jon Pertwee
-  
-  #### 1970-1974
+  ### **3** Jon Pertwee _(1970-1974)_
   
   <img src="/assets/images/blog/2024-11-05-regeneration-of-a-logo/doctor_3.png" alt="The Third Doctor — John Pertwee" class="secondary no-border" />
   
@@ -72,9 +66,7 @@ I love classic _Doctor Who_. I love Logos. So let's have a look at how the logo 
 
 <section class="listicle-item">
 
-  ### **4** Tom Baker
-  
-  #### 1974-1981
+  ### **4** Tom Baker _(1974-1981)_
   
   <img src="/assets/images/blog/2024-11-05-regeneration-of-a-logo/doctor_4.png" alt="The Fourth Doctor — Tom Baker" class="secondary no-border" />
   
@@ -86,9 +78,7 @@ I love classic _Doctor Who_. I love Logos. So let's have a look at how the logo 
 
 <section class="listicle-item">
 
-  ### **5** Peter Davison
-  
-  #### 1981-1984
+  ### **5** Peter Davison _(1982-1984)_
   
   <img src="/assets/images/blog/2024-11-05-regeneration-of-a-logo/doctor_5.png" alt="The Fifth Doctor — Peter Davison" class="secondary no-border" />
   
@@ -100,9 +90,7 @@ I love classic _Doctor Who_. I love Logos. So let's have a look at how the logo 
 
 <section class="listicle-item">
 
-  ### **6** Colin Baker
-  
-  #### 1984-1986
+  ### **6** Colin Baker _(1984-1986)_
   
   <img src="/assets/images/blog/2024-11-05-regeneration-of-a-logo/doctor_6.png" alt="The Sixth Doctor — Colin Baker" class="secondary no-border" />
 
@@ -114,9 +102,7 @@ I love classic _Doctor Who_. I love Logos. So let's have a look at how the logo 
 
 <section class="listicle-item">
 
-  ### **7** Sylvester McCoy
-  
-  #### 1987-1989
+  ### **7** Sylvester McCoy _(1987-1989)_
   
   <img src="/assets/images/blog/2024-11-05-regeneration-of-a-logo/doctor_7.png" alt="The Sixth Doctor — Sylvester McCoy" class="secondary no-border" />
 
@@ -128,9 +114,7 @@ I love classic _Doctor Who_. I love Logos. So let's have a look at how the logo 
 
 <section class="listicle-item">
 
-  ### **8** Paul McGann
-    
-  #### 1996
+  ### **8** Paul McGann _(1996)_
     
   <img src="/assets/images/blog/2024-11-05-regeneration-of-a-logo/doctor_8.png" alt="The Eighth Doctor — Paul McGann" class="secondary no-border" />
 
@@ -184,5 +168,6 @@ Nine years after the failed American relaunch, _Doctor Who_ returned to the BBC 
     float: left !important;
     shape-outside: circle(84px at 80px 71px);
     margin-right: 1rem !important;
+    margin-top: 2rem;
   }
 </style>
