@@ -1,0 +1,92 @@
+---
+// data imports
+import * as site from "../data/site.json";
+
+interface Props {
+  title?: string;
+  description?: string;
+  author?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<div class="card__wrapper">
+  <div class="card alt featured" id="err404">
+    <header class="card__header">
+      <img
+        src="/assets/images/title-bar-close.png"
+        height="28"
+        width="28"
+        class="control close"
+        alt="Close"
+      />
+      <div class="title">
+        <h3 class="card__title">{title}</h3>
+        <span class="icon">&nbsp;</span>
+      </div>
+      <img
+        src="/assets/images/title-bar-expand.png"
+        height="28"
+        width="28"
+        class="control expand"
+      />
+      <img
+        src="/assets/images/title-bar-collapse.png"
+        height="28"
+        width="28"
+        class="control collapse"
+      />
+    </header>
+
+    <section class="card__content">
+      <article>
+        <img src="/assets/images/help.png" alt="Help" />
+        <div class="content">
+          <h1>{title}</h1>
+          <p>{description}</p>
+        </div>
+      </article>
+      <a href="/" class="button primary">Return Home</a>
+    </section>
+  </div>
+</div><!-- end: .card-wrapper -->
+
+<style>
+  .control {
+    opacity: 0;
+  }
+  .card__content {
+    padding-bottom: 1rem;
+  }
+  .card__content article {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    margin-inline: auto;
+    padding-inline: 1rem;
+    overflow-x: visible;
+    width: 100% !important;
+  }
+  .card__content article > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card__content h1 {
+    display: none;
+  }
+  .card__content p {
+    font-size: clamp(0.75rem, 0.85rem, 0.95rem);
+    margin: 0 !important;
+    text-align: left;
+  }
+  .card__content article img {
+    height: 48px !important;
+    width: 48px !important;
+  }
+  .card__content .button {
+    margin-inline: auto;
+  }
+</style>
