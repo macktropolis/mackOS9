@@ -2,6 +2,9 @@
 // library imports
 import { Image } from "astro:assets";
 
+// component imports
+import TagCloud from "./Tags.astro";
+
 // utils imports
 import { slugify, formatDate } from "../js/utils";
 
@@ -72,27 +75,7 @@ const { title, date, author, image, description, category, tags } = data;
         <h2>
           <a href={`/blog/${slugify(url)}`}>{title}</a>
         </h2>
-        
-        {
-          tags && (
-            <div class="tag-cloud">
-              <!-- <small>Tags:</small> -->
-              <ul class="tags">
-                {tags.map((tag) => (
-                  <li>
-                    <a
-                      href={`/tags/${slugify(tag)}`}
-                      aria-hidden="true"
-                      tabindex="-1">
-                      {tag}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )
-        }
-
+        <TagCloud tags={tags} />
         <p>{description}</p>
 
         <a href={`/blog/${slugify(url)}`} class="button">Read More</a>

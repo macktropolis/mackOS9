@@ -40,14 +40,14 @@ interface Props {
 
 // const { author } = Astro.params;
 const { posts, authorName } = Astro.props;
-const headerTitle = "Files";
-const title = "Blog Articles";
+const category = "Author";
+const title = "Articles by " + authorName;
 const description = "Articles by " + authorName;
 ---
 
 <Layout title={title} page={authorName}>
-  <Hero headerTitle={headerTitle} title={title} description={description} />
   <main>
+    <Hero category={category} title={title} description={description} />
     {
       posts.map((post) => (
         <PostCard data={post.data} url={post.slug} tagType="h2" />

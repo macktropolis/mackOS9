@@ -1,0 +1,26 @@
+---
+// utils imports
+import { slugify } from "../js/utils";
+
+const { tags } = Astro.props;
+---
+
+{
+  tags && (
+    <div class="tag-cloud">
+      <!-- <small>Tags:</small> -->
+      <ul class="tags">
+        {tags.map((tag) => (
+          <li>
+            <a
+              href={`/tags/${slugify(tag)}`}
+              aria-hidden="true"
+              tabindex="-1">
+              {tag}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}

@@ -11,7 +11,6 @@ import Layout from "../../layouts/Layout.astro";
 // component imports
 import Hero from "../../components/SectionHeader.astro";
 import HeroMD from "../../components/SectionHeader-MackDaddy.astro";
-import Categories from "../../components/CategoryPicker.astro";
 import PostCard from "../../components/PostCard.astro";
 
 // utils imports
@@ -57,24 +56,22 @@ const categorySlug = slugify(categoryName);
 <Layout title={title} page={categoryName} categorySlug={categorySlug}>
   {
     // if the category is "MackDaddy Fun & Games", use the HeroMD component
-    categoryName === "MackDaddy Fun & Games" && (
-        <HeroMD /> )
+    categoryName === "MackDaddy Fun & Games" && <HeroMD />
   }
 
   <main>
     {
       // if the category is not "MackDaddy Fun & Games", use the Hero component
-    categoryName != "MackDaddy Fun & Games" && (
-    <Hero
+      categoryName != "MackDaddy Fun & Games" && (
+        <Hero
           headerTitle={headerTitle}
           title={title}
           description={description}
           category={categoryName}
           categorySlug={categorySlug}
         />
-        )
+      )
     }
-    <Categories title={categoryTitle} />
     {
       posts.map((post) => (
         <PostCard data={post.data} url={post.slug} tagType="h2" />

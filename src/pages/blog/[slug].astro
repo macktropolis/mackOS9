@@ -10,6 +10,7 @@ import Layout from "../../layouts/Layout.astro";
 //  import Hero from "../../components/SectionHeader.astro";
 import Categories from "../../components/CategoryPicker.astro";
 import RelatedPosts from "../../components/RelatedPosts.astro";
+import TagCloud from "../../components/Tags.astro";
 
 // utils imports
 import { slugify, formatBlogPosts, formatDate } from "../../js/utils";
@@ -32,8 +33,7 @@ interface Props {
 }
 
 const { post } = Astro.props;
-const { title, description, date, category, tags, author, image, mackdaddy } =
-  post.data;
+const { title, description, date, category, tags, author, image } = post.data;
 
 const { Content } = await post.render();
 
@@ -133,25 +133,7 @@ const categoryTitle = "More Article Categories";
 
               <section id="content">
                 <h1>{title}</h1>
-                {
-                  tags && (
-                    <div class="tag-cloud">
-                      <!-- <small>Tags:</small> -->
-                      <ul class="tags">
-                        {tags.map((tag) => (
-                          <li>
-                            <a
-                              href={`/tags/${slugify(tag)}`}
-                              aria-hidden="true"
-                              tabindex="-1">
-                              {tag}
-                            </a>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )
-                }
+                <TagCloud tags={tags} />
                 <Content />
               </section>
             </article>
@@ -181,20 +163,22 @@ const categoryTitle = "More Article Categories";
     align-items: start;
     margin: 0 auto;
     padding: 0;
-    width: min(150ch, 100%);
+    width: min(100ch, 100%);
   }
   main {
     columns: unset;
     margin: 0;
-    width: min(100ch, 95%);
+    width: 100%;
   }
   #slug > main {
     padding-bottom: 0;
   }
   aside.related {
-    width: min(40ch, 95%);
+    width: 100%;
   }
-  .card-wrapper {
+  #slug__post .card__wrapper {
+    margin-bottom: 0;
+    padding-bottom: 0;
     width: 100%;
   }
   #content {
@@ -273,7 +257,7 @@ const categoryTitle = "More Article Categories";
     background-color: hsl(var(--color-mid), 1);
     display: inline-block;
   }
- #single-post .hero-image img {
+  #single-post .hero-image img {
     max-height: 400px;
   }
   .card__header a.button {

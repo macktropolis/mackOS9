@@ -36,7 +36,7 @@ const headerTitle = "Holiday Cards";
 
     <section class="card__content">
       <article>
-        <h1>{title}</h1>
+        <h2>{title}</h2>
         <p>Sending the cheer every year. <i>(Well, almost.)</i></p>
         <a href="#popup2" class="button primary">See Them All</a>
       </article>
@@ -67,10 +67,11 @@ const headerTitle = "Holiday Cards";
     background-position: 50% 0;
     background-size: cover;
   }
-  h1 {
+  h2 {
     color: hsl(var(--dark-blue));
     border-bottom-color: hsl(var(--dark-blue));
-    font-family: "Mountains of Christmas", cursive;
+    font-family: "Mountains of Christmas", cursive !important;
+    font-size: clamp(1.5rem, 1.75rem, 2rem);
     font-weight: bold;
     text-shadow:
       1px 1px 0 hsl(var(--blue)),
@@ -80,6 +81,7 @@ const headerTitle = "Holiday Cards";
   }
   p {
     color: hsl(var(--dark-blue));
+    font-size: small;
   }
   .control {
     opacity: 0;

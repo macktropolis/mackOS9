@@ -11,7 +11,8 @@ interface Props {
   categorySlug?: string;
 }
 
-const { title, description, headerTitle, category, categorySlug } = Astro.props;
+const { title, category } = Astro.props;
+const categorySlug = slugify(category);
 ---
 
 <div class="card__wrapper">
@@ -47,10 +48,7 @@ const { title, description, headerTitle, category, categorySlug } = Astro.props;
       <article>
         <h1>{title ?? "Blog Articles"}</h1>
         <p>
-          {
-            title ??
-              "Blog Articles"
-          }
+          {title ?? "Blog Articles"}
         </p>
       </article>
     </section>
@@ -98,6 +96,15 @@ const { title, description, headerTitle, category, categorySlug } = Astro.props;
     background-image: url("/assets/images/backgrounds/filemaker.jpg");
     background-size: cover;
   }
+  .card__content.tags {
+    background-image: url("/assets/images/backgrounds/halftone-blue.gif");
+    background-size: cover;
+  }
+  .card__content.author {
+    background-image: url("/assets/images/backgrounds/halftone-orange.gif");
+    background-size: cover;
+    background-position: top center;
+  }
   .card__content.random-fun {
     background-image: url("/assets/images/backgrounds/rpg.jpg");
     background-size: cover;
@@ -123,7 +130,8 @@ const { title, description, headerTitle, category, categorySlug } = Astro.props;
   .card__content.comics h1,
   .card__content.filemaker h1,
   .card__content.random-fun h1,
-  .card__content.sci-fi h1 {
+  .card__content.sci-fi h1,
+  .card__content.tags h1 {
     color: hsl(var(--color-light), 1);
   }
 </style>

@@ -22,6 +22,7 @@
     --color-selection: 240, 50%, 40%;
     --color-bright: 359, 38%, 57%;
     --color-bright-2: 196, 41%, 59%;
+    --color-highlight: 240, 22%, 80%;
 
     --gradient-color: 220, 92%, 75%;
     --gradient-color-2: 214, 91%, 74%;
@@ -38,9 +39,10 @@ body {
     color: hsl(var(--color-dark), 1);
     font-family: var(--font-sans-alt);
     font-size: 100%;
-    height: 100vh;
+    height: 100dvh;
     padding-top: 3rem;
     scroll-behavior: smooth;
+    width: 100%;
 }
 body::after {
     background: linear-gradient(
@@ -54,14 +56,8 @@ body::after {
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: -1;
+    z-index: -2;
 }
-/*
-body.mackdaddy-fun-games::after {
-    background: hsl(192, 48%, 55%);
-    background: linear-gradient(90deg, rgba(85,174,196,1) 0%, rgba(85,174,196,1) 25%, rgba(47,138,170,1) 25%, rgba(201,99,104,1) 26%, rgba(201,99,104,1) 26%);
-}
-*/
 h1, h2, h3, h4, h5, h6 {
     border-bottom: 3px double hsl(var(--color-dark), 1);
     font-size: clamp(1.6rem, 2rem, 2.5rem);
@@ -165,37 +161,38 @@ blockquote {
 
 }
 
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(100%);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 /* = = = = = = = = = = = = = 
-Main & Aside
+Main
 = = = = = = = = = = = = = */
 main {
     columns: 400px;
     column-gap: 1rem;
-    margin: 0 auto;
+    margin: 0 0 0 2rem;
     padding: 0 0 1rem 0;
-    width: 95%;
+    position: relative;
+    z-index: 1;
+    width: 90%;
 }
 
 /* = = = = = = = = = = = = = 
 Cards
 = = = = = = = = = = = = = */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(100%, 100%);
+    }
+}
+
 .card__wrapper {
-    /*
     animation: appear linear;
     animation-timeline: view();
-    animation-range: entry 0% cover 40%;
-    */
+    animation-range: entry 0% cover 10%;
     break-inside: avoid;
     padding-bottom: 1rem;
 }
@@ -399,7 +396,6 @@ CSS Only Modal Pop-up
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 10000;
     background-color: hsla(0, 0%, 0%, 0.5);
     display: flex;
     justify-content: center;
@@ -409,6 +405,7 @@ CSS Only Modal Pop-up
 .popup:target {
     opacity: 1;
     pointer-events: all;
+    z-index: 10000;
 }
 .popup > div.card {
     align-self: inherit;
@@ -437,10 +434,10 @@ CSS Only Modal Pop-up
     font-size: 1.2ch;
     text-align: left;
 }
-.popup > div.card > header {
+div.card > header {
     position: relative;
 } 
-.popup > div.card > header > a.button {
+div.card > header > a.button {
     all: unset;
     background: none !important;
     border: none !important;
@@ -451,19 +448,19 @@ CSS Only Modal Pop-up
     top: 0;
     width: 42px;
 }
-.popup > div.card > header > img.control.expand,
-.popup > div.card > header > img.control.collapse {
+div.card > header > img.control.expand,
+div.card > header > img.control.collapse {
     opacity: 0;
 }
-.popup > div.card > header > a.button.expand {
+div.card > header > a.button.expand {
     right: 0;
     left: auto;
 }
-.popup > div.card > header > a.button.collapse {
+div.card > header > a.button.collapse {
     right: 42px;
     left: auto;
 }
-.popup > div.card > header > .title img {
+div.card > header > .title img {
     object-fit: contain;
     aspect-ratio: 1 / 2;
 }
@@ -611,6 +608,9 @@ Category Icon
 .icon.christmas {
     background-image: url('/assets/images/christmas-tree.png');
 }
+.icon.hd {
+    background-image: url('/assets/images/hard-drive.png');
+}
 /* = = = = = = = = = = = = = 
 Avatars
 = = = = = = = = = = = = = */
@@ -675,6 +675,62 @@ Tag Cloud
     background-color: hsl(var(--color-selection), 1);
 }
 
+/* = = = = = = = = = = = = = 
+Picker List
+= = = = = = = = = = = = = */
+ul.picker {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100% !important;
+    z-index: 10;
+  }
+  ul.picker > li {
+    background-color: hsl(var(--color-dark), 0.05);
+    border-bottom: 3px solid hsl(var(--color-light), 1);
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  ul.picker > li:last-of-type {
+    border-bottom: none;
+  }
+  ul.picker li span.icon {
+    background-position: cover;
+    display: inline-block;
+    height: 24px;
+    margin-right: 0.5rem;
+    width: 24px;
+  }
+  ul.picker li a {
+    align-items: center;
+    color: hsl(var(--color-dark), 1);
+    cursor: pointer;
+    display: flex;
+    font-family: var(--font-sans);
+    font-size: smaller;
+    justify-content: flex-start;
+    line-height: 100%;
+    margin: 0 !important;
+    max-width: 100%;
+    padding: 0.5rem 2rem;
+    pointer-events: all;
+    text-align: left;
+    text-decoration: none;
+    text-wrap: nowrap;
+    width: 100%;
+  }
+  ul.picker li a:hover {
+    background-color: hsl(var(--color-selection), 1);
+    color: hsl(var(--color-light), 1);
+  }
+  
 /* = = = = = = = = = = = = = 
 Classes
 = = = = = = = = = = = = = */
@@ -741,37 +797,13 @@ section.listicle-item h3 > strong {
     margin-right: 0.5rem;
     margin-bottom: -1rem;
     overflow: hidden;
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
     position: relative;
 }
-/*
-section.listicle-item h3 > strong::before{
-    background-color: hsl(39, 100%, 50%);
-    background-image: url("/assets/images/backgrounds/halftone-orange.gif");
-    background-position: 70%;
-    background-repeat: repeat;
-    background-size: 800%;
-    content: "";
-    filter: blur(2px) opacity(50%);
-    position: absolute;
-    top: -0.5rem;
-    right: -0.5rem;
-    bottom: -0.5rem;
-    left: -0.5rem;
-    z-index: -1;
-}
-*/
 section.listicle-item:nth-child(odd) h3 > strong {
     color: hsl(var(--color-light), 1) !important;
     text-shadow: 2px 2px 0 hsl(var(--color-dark), 1);
 }
-/*
-section.listicle-item:nth-child(odd) h3 > strong::before {
-    background-color: hsl(284, 99%, 36%);
-    background-image: url("/assets/images/backgrounds/halftone-magenta.gif");
-    background-position: 50%;
-}
-*/
 section.listicle-item h3 > :where(em, i) {
     font-size: 1.25ch;
 }

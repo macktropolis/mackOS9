@@ -1,0 +1,78 @@
+---
+
+---
+
+<div class="media">
+    <div class="hd">
+        <a href="#popup3" title="Home">
+            <img src="/assets/images/hard-drive.png" alt="Mackintosh HD" />
+            <p>Mackintosh HD</p>
+        </a>
+    </div>
+    <div class="hd">
+        <a href="#popup2" title="Holiday Cards">
+            <img
+                src="/assets/images/christmas-tree.png"
+                alt="Richardson Family Holiday Cards"
+            />
+            <p>Holiday Cards</p>
+        </a>
+    </div>
+</div>
+
+<style>
+    div.media {
+        display: block;
+        max-width: 10ch;
+        position: absolute;
+        right: 2rem;
+        top: 3rem;
+        z-index: 0;
+    }
+    div.media div.hd {
+        width: 100%;
+    }
+    div.media a {
+        display: block;
+        margin-bottom: 1rem;
+    }
+    div.media img {
+        display: block;
+        height: auto;
+        margin: 0 auto 5px auto;
+        width: 32px;
+    }
+    div.media p {
+        background-color: hsl(var(--color-light), 0.5);
+        font-size: x-small;
+        margin: 0;
+        padding-inline: 0.25rem;
+        text-align: center;
+    }
+
+    @media screen and (max-width: 750px) {
+        main {
+            margin: 0 auto;
+            width: 95%;
+        }
+        div.media {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 0 auto 2rem auto;
+            position: unset;
+            max-width: 100%;
+        }
+        div.media div.hd {
+            width: fit-content;
+        }
+        div.media a {
+            margin-bottom: 0;
+        }
+        div.media p {
+            padding-block: 0.25rem;
+            line-height: 100%;
+        }
+    }
+</style>

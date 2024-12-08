@@ -39,36 +39,41 @@ const showCount = uniqueSortedCategories.map(
 const { title } = Astro.props;
 ---
 
-<div class="card__wrapper">
-  <div class="card alt featured" id="category-picker">
-    <header class="card__header">
-      <img
-        src="/assets/images/title-bar-close.png"
-        height="28"
-        width="28"
-        class="control close"
-        alt="Close"
-      />
-      <div class="title">
-        <h3 class="card__title">{title ?? "Pick a Category"}</h3>
-        <span class="icon picker">&nbsp;</span>
-      </div>
-      <img
-        src="/assets/images/title-bar-expand.png"
-        height="28"
-        width="28"
-        class="control expand"
-      />
-      <img
-        src="/assets/images/title-bar-collapse.png"
-        height="28"
-        width="28"
-        class="control collapse"
-      />
-    </header>
+<div class="card" id="category-picker">
+  <header class="card__header">
+    <img
+      src="/assets/images/title-bar-close.png"
+      height="28"
+      width="28"
+      class="control close"
+      alt="Close"
+    />
+    <div class="title">
+      <h3 class="card__title">{title ?? "Mackintosh HD"}</h3>
+      <span class="icon hd">&nbsp;</span>
+    </div>
+    <img
+      src="/assets/images/title-bar-expand.png"
+      height="28"
+      width="28"
+      class="control expand"
+    />
+    <img
+      src="/assets/images/title-bar-collapse.png"
+      height="28"
+      width="28"
+      class="control collapse"
+    />
+    <a href="#" class="button">&nbsp;</a>
+  </header>
 
-    <section class="card__content">
-      <ul class="categories">
+  <section class="card__content">
+    <article>
+      <ul class="picker categories">
+        <li>
+          <a class="badge" href="/blog"
+            ><span class="icon">&nbsp;</span>All Blog Articles</a>
+        </li>
         {
           Object.entries(processedCats).map(([key, val]) => (
             <li>
@@ -80,63 +85,25 @@ const { title } = Astro.props;
           ))
         }
       </ul>
-    </section>
-  </div>
-</div><!-- end: .card-wrapper -->
+    </article>
+  </section>
+</div>
 
 <style>
+  #category-picker {
+    width: max(95%, 50%);
+  }
   .control {
     opacity: 0;
   }
-  .card.featured .card__content {
-    background-color: white;
+  .control.close {
+    opacity: 1;
+  }
+  .card .card__content {
     display: block;
-    padding: 0;
+    padding-bottom: 1rem;
   }
-  .categories {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    position: relative;
-    width: 100% !important;
-    z-index: 10;
-  }
-  .categories > li {
-    display: block;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-  .categories li span.icon {
-    background-position: cover;
-    display: inline-block;
-    height: 32px;
-    margin-right: 0.5rem;
-    width: 32px;
-  }
-  .categories li a {
-    align-items: center;
-    color: hsl(var(--color-dark), 1);
-    cursor: pointer;
-    display: flex;
-    font-family: var(--font-sans);
-    justify-content: flex-start;
-    line-height: 100%;
-    margin: 0 !important;
-    max-width: 100%;
-    padding: 1rem 2rem;
-    pointer-events: all;
-    text-align: left;
-    text-decoration: none;
-    text-wrap: nowrap;
-    width: 100%;
-  }
-  .categories li a:hover {
-    background-color: hsl(var(--color-selection), 1);
-    color: hsl(var(--color-light), 1);
+  .card .card__content article {
+    padding: 0 !important;
   }
 </style>
