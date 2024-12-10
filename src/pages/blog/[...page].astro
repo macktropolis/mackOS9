@@ -12,7 +12,7 @@ import Hero from "../../components/SectionHeader.astro";
 import PostCard from "../../components/PostCard.astro";
 
 //  utils imports
-import { formatBlogPosts } from "../../js/utils";
+import { slugify, formatBlogPosts } from "../../js/utils";
 
 // export formatted blog posts with pagination
 export async function getStaticPaths({ paginate }) {
@@ -32,14 +32,13 @@ interface Props {
 
 const { page } = Astro.props;
 const headerTitle = "Files";
-const categoryTitle = "More Article Categories";
-const title = "Blog Articles";
+const title = "All Blog Articles";
 const description = "I write about comics, coding and everything in between.";
 ---
 
 <Layout title={title} page={headerTitle} description={description}>
   <main>
-    <Hero headerTitle={headerTitle} title={title} description={description} />
+    <Hero category={headerTitle} title={title} description={description} />
     {
       // @ts-ignore
       page.data.map((post) => (

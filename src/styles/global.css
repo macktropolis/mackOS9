@@ -164,7 +164,9 @@ blockquote {
 /* = = = = = = = = = = = = = 
 Main
 = = = = = = = = = = = = = */
+
 main {
+    animation: fade 1.5s 1;
     columns: 400px;
     column-gap: 1rem;
     margin: 0 0 0 2rem;
@@ -177,22 +179,10 @@ main {
 /* = = = = = = = = = = = = = 
 Cards
 = = = = = = = = = = = = = */
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: scale(0, 0);
-    }
-    to {
-        opacity: 1;
-        transform: scale(100%, 100%);
-    }
-}
-
 .card__wrapper {
     animation: appear linear;
     animation-timeline: view();
-    animation-range: entry 0% cover 10%;
+    animation-range: entry 0% cover 0;
     break-inside: avoid;
     padding-bottom: 1rem;
 }
@@ -408,6 +398,7 @@ CSS Only Modal Pop-up
     z-index: 10000;
 }
 .popup > div.card {
+    animation: appear 3s 1;
     align-self: inherit;
     max-width: 700px;
 }
@@ -611,6 +602,9 @@ Category Icon
 .icon.hd {
     background-image: url('/assets/images/hard-drive.png');
 }
+.icon.mack {
+    background-image: url('/assets/images/mack-headshot-8bit-color.png');
+}
 /* = = = = = = = = = = = = = 
 Avatars
 = = = = = = = = = = = = = */
@@ -638,7 +632,7 @@ Tag Cloud
     display: flex;
     justify-content: flex-start;
     margin: 1rem 0;
-    margin-bottom: clamp(1rem, 1.5rem, 2rem);
+    margin-bottom: 0.5rem;
 }
 .tag-cloud small {
     font-size: 0.8rem;
@@ -884,5 +878,28 @@ section#content section.listicle-item:first-of-type {
         display: block;
         float: none;
         margin: 0 auto 2rem auto;
+    }
+}
+
+/* = = = = = = = = = = = = = 
+Animations
+= = = = = = = = = = = = = */
+@keyframes fade {
+    from {
+       opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(100%, 100%);
     }
 }

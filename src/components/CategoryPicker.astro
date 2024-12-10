@@ -71,8 +71,14 @@ const { title } = Astro.props;
     <article>
       <ul class="picker categories">
         <li>
-          <a class="badge" href="/blog"
-            ><span class="icon">&nbsp;</span>All Blog Articles</a>
+          <a class="badge" href="/about"
+            ><span class="icon mack">&nbsp;</span>About Mack Richardson</a
+          >
+        </li>
+        <li>
+          <a class="badge" href="/blog/"
+            ><span class="icon">&nbsp;</span>All Blog Articles</a
+          >
         </li>
         {
           Object.entries(processedCats).map(([key, val]) => (
