@@ -6,6 +6,7 @@ import Media from "../components/Media.astro";
 import About from "../components/Popup-About.astro";
 import HolidayCards from "../components/Popup-HolidayCards.astro";
 import CategoryList from "../components/CategoryPicker.astro";
+import Snow from "../components/Snowfall.astro";
 
 const { title, page, content, categorySlug } = Astro.props;
 ---
@@ -18,7 +19,9 @@ const { title, page, content, categorySlug } = Astro.props;
 	<body class={categorySlug ?? ""}>
 		<Media />
 		<slot />
-	</body><div id="popup1" class="popup">
+	</body><BaseEnd />
+
+	<div id="popup1" class="popup">
 		<About />
 	</div>
 	<div id="popup2" class="popup">
@@ -27,5 +30,5 @@ const { title, page, content, categorySlug } = Astro.props;
 	<div id="popup3" class="popup">
 		<CategoryList />
 	</div>
-	<BaseEnd />
+	<Snow />
 </html>

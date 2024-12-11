@@ -10,7 +10,7 @@
         </a>
     </div>
     <div class="hd">
-        <a href="#popup2" title="Holiday Cards">
+        <a href="#popup2" target="_blank" title="Holiday Cards">
             <img
                 src="/assets/images/christmas-tree.png"
                 alt="Richardson Family Holiday Cards"
@@ -41,7 +41,7 @@
     div.media {
         display: block;
         max-width: 10ch;
-        position: absolute;
+        position: fixed;
         right: 2rem;
         top: 3rem;
         z-index: 0;
@@ -72,9 +72,10 @@
     div.media div.hd img.shortcut {
         height: 12px;
         position: absolute;
-        left: 16px;
+        left: 20px;
         top: 26px;
         width: 12px;
+        z-index: 1;
     }
 
     @media screen and (max-width: 750px) {

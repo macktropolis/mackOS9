@@ -8,7 +8,6 @@ import Layout from "../../layouts/Layout.astro";
 
 //  component imports
 //  import Hero from "../../components/SectionHeader.astro";
-import Categories from "../../components/CategoryPicker.astro";
 import RelatedPosts from "../../components/RelatedPosts.astro";
 import TagCloud from "../../components/Tags.astro";
 
@@ -148,7 +147,6 @@ const categoryTitle = "More Article Categories";
       </div><!-- end: .card-wrapper -->
     </main>
     <aside class="related">
-      <Categories title={categoryTitle} />
       <RelatedPosts {relatedPosts} />
     </aside>
   </div>
