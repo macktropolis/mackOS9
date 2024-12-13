@@ -2,6 +2,9 @@
 // data imports
 import * as site from "../data/site.json";
 
+// component imports
+import GoogleAnalytics from "./GoogleAnalytics.astro";
+
 // stylesheet imports
 import "../styles/reset.css";
 import "../styles/global.css";
@@ -16,6 +19,7 @@ const { title, description } = Astro.props;
 ---
 
 <head>
+    <GoogleAnalytics />
     <meta charset="UTF-8" />
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
