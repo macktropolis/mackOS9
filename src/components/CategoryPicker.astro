@@ -33,6 +33,7 @@ const processedCats = uniqueSortedCategories.reduce((acc, category) => {
 
 // Example: Generating output for display
 const showCount = uniqueSortedCategories.map(
+  //@ts-ignore
   (category) => `${category} (${processedCats[category]})`,
 );
 

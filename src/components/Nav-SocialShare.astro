@@ -1,0 +1,68 @@
+---
+// data imports
+import * as site from "../data/site.json";
+
+const { siteName, author, url, description } = site;
+---
+
+<li>
+    <a
+        href={`https://www.facebook.com/sharer/sharer.php?u=` + url}
+        title="Share on Facebook"
+        target="_blank"
+        rel="noopener">
+        <img src="/assets/images/facebook.png" alt="" /> Share on Facebook
+    </a>
+</li>
+
+<li>
+    <a
+        href={`https://x.com/intent/tweet?url=` + url + `&text=` + siteName}
+        title="Share on X / Twitter"
+        target="_blank"
+        rel="noopener">
+        <img src="/assets/images/twitter.png" alt="" /> Share on X/Twitter
+    </a>
+</li>
+
+<li>
+    <a
+        href={`https://www.linkedin.com/shareArticle?mini=true&url=` +
+            url +
+            `&title=` +
+            siteName +
+            `&summary=` +
+            description}
+        title="Share on LinkedIn"
+        target="_blank"
+        rel="noopener">
+        <img src="/assets/images/linkedin.png" alt="" /> Share on LinkedIn
+    </a>
+</li>
+
+<li>
+    <a
+        href={`https://pinterest.com/pin/create/button/?url=` +
+            url +
+            `&description=` +
+            description}
+        title="Share on Pinterest"
+        target="_blank"
+        rel="noopener">
+        <img src="/assets/images/pinterest.png" alt="" /> Share on Pinterest
+    </a>
+</li>
+<li>
+    <a
+        href={`mailto:?subject=` +
+            siteName +
+            `&body=` +
+            description +
+            `%20` +
+            url}
+        title="Share via Email"
+        target="_blank"
+        rel="noopener">
+        <img src="/assets/images/mail.png" alt="" /> Share via Email
+    </a>
+</li>

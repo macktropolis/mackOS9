@@ -1,0 +1,101 @@
+---
+// data imports
+import * as site from "../data/site.json";
+
+// component imports
+import Social from "./Social.astro";
+
+const { author, siteName, domain, url } = site;
+---
+
+<div class="card alt featured about">
+    <header class="card__header">
+        <img
+            src="/assets/images/title-bar-close.png"
+            height="28"
+            width="28"
+            class="control close"
+            alt="Close"
+        />
+        <div class="title">
+            <h3 class="card__title">Privacy Policy</h3>
+            <img src="/assets/images/finder.png" alt="" />
+        </div>
+        <img
+            src="/assets/images/title-bar-expand.png"
+            height="28"
+            width="28"
+            class="control expand"
+        />
+        <img
+            src="/assets/images/title-bar-collapse.png"
+            height="28"
+            width="28"
+            class="control collapse"
+        />
+        <a href="#" class="button">&nbsp;</a>
+    </header>
+
+    <section class="card__content">
+        <h3>{domain} Privacy Policy</h3>
+        <article>
+            <p>
+                <b>{domain}</b> doesn't collect personal data of any kind.
+            </p>
+            <h4>No cookies</h4>
+            <p><b>{domain}</b> doesn't use any cookies. Ever. That's all.</p>
+            <h4>If you give us personal information</h4>
+            <p>
+                If you choose to give <b>{domain}</b> personal information. For instance,
+                on a signup or contact form <i
+                    >(should I ever add these to the site)</i
+                >, that information will be:
+            </p>
+            <ul>
+                <li>
+                    the minimum amount of information required to fulfill the
+                    service.
+                </li>
+                <li>not shared with anyone else</li>
+                <li>not used for any other reason</li>
+                <li>deleted when no longer needed</li>
+            </ul>
+        </article>
+    </section>
+</div>
+
+<style>
+    .card__content {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+    }
+    .card__content h3 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin: 0;
+        text-align: center;
+    }
+    .card__content p,
+    .card__content ul {
+        font-size: 0.9rem !important;
+        text-align: left;
+    }
+    .card__content ul {
+        list-style-type: disc;
+        margin-inline-start: 1rem;
+    }
+    .card__content img {
+        display: block;
+        margin-inline: auto;
+        height: auto;
+        width: 50%;
+        max-width: 150px;
+        object-fit: contain;
+    }
+    .button.center {
+        display: block;
+        margin: 2rem auto;
+    }
+</style>

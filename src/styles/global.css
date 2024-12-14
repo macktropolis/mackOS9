@@ -114,6 +114,10 @@ hr {
     height: 1px;
     width: 100%;
 }
+b {
+        font-weight: 900;
+        text-shadow: 1px 1px 0 hsl(var(--color-dark), 0.25);
+}
 img.center {
     display: block;
     margin: 0 auto 2rem auto;

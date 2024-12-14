@@ -1,7 +1,10 @@
 ---
 // component imports
-import ContactLinks from "./ContactLinks.astro";
-import CategoryCloud from "./CategoryCloud.astro";
+import AppleMenu from "./Nav-AppleMenu.astro";
+import ContactLinks from "./Nav-ContactLinks.astro";
+import CategoryCloud from "./Nav-CategoryCloud.astro";
+import SocialShare from "./Nav-SocialShare.astro";
+import SpecialLinks from "./Nav-SpecialLinks.astro";
 
 // data imports
 import * as site from "../data/site.json";
@@ -15,29 +18,8 @@ const { author, facebook, twitter, linkedin, youtube } = site;
 
 <header class="site__header">
   <ul class="site__nav">
-    <li id="apple-menu">
-      <a href="/" title="Mack Richardson Homepage"
-        ><img
-          src="/assets/images/mack-headshot-8bit-color-small.png"
-          alt=""
-          class="home-icon"
-        /></a
-      >
-      <ul class="submenu">
-        <li class="info">
-          <div class="flex">
-            <img src="/assets/images/mack-red.png" class="avatar" />
-            👋 Hi! I'm Mack. I'm a Filemaker and Web Developer living the small town
-            life in North Carolina.
-          </div>
-        </li>
-      </ul>
-    </li><!-- end: Apple Menu -->
+    <AppleMenu />
     <li><a href="/" title="Home">Home</a></li>
-    <li>
-      <a href="/blog/">Files</a>
-      <CategoryCloud />
-    </li><!-- end: Files -->
     <li>
       <a href="#">Contact</a>
       <ul class="submenu">
@@ -45,58 +27,25 @@ const { author, facebook, twitter, linkedin, youtube } = site;
       </ul>
     </li><!-- end: Contact -->
     <li>
-      <a href="#">Special</a>
+      <a href="#">Share</a>
       <ul class="submenu">
-        <li><hr /></li>
-        <li>
-          <a
-            href="https://mackrichardson.media"
-            target="_blank"
-            title="Mack Richardson Media">
-            <img
-              src="/assets/images/m-logo.png"
-              alt="Mack Richardson Media"
-              class="filter-green"
-            />
-            Mack Richardson Media
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://hiremack.com"
-            target="_blank"
-            title="Mack Richardson Professional History">
-            <img
-              src="/assets/images/m-logo.png"
-              class="filter-gray"
-              alt="Hire Mack"
-            />
-            Mack Richardson's Resum&eacute;
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://rocketcomics.com"
-            target="_blank"
-            title="Rocket Comics">
-            <img
-              src="/assets/images/rocket-comics-8bit.png"
-              alt="Rocket Comics"
-            />
-            Rocket Comics
-          </a>
-        </li>
+        <SocialShare />
       </ul>
-    </li><!-- end: Special -->
+    </li><!-- end: Share -->
+    <li>
+      <a href="#">Related</a>
+      <ul class="submenu">
+        <SpecialLinks />
+      </ul>
+    </li><!-- end: Related -->
+    <li>
+      <a href="/blog/">Categories</a>
+      <CategoryCloud />
+    </li><!-- end: Files -->
     <li>
       <a href="#">Help</a>
       <ul class="submenu">
-        <li>
-          <a href="#popup1">
-            <img src="/assets/images/m-logo.png" alt="About Mack Richardson" />
-            About Mack Richardson&hellip;
-          </a>
-        </li>
+        <li><a href="#popup4" title="">Privacy Policy</a></li>
         <li><hr /></li>
         <li class="info">
           &copy<script type="text/javascript" is:inline>
@@ -162,7 +111,7 @@ const { author, facebook, twitter, linkedin, youtube } = site;
     height: 100%;
     justify-content: center;
     margin: 0;
-    padding: 0 0.75rem;
+    padding: 0 0.7rem;
     text-decoration: none;
     width: 100%;
   }
@@ -253,7 +202,7 @@ const { author, facebook, twitter, linkedin, youtube } = site;
     inset: auto auto auto -10px;
     width: 15px;
   }
-  @media only screen and (max-width: 500px) {
+  @media only screen and (max-width: 700px) {
     #site-loc {
       opacity: 0;
       width: 0;

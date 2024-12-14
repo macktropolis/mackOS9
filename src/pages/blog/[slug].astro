@@ -18,7 +18,7 @@ import { slugify, formatBlogPosts, formatDate } from "../../js/utils";
 export async function getStaticPaths() {
   const allPosts = await getCollection("blog");
   const formattedPosts = formatBlogPosts(allPosts);
-
+  //@ts-ignore
   return formattedPosts.map((post) => ({
     params: { slug: post.slug },
     props: {
@@ -42,6 +42,7 @@ const formattedPosts = formatBlogPosts(allPosts, {
 });
 const relatedPosts = formattedPosts
   .filter(
+    //@ts-ignore
     (post) => post.data.category === category && post.data.title !== title,
   )
   .slice(0, 3);
@@ -154,15 +155,13 @@ const categoryTitle = "More Article Categories";
 
 <style is:global>
   #slug {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-    align-items: start;
     margin: 0 auto;
     padding: 0;
-    width: min(100ch, 100%);
+    position: relative;
+    width: 95%;
+    z-index: 10;
   }
+
   main {
     columns: unset;
     margin: 0;
@@ -171,6 +170,7 @@ const categoryTitle = "More Article Categories";
   #slug > main {
     padding-bottom: 0;
   }
+
   aside.related {
     width: 100%;
   }
@@ -269,5 +269,24 @@ const categoryTitle = "More Article Categories";
   .control.collapse,
   .control.expand {
     opacity: 0;
+  }
+
+  @media screen and (min-width: 900px) {
+    #slug {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      align-items: start;
+      margin: 0 0 0 2rem;
+      width: min(90%, 100%);
+    }
+    #slug > main {
+      flex: 1 1 65%;
+      min-width: 25ch;
+    }
+    #slug > aside.related {
+      flex: 1 1 35%;
+      min-width: 15ch;
+    }
   }
 </style>
