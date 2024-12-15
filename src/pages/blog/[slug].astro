@@ -134,7 +134,7 @@ const categoryTitle = "More Article Categories";
 
               <section id="content">
                 <h1>{title}</h1>
-                <TagCloud tags={tags} />
+                <TagCloud tags={tags ?? []} />
                 <Content />
               </section>
             </article>
