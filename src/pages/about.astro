@@ -137,9 +137,16 @@ const description =
                   >, and almost anything else that's fun in the Pop Culture
                   universe.
                 </p>
-                <a href={youtube} target="_blank" class="button primary">
-                  See MackDaddy Fun &amp; Games</a
-                >
+                <div class="buttons">
+                  <a href={youtube} target="_blank" class="button secondary">
+                    <img src="/assets/images/youtube.png" alt="YouTube" />MackDaddy Fun &amp; Games on YouTube</a
+                  >
+                  <a
+                    href="/category/mackdaddy-fun-games/"
+                    class="button primary"
+                    >MackDaddy Fun &amp; Games Articles</a
+                  >
+                </div>
               </div>
               <h3>Even More Mack</h3>
               <Social />
@@ -217,6 +224,28 @@ const description =
     left: 0;
     height: 36px;
     width: 36px;
+  }
+  .buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+  }
+  .buttons .button {
+    margin: 0;
+  }
+  .button {
+    align-items: center;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .button > img {
+    margin: 0;
+    height: 24px;
+    width: 24px;
   }
   .control.collapse,
   .control.expand {

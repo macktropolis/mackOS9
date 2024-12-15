@@ -77,13 +77,10 @@ const { title, date, author, image, description, category, tags } = data;
         </h2>
         <TagCloud tags={tags} />
         <p>{description}</p>
-
         <a href={`/blog/${slugify(url)}`} class="button">Read More</a>
       </article>
       <section class="card__meta">
         <p>
-          <!-- <a href={`/category/${slugify(category)}/`} class="badge">{category}</a> 
-          &bull; -->
           <a href={`/author/${slugify(author)}/`}>{author}</a>
           &bull; Posted: {formatDate(date)}
         </p>

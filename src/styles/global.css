@@ -186,7 +186,7 @@ main {
 
 @media screen and (min-width: 768px) {
     main {
-        margin: 0 0 0 2rem;
+        margin: 0 0 0 1rem;
     }
 }
 /* = = = = = = = = = = = = = 
@@ -643,25 +643,26 @@ Tag Cloud
     align-items: center;
     clear: both;
     display: flex;
+    gap: 0.5rem;
     justify-content: flex-start;
-    margin: 1rem 0;
-    margin-bottom: 0.5rem;
+    margin: 1rem auto;
+    width: fit-content;
 }
 .tag-cloud small {
+    display: none;
     font-size: 0.8rem;
-    margin-right: 0.5rem;
+    font-weight: bold;
 }
 .tag-cloud ul.tags {
     display: flex;
     flex-wrap: wrap;
-    column-gap: 0.5rem;
+    gap: 0.5rem;
     list-style: none;
     padding: 0;
     margin: 0;
 }
 .tag-cloud ul.tags li {
-    display: inline-block;
-    margin: 0 0 1.25rem 0 !important;
+    margin: 0 !important;
     padding: 0 !important;
 }
 #content .tag-cloud ul.tags a,
