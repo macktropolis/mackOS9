@@ -15,6 +15,7 @@ import PostCard from "../../components/PostCard.astro";
 import { slugify, formatBlogPosts } from "../../js/utils";
 
 // export formatted blog posts with pagination
+//@ts-ignore
 export async function getStaticPaths({ paginate }) {
   const allPosts = await getCollection("blog");
   const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts);

@@ -28,6 +28,7 @@ export async function getStaticPaths() {
   ];
   return allTags.map((tag) => {
     const tagPosts = formattedPosts.filter(
+      //@ts-ignore
       (post) => post.data.tags.includes(tag), // Match posts with the current tag
     );
     return {
