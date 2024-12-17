@@ -22,7 +22,7 @@ const { author, authorName } = Astro.props;
         alt="Close"
       />
       <div class="title">
-        <h3 class="card__title">{authorName}</h3>
+        <h3 class="card__title">Articles by {authorName}</h3>
         <span class="icon">&nbsp;</span>
       </div>
       <img
@@ -37,6 +37,7 @@ const { author, authorName } = Astro.props;
         width="28"
         class="control collapse"
       />
+      <a href="/" class="button">&nbsp;</a>
     </header>
 
     <section class="card__content">
@@ -65,6 +66,17 @@ const { author, authorName } = Astro.props;
 <style>
   .control {
     opacity: 0;
+  }
+  .control.close {
+    opacity: 1;
+  }
+  .card__header a.button {
+    all: unset;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 36px;
+    width: 36px;
   }
   .card__content {
     all: unset;
