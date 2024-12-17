@@ -75,9 +75,9 @@ const { title, date, author, image, description, category, tags } = data;
         <h2>
           <a href={`/blog/${slugify(url)}`}>{title}</a>
         </h2>
-        <TagCloud tags={tags} />
         <p>{description}</p>
         <a href={`/blog/${slugify(url)}`} class="button">Read More</a>
+        <TagCloud tags={tags} />
       </article>
       <section class="card__meta">
         <p>

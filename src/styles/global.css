@@ -636,53 +636,6 @@ Avatars
 }
 
 /* = = = = = = = = = = = = = 
-Tag Cloud
-= = = = = = = = = = = = = */
-.tag-cloud {
-    align-items: center;
-    clear: both;
-    display: flex;
-    gap: 0.5rem;
-    justify-content: flex-start;
-    margin: 1rem auto;
-    width: fit-content;
-}
-.tag-cloud small {
-    display: none;
-    font-size: 0.8rem;
-    font-weight: bold;
-}
-.tag-cloud ul.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.tag-cloud ul.tags li {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-#content .tag-cloud ul.tags a,
-.tag-cloud ul.tags a {
-    background-color: hsl(var(--color-dark), 0.75);
-    color: hsl(var(--color-light),1);
-    font-family: var(--font-sans);
-    font-size: clamp(0.5rem, 0.75rem, 1rem);
-    margin: 0;
-    padding: 0.5rem;
-    position: relative;
-    text-decoration: none !important;
-    transition: background-color 0.5s ease-in-out;
-    z-index: 1;
-}
-#content .tag-cloud ul.tags a:hover,
-.tag-cloud ul.tags a:hover {
-    background-color: hsl(var(--color-selection), 1);
-}
-
-/* = = = = = = = = = = = = = 
 Picker List
 = = = = = = = = = = = = = */
 ul.picker {

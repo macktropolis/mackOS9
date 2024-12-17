@@ -5,7 +5,7 @@ import * as site from "../data/site.json";
 // component imports
 import Social from "./Social.astro";
 
-const { author, siteName, domain, url } = site;
+const { author, domain } = site;
 ---
 
 <div class="card alt featured about">
@@ -44,7 +44,7 @@ const { author, siteName, domain, url } = site;
             </p>
             <h4>No cookies</h4>
             <p><b>{domain}</b> doesn't use any cookies. Ever. That's all.</p>
-            <h4>If you give us personal information</h4>
+            <h4>If you give {author} any personal information</h4>
             <p>
                 If you choose to give <b>{domain}</b> personal information. For instance,
                 on a signup or contact form <i
