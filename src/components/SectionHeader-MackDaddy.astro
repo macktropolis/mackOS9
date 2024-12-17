@@ -46,7 +46,12 @@ const classMD = "mackdaddy-fun-games";
     </header>
 
     <section class="card__content">
-      <img src="/assets/images/mackdaddy-logo@3x.png" class="logo" alt="MackDaddy Fun & Games Logo" aria-hidden="false" />
+      <img
+        src="/assets/images/mackdaddy-logo@3x.png"
+        class="logo"
+        alt="MackDaddy Fun & Games Logo"
+        aria-hidden="false"
+      />
     </section>
   </div>
 </div><!-- end: .card-wrapper -->
@@ -73,17 +78,18 @@ const classMD = "mackdaddy-fun-games";
     );
     display: grid;
     justify-content: center;
-    align-items: center;
+    padding: 0 !important;
   }
   .card__content > .logo {
     height: auto;
     margin: 0 auto;
     display: block;
-    width: max(50%, 500px);
+    width: max(50%, 80%);
   }
   .card__wrapper {
-    margin: 0 0 0 1rem;
-    width: 90%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
   }
   .card__header a.button {
     all: unset;

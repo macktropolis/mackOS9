@@ -174,7 +174,7 @@ Main
 = = = = = = = = = = = = = */
 main {
     animation: fade 1.5s 1;
-    columns: 400px;
+    columns: 425px;
     column-gap: 1rem;
     margin: 0 auto;
     padding: 0 0 1rem 0;

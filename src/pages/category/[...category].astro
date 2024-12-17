@@ -47,19 +47,19 @@ interface Props {
 const { category } = Astro.params;
 const { posts, categoryName } = Astro.props;
 const headerTitle = "Files";
-const categoryTitle = "More Article Categories";
+const categoryTitle = category ?? "More Article Categories";
 const title = categoryName + " Articles";
 const description = "";
 const categorySlug = slugify(categoryName);
 ---
 
 <Layout title={title} page={categoryName} categorySlug={categorySlug}>
-  {
-    // if the category is "MackDaddy Fun & Games", use the HeroMD component
-    categoryName === "MackDaddy Fun & Games" && <HeroMD />
-  }
-
   <main>
+    {
+      // if the category is "MackDaddy Fun & Games", use the HeroMD component
+      categoryName === "MackDaddy Fun & Games" && <HeroMD />
+    }
+
     {
       // if the category is not "MackDaddy Fun & Games", use the Hero component
       categoryName != "MackDaddy Fun & Games" && (
