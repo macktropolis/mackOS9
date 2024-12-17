@@ -1,5 +1,5 @@
 ---
-title: "The Regeneration of the Doctor Who Logo"
+title: "The Doctor Who Logo Through Time"
 date: 2024-11-05
 author: "Mack Richardson"
 image:

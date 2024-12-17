@@ -1,5 +1,5 @@
 ---
-title: "Mack's Top 5 Superman Artists"
+title: "Top 5 Superman Artists"
 date: 2024-11-24
 author: "Mack Richardson"
 image:

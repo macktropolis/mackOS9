@@ -1,5 +1,5 @@
 ---
-title: Retro Micro Toy Boxes (and magnets, too)
+title: Retro Mini Toy Boxes (and magnets, too)
 date: 2022-05-02
 author: Mack Richardson
 image:
@@ -7,7 +7,7 @@ image:
     src: "/assets/images/blog/2022-05-02-micro-toy-boxes/md-microtoyboxes.jpg",
     alt: "Micro Toy Boxes",
   }
-description: We're toy hunting at Chester's Collectibles and we find some 80s & 90s gems.
+description: Let's have a look at some mini toy boxes that'll make you nostalgic for 70s and 80s toys. Oh, yeah...and they are magnets too.
 draft: false
 category: MackDaddy Fun & Games
 tags: ["battlestar galactica", "star wars", "toys", "collectibles"]  # Add tags here
@@ -15,9 +15,9 @@ tags: ["battlestar galactica", "star wars", "toys", "collectibles"]  # Add tags 
 
 Love old **toys**? Love **miniatures**? 
 
-Then you'll love these micro toy boxes.
+Then you'll love these mini toy boxes.
 
-Let's have a look at some micro toy boxes that will have you feeling nostalgic for some of the best in 70s and 80s toys. Oh, yeah...and they are magnets too.
+Let's have a look at some mini toy boxes that will have you feeling nostalgic for some of the best in 70s and 80s toys. Oh, yeah...and they are magnets too.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Q7nJ4qaHuEI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 

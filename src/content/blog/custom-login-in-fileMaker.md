@@ -1,5 +1,5 @@
 ---
-title: Crafting a Visually Striking and Customizable Login for FileMaker Solutions
+title: Crafting a Custom Login for FileMaker Solutions
 date: 2023-04-05
 author: Mack Richardson
 image:

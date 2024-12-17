@@ -1,5 +1,5 @@
 ---
-title: Let's Go Toy Hunting at Chester's Collectibles
+title: Toy Hunting at Chester's Collectibles
 date: 2022-04-03
 author: Mack Richardson
 image:

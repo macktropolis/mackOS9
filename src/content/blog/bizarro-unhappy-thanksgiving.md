@@ -1,5 +1,5 @@
 ---
-title: "Bizarro Thanksgiving"
+title: "Unhappy Thanksgiving from Bizarro"
 date: 2024-11-28
 author: "Mack Richardson"
 image:

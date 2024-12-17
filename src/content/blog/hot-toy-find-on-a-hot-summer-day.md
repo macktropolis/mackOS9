@@ -1,5 +1,5 @@
 ---
-title: A Hot Toy Hunt on a Hot Summer Day
+title: A Hot Toy Find on a Hot Summer Day
 date: 2022-06-10
 author: Mack Richardson
 image:

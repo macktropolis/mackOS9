@@ -1,5 +1,5 @@
 ---
-title: "Mack's Top 5 Iron Man Armors"
+title: "Top 5 Iron Man Armors"
 date: 2024-10-25
 author: "Mack Richardson"
 image:

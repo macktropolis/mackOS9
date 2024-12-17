@@ -1,7 +1,7 @@
 ---
-title: 'MackDaddy Mail Haul #1'
+title: "Unboxing Toys and Other Fun Stuff"
 date: 2022-05-06
-author: Mack Richardson
+author: "Mack Richardson"
 image:
   {
     src: "/assets/images/blog/2022-05-06-mackdaddy-mail-haul-1/md-mailhaul01.jpg",
