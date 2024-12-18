@@ -10,12 +10,17 @@ import Privacy from "../components/Popup-Privacy.astro";
 import Snow from "../components/Snowfall.astro";
 
 const { title, page, categorySlug } = Astro.props;
+const url = Astro.url.pathname;
 ---
 
 <!doctype html>
 <html lang="en">
 	<BaseHead title={title ?? "Mack Richardson"} />
-	<SiteHeader page={page ?? "Home"} />
+	<SiteHeader
+		title={title ?? "Mack Richardson"}
+		url={url}
+		page={page ?? "Home"}
+	/>
 
 	<body class={categorySlug ?? ""}>
 		<Media />

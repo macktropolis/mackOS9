@@ -2,12 +2,7 @@
 // data imports
 import * as site from "../data/site.json";
 
-interface Props {
-    url?: string;
-}
-
-const { siteName, description } = site;
-const url = Astro.url;
+const { siteName, author, url, description } = site;
 ---
 
 <li>
