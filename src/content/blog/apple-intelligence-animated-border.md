@@ -1,5 +1,5 @@
 ---
-title: "Replicating Siri’s Animated Gradient Border Effect with CSS"
+title: "Recreating Siri’s Animated Gradient Border Effect with CSS"
 date: 2024-12-17
 author: "Mack Richardson"
 image:

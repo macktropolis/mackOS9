@@ -244,6 +244,8 @@ Cards
     line-height: 100%;
     margin: 0;
     padding: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 .card__header img {
     height: 38px;
