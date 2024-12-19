@@ -63,7 +63,8 @@ body::after {
     z-index: -2;
 }
 h1, h2, h3, h4, h5, h6 {
-    border-bottom: 3px double hsl(var(--color-dark), 1);
+    border-bottom: 1px solid hsl(var(--color-dark), 0.5);
+    box-shadow: 0 1px 0 hsl(var(--color-mid), 1);
     font-size: clamp(1.6rem, 2rem, 2.5rem);
     font-family: var(--font-serif-light);
     font-weight: normal;
@@ -352,8 +353,12 @@ Button
         0 0 0 1px hsl(var(--color-dark), 1),
         inset -1px -1px 0 1px hsl(var(--color-dark), 0.25), /* Subtle inner shadow */
         inset 1px 1px 0 2px hsl(var(--color-light), 0.5); /* Subtle inner shadow */
+    color: hsl(var(--color-dark), 1) !important; /* Dark gray text */
     cursor: pointer; /* Indicate clickable state */
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5rem;
     font-family: var(--font-sans);
     font-size: .9rem;
     margin-top: .5rem;
@@ -387,6 +392,12 @@ Button
         inset 1px 1px 0 1px hsl(var(--color-dark), 0.5), /* Subtle inner shadow */
         inset -1px -1px 0 2px hsl(var(--color-light), 0.25); /* Subtle inner shadow */
 }
+.button > img {
+    outline: none !important;
+    box-shadow: none !important;
+    height: 24px;
+    width: 24px;
+  }
 
 /* = = = = = = = = = = = = = 
 CSS Only Modal Pop-up
@@ -774,7 +785,8 @@ section.listicle-item h3 > :where(em, i) {
 }
 section.listicle-item h5 {
     border-bottom: none !important;
-    border-top: 3px double hsl(var(--color-dark), 1);
+    border-top: 1px solid hsl(var(--color-dark), 0.5);
+    box-shadow: 0 -1px 0 hsl(var(--color-mid), 1);
     font-size: 1.25ch !important;
     margin-top: 2rem;
     padding-top: 1rem;

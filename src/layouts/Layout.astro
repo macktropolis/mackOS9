@@ -9,17 +9,18 @@ import CategoryList from "../components/CategoryPicker.astro";
 import Privacy from "../components/Popup-Privacy.astro";
 import Snow from "../components/Snowfall.astro";
 
-const { title, page, categorySlug } = Astro.props;
+const { title, description, page, categorySlug } = Astro.props;
 const url = Astro.url.pathname;
 ---
 
 <!doctype html>
 <html lang="en">
-	<BaseHead title={title ?? "Mack Richardson"} />
+	<BaseHead title={title ?? "Mack Richardson"} description={description} />
 	<SiteHeader
 		title={title ?? "Mack Richardson"}
 		url={url}
 		page={page ?? "Home"}
+		description={description}
 	/>
 
 	<body class={categorySlug ?? ""}>

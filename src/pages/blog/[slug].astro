@@ -3,6 +3,9 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 
+//  data imports
+import site from "../../data/site.json";
+
 //  layout imports
 import Layout from "../../layouts/Layout.astro";
 
@@ -34,6 +37,7 @@ interface Props {
 
 const { post } = Astro.props;
 const { title, description, date, category, tags, author, image } = post.data;
+const { url } = site;
 
 const { Content } = await post.render();
 
@@ -136,6 +140,75 @@ const categoryTitle = "More Article Categories";
                 <h1>{title}</h1>
                 <Content />
                 <TagCloud tags={tags ?? []} />
+                <section class="share">
+                  <a
+                    href={`https://www.facebook.com/sharer/sharer.php?u=` +
+                      url +
+                      "/blog/" +
+                      post.slug}
+                    title="Share on Facebook"
+                    target="_blank"
+                    rel="noopener"
+                    class="button">
+                    <img src="/assets/images/facebook.png" alt="" /> Share on Facebook
+                  </a>
+                  <a
+                    href={`https://x.com/intent/tweet?url=` +
+                      url +
+                      "/blog/" +
+                      post.slug +
+                      `&text=` +
+                      description}
+                    title="Share on X / Twitter"
+                    class="button"
+                    target="_blank"
+                    rel="noopener">
+                    <img src="/assets/images/twitter.png" alt="" /> Share on X/Twitter
+                  </a>
+                  <a
+                    href={`https://www.linkedin.com/shareArticle?mini=true&url=` +
+                      url +
+                      "/blog/" +
+                      post.slug +
+                      `&title=` +
+                      title +
+                      `&summary=` +
+                      description}
+                    title="Share on LinkedIn"
+                    class="button"
+                    target="_blank"
+                    rel="noopener">
+                    <img src="/assets/images/linkedin.png" alt="" /> Share on LinkedIn
+                  </a>
+                  <a
+                    href={`https://pinterest.com/pin/create/button/?url=` +
+                      url +
+                      "/blog/" +
+                      post.slug +
+                      `&description=` +
+                      description}
+                    title="Share on Pinterest"
+                    class="button"
+                    target="_blank"
+                    rel="noopener">
+                    <img src="/assets/images/pinterest.png" alt="" /> Share on Pinterest
+                  </a>
+                  <a
+                    href={`mailto:?subject=` +
+                      title +
+                      `&body=` +
+                      description +
+                      `%20` +
+                      url +
+                      "/blog/" +
+                      post.slug}
+                    title="Share via Email"
+                    target="_blank"
+                    class="button"
+                    rel="noopener">
+                    <img src="/assets/images/mail.png" alt="" /> Share via Email
+                  </a>
+                </section>
               </section>
             </article>
             <section class="card__meta">
@@ -157,7 +230,7 @@ const categoryTitle = "More Article Categories";
 <style is:global>
   #slug {
     margin: 0 auto;
-    padding: 0;
+    padding: 0 0 2rem 0;
     position: relative;
     width: 95%;
     z-index: 10;
@@ -214,7 +287,8 @@ const categoryTitle = "More Article Categories";
     margin-bottom: 2rem;
   }
   #content :where(h2, h3, h4, h5, h6) {
-    border-bottom: 3px double hsl(var(--color-dark), 1);
+    border-bottom: 1px solid hsl(var(--color-dark), 0.5);
+    box-shadow: 0 1px 0 hsl(var(--color-mid), 1);
     padding-bottom: 1rem;
   }
   #content p {
@@ -271,7 +345,20 @@ const categoryTitle = "More Article Categories";
   .control.expand {
     opacity: 0;
   }
-
+  .share {
+    border-top: 1px solid hsl(var(--color-dark), 0.5);
+    box-shadow: 0 -1px 0 hsl(var(--color-mid), 1);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0 0 0;
+    padding: 2rem 0 0 0;
+  }
+  .share a {
+    margin: 0;
+  }
   @media screen and (min-width: 900px) {
     #slug {
       display: flex;
