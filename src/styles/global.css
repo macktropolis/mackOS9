@@ -753,6 +753,12 @@ img.round {
     height: 350px !important;
     width: 350px !important;
 }
+img.no-fill {
+    background: transparent;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+}
 
 /* = = = = = = = = = = = = = 
 Listicle Styles
