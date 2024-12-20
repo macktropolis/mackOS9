@@ -15,7 +15,7 @@ tags: ["npm","terminal"]  # Add tags here
 
 Let's build a business card for the *terminal*! Because, who doesn’t love faffin' around in the terminal? 😅 
 
-The concept isn’t new. I came across the trend on [Chris Bonger's Daily Dev Tips](https://daily-dev-tips.com/posts/creating-a-business-card-for-the-terminal/), but the original concept goes back to [bitandbanger](https://github.com/bnb/bitandbang). However, the idea is so cool that it’s worth sharing again.
+The concept isn’t new. I came across the trend on [Chris Bonger's Daily Dev Tips](https://daily-dev-tips.com/posts/creating-a-business-card-for-the-terminal/), but the original concept goes back to [bitandbang](https://github.com/bnb/bitandbang). However, the idea is so cool that it’s worth sharing again.
 
 Today, we’re going to take that idea and make it our own.
 
