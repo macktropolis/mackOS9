@@ -22,12 +22,6 @@ Every so often the Doctor would have to regenerate into a new body, a cast chang
 
 I love classic _Doctor Who_. I love Logos. So let's have a look at how the logo regenerated with each new Doctor.
 
-<br>
-
----
-
-<br>
-
 <section class="listicle-item">
 
   ### **1** William Hartnell _(1963-1965)_
@@ -133,13 +127,12 @@ Nine years after the failed American relaunch, _Doctor Who_ returned to the BBC 
 
 <style>
   .listicle-item {
-    border-bottom: 1px solid hsl(var(--color-dark), 0.5);
-    margin-bottom: 4rem !important;
-    padding-bottom: 4rem !important;
+    border-bottom: none !important;
+    margin-bottom: 1rem !important;
+    padding-bottom: 1rem !important;
   }
   .listicle-item > h3:first-of-type {
     border-bottom: none !important;
-    margin-bottom: 0 !important;
   }
   .listicle-item > h4:first-of-type {
     background-color: hsl(var(--color-dark), 1);
@@ -167,7 +160,7 @@ Nine years after the failed American relaunch, _Doctor Who_ returned to the BBC 
   img.secondary {
     float: left !important;
     shape-outside: circle(84px at 80px 71px);
-    margin-right: 1rem !important;
-    margin-top: 2rem;
+    margin-right: 2rem !important;
+    margin-top: 1rem !important;
   }
 </style>

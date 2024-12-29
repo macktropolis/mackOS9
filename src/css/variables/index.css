@@ -1,0 +1,24 @@
+:root {
+    --color-base: 0, 0%, 92%;
+    --color-dark: 0, 0%, 15%;
+    --color-light: 0, 0%, 100%;
+    --color-light-2: 0, 0%, 92%;
+    --color-mid: 0, 0%, 80%;
+    --color-mid-2: 0, 0%, 40%;
+    --color-selection: 240, 50%, 40%;
+    --color-bright: 359, 38%, 57%;
+    --color-bright-2: 196, 41%, 59%;
+    --color-highlight: 240, 22%, 80%;
+
+    --gradient-color: 220, 92%, 75%;
+    --gradient-color-2: 214, 91%, 74%;
+    --gradient-color-3: 246, 97%, 85%;
+
+    --font-sans: 'CheckboxFLF', sans-serif;
+    --font-sans-alt: 'Geneva', 'Gill Sans', sans-serif;
+    --font-serif: 'Apple Garamond', sans-serif;
+    --font-serif-light: 'Apple Garamond Light', sans-serif;
+    --font-mono: monospace;
+    
+    --wallpaper-christmas: url('/assets/images/holiday-cards/alpine.jpg');
+}
