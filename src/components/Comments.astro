@@ -1,0 +1,60 @@
+---
+// library imports
+import { Image } from "astro:assets";
+
+// utils imports
+import { slugify, formatDate } from "../js/utils";
+
+// const { data, url } = Astro.props;
+// const { title, date, author, image, description, category, tags } = data;
+---
+
+<div class="card__wrapper">
+    <div class="card post">
+        <header class="card__header">
+            <img
+                src="/assets/images/title-bar-close.png"
+                height="28"
+                width="28"
+                class="control close"
+                alt="Close"
+            />
+            <div class="title">
+                <h3 class="card__title">Comments</h3>
+                <span class="comments">&nbsp;</span>
+            </div>
+            <img
+                src="/assets/images/title-bar-expand.png"
+                height="28"
+                width="28"
+                class="control expand"
+            />
+            <img
+                src="/assets/images/title-bar-collapse.png"
+                height="28"
+                width="28"
+                class="control collapse"
+            />
+        </header>
+
+        <section class="card__content">
+            <article>
+                <script defer src="https://cdn.commento.io/js/commento.js"
+                ></script>
+                <div id="commento"></div>
+            </article>
+        </section>
+    </div>
+</div><!-- end: .card-wrapper -->
+
+<style>
+    .card__content {
+        padding-bottom: 1rem;
+    }
+    .post .control {
+        opacity: 0;
+    }
+    p {
+        font-size: clamp(0.75rem, 0.85rem, 0.95rem);
+    }
+</style>

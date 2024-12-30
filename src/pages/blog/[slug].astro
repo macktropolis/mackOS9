@@ -13,6 +13,7 @@ import Layout from "../../layouts/Layout.astro";
 //  import Hero from "../../components/SectionHeader.astro";
 import RelatedPosts from "../../components/RelatedPosts.astro";
 import TagCloud from "../../components/Tags.astro";
+import Comments from "../../components/Comments.astro";
 
 // utils imports
 import { slugify, formatBlogPosts, formatDate } from "../../js/utils";
@@ -222,6 +223,7 @@ const categoryTitle = "More Article Categories";
       </div><!-- end: .card-wrapper -->
     </main>
     <aside class="related">
+      <Comments />
       <RelatedPosts {relatedPosts} />
     </aside>
   </div>
