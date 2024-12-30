@@ -461,6 +461,9 @@ Category Icon
 .icon.web-development {
     background-image: url('/assets/images/homepage-builder.png');
 }
+.icon.comments {
+    background-image: url('/assets/images/sharing.png');
+}
 /* = = = = = = = = = = = = = 
 Avatars
 = = = = = = = = = = = = = */
@@ -648,8 +651,11 @@ section#content section.listicle-item:first-of-type {
 /* = = = = = = = = = = = = = 
 Comments
 = = = = = = = = = = = = = */
-.commento {
+#commento {
 
+}
+.commento-root .commento-error-box {
+    height: auto !important;
 }
 
 /* = = = = = = = = = = = = = 
