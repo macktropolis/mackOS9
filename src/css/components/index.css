@@ -651,12 +651,6 @@ section#content section.listicle-item:first-of-type {
 /* = = = = = = = = = = = = = 
 Comments
 = = = = = = = = = = = = = */
-#commento {
-
-}
-.commento-root .commento-error-box {
-    height: auto !important;
-}
 
 /* = = = = = = = = = = = = = 
 Animations
