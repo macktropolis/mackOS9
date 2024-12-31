@@ -57,9 +57,14 @@ const relatedPosts = formattedPosts
 // Replace "specific-tag" with the tag you want to check
 
 const categoryTitle = "More Article Categories";
+const postURL = url + "/blog/" + post.slug;
 ---
 
-<Layout title={title} description={description} page={category}>
+<Layout
+  title={title}
+  description={description}
+  page={category}
+  postURL={postURL}>
   <div id="slug">
     <main id="slug__post">
       <div class="card__wrapper">

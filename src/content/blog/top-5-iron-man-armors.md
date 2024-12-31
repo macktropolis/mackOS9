@@ -96,6 +96,7 @@ The red and gold Iron Man Model 4 is the seminal Iron Man armor. This armor esta
 <style>
   section.one img.primary {
     shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-2-mk-1.png);
+    shape-margin: 2rem;
   }
   section.two img.primary {
     shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-8.png);
@@ -104,6 +105,7 @@ The red and gold Iron Man Model 4 is the seminal Iron Man armor. This armor esta
   section.three img.primary {
     shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-ultimate.png);
     max-width: 225px !important;
+    shape-margin: 2rem;
   }
   section.four img.primary {
     shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-13-hulkbuster.png);
@@ -113,8 +115,10 @@ The red and gold Iron Man Model 4 is the seminal Iron Man armor. This armor esta
   section.five img.primary {
     shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-1.png);
     max-width: 200px !important;
+    shape-margin: 2rem;
   }
   section.six img.primary {
     shape-outside: url(/assets/images/blog/2024-10-31-top-5-iron-man-armors/iron-man-model-4-a.png);
+    shape-margin: 2rem;
   }
 </style>

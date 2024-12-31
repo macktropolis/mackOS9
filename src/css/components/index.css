@@ -542,7 +542,6 @@ ul.picker {
 Listicle Styles
 = = = = = = = = = = = = = */
 section.listicle-item h3 {
-    border: none !important;
     font-size: clamp(2rem, 3rem, 3.5rem);
     text-align: center;
 }
@@ -568,9 +567,6 @@ section.listicle-item h3 > :where(em, i) {
     font-size: 1.25ch;
 }
 section.listicle-item h5 {
-    border-bottom: none !important;
-    border-top: 1px solid hsl(var(--color-dark), 0.5);
-    box-shadow: 0 -1px 0 hsl(var(--color-mid), 1);
     font-size: 1.25ch !important;
     margin-top: 2rem;
     padding-top: 1rem;

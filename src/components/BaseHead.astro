@@ -11,10 +11,11 @@ import "../../style.css";
 interface Props {
     title?: string;
     description?: string;
+    postURL?: string;
 }
 
 const { siteName, author, url, favicon, logo, ogImage } = site;
-const { title, description } = Astro.props;
+const { title, description, postURL } = Astro.props;
 ---
 
 <head>
@@ -41,14 +42,14 @@ const { title, description } = Astro.props;
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={url} />
+    <meta property="og:url" content={postURL ?? url} />
     <meta property="og:title" content={`${title} | ${siteName}`} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={url} />
+    <meta property="twitter:url" content={postURL ?? url} />
     <meta property="twitter:title" content={`${title} | ${siteName}`} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImage} />

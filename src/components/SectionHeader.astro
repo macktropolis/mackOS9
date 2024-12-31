@@ -46,7 +46,7 @@ const categorySlug = slugify(category);
 
     <section class={`card__content ${categorySlug}`}>
       <article>
-        <h1>{title ?? "Blog Articles"}</h1>
+        <h1 class="title">{title ?? "Blog Articles"}</h1>
         <p>
           {title ?? "Blog Articles"}
         </p>
@@ -59,8 +59,9 @@ const categorySlug = slugify(category);
   .control {
     opacity: 0;
   }
-  h1 {
-    border: none;
+  h1.title {
+    border: none !important;
+    box-shadow: none !important;
     margin: 0;
   }
   p {
