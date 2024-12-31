@@ -118,6 +118,7 @@ I love classic _Doctor Who_. I love Logos. So let's have a look at how the logo 
 
 </section>
 
+### Future Regenerations
 Nine years after the failed American relaunch, _Doctor Who_ returned to the BBC with a weekly adventures which are still running today. The modern _Doctor Who_ never recaptured the magic of the classic series. And that's okay. I'll keep checking in on The Doctor from time to time, but I'll always have a soft spot for the classic series and it's timeless logos.
 
 <section class="footnote">
@@ -147,20 +148,25 @@ Nine years after the failed American relaunch, _Doctor Who_ returned to the BBC 
   .listicle-item > img:not([class]) {
     clear: both;
     display: block;
-    margin: 2rem auto;
+    height: auto;
+    margin: 5rem auto;
+    width: 100%;
     max-width: 100% !important;
  }
   img.tardis {
     float: left;
-    margin: 0 1rem 1rem 0;
+    margin: 0.5rem 1rem 0.5rem 0;
     max-width: 200px !important;
     shape-outside: url(/assets/images/blog/2024-11-05-regeneration-of-a-logo/tardis.png);
     shape-margin: 1.25rem;
   }
   img.secondary {
+    height: auto;
     float: left !important;
     shape-outside: circle(84px at 80px 71px);
     margin-right: 2rem !important;
-    margin-top: 1rem !important;
+    margin-top: 0 !important;
+    max-width: auto !important;
+    width: 200px !important;
   }
 </style>

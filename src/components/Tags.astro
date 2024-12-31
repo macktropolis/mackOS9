@@ -31,7 +31,7 @@ const { tags } = Astro.props;
     display: grid;
     align-items: center;
     margin: 1.5rem 0 0 0;
-    padding: 0 0 0 10px;
+    padding: 0;
   }
   .tag-cloud ul.tags {
     align-items: start;
@@ -50,106 +50,38 @@ const { tags } = Astro.props;
     padding: 0 !important;
   }
   .tags a {
-    -webkit-border-bottom-right-radius: 3px;
-    -webkit-border-top-right-radius: 3px;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     background: hsl(0, 0%, 47%);
-    border-bottom-right-radius: 3px;
-    border-top-right-radius: 3px;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 24px;
     color: hsl(0, 0%, 100%) !important;
     display: inline-block;
-    font-size: 11px;
     font-weight: bold;
-    height: 24px;
-    line-height: 24px;
+    line-height: 120%;
     margin: 0;
-    padding: 0 10px 0 12px;
+    padding: 6px 12px;
     position: relative;
     text-decoration: none;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   }
-  .tags a::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -12px;
-    width: 0;
-    height: 0;
-    border-color: transparent hsl(231, 53%, 42%) transparent transparent;
-    border-style: solid;
-    border-width: 12px 12px 12px 0;
-  }
 
-  .tags a::after {
-    content: "";
-    position: absolute;
-    top: 10px;
-    left: 1px;
-    float: left;
-    width: 5px;
-    height: 5px;
-    -webkit-border-radius: 50%;
-    border-radius: 50%;
-    background: hsl(0, 0%, 100%);
-    -webkit-box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.4);
-    box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.4);
-  }
   .tags a {
     background: hsl(28, 91%, 54%);
-  }
-  .tags a::before {
-    border-color: transparent hsl(28, 91%, 54%) transparent transparent;
-  }
-  .tags a::after {
-    border-color: transparent transparent transparent hsl(28, 91%, 54%);
   }
   .tags li:nth-child(2n) a {
     background: hsl(76, 69%, 45%);
   }
-  .tags li:nth-child(2n) a::before {
-    border-color: transparent hsl(76, 69%, 45%) transparent transparent;
-  }
-  .tags li:nth-child(2n) a::after {
-    border-color: transparent transparent transparent hsl(76, 69%, 45%);
-  }
   .tags li:nth-child(3n) a {
     background: hsl(0, 71%, 56%);
-  }
-  .tags li:nth-child(3n) a::before {
-    border-color: transparent hsl(0, 71%, 56%) transparent transparent;
-  }
-  .tags li:nth-child(3n) a::after {
-    border-color: transparent transparent transparent hsl(0, 71%, 56%);
   }
   .tags li:nth-child(4n) a {
     background: hsl(324, 100%, 46%);
   }
-  .tags li:nth-child(4n) a::before {
-    border-color: transparent hsl(324, 100%, 46%) transparent transparent;
-  }
-  .tags li:nth-child(4n) a::after {
-    border-color: transparent transparent transparent hsl(324, 100%, 46%);
-  }
   .tags li:nth-child(5n) a {
     background: hsl(195, 100%, 44%);
-  }
-  .tags li:nth-child(5n) a::before {
-    border-color: transparent hsl(198, 100%, 47%) transparent transparent;
-  }
-  .tags li:nth-child(5n) a::after {
-    border-color: transparent transparent transparent hsl(195, 100%, 44%);
   }
   .tags a:hover {
     background: hsl(0, 0%, 13%) !important;
   }
-  .tags a:hover::before {
-    border-color: transparent hsl(0, 0%, 13%) transparent transparent !important;
-  }
-  .tags a:hover:after {
-    border-color: transparent transparent transparent hsl(0, 0%, 13%) !important;
-  }
   .tags a small {
-    font-size: 10px;
+    font-size: 12px;
   }
 </style>
