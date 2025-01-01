@@ -104,45 +104,27 @@ const postURL = url + "/blog/" + post.slug;
             <article>
               <header>
                 <section class="hero-image">
-                  <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg">
-                      <filter id="noiseFilter">
-                        <feTurbulence
-                          type="fractalNoise"
-                          baseFrequency="0.5"
-                          numOctaves="3"
-                          stitchTiles="stitch"></feTurbulence>
-                      </filter>
+                  <svg xmlns="http://www.w3.org/2000/svg">
+                    <filter id="noiseFilter">
+                      <feTurbulence
+                        type="fractalNoise"
+                        baseFrequency="0.5"
+                        numOctaves="3"
+                        stitchTiles="stitch"></feTurbulence>
+                    </filter>
 
-                      <rect
-                        width="100%"
-                        height="100%"
-                        filter="url(#noiseFilter)"></rect>
-                    </svg>
-                    <Image
-                      src={image.src}
-                      alt={image.alt}
-                      class={image.class}
-                      width="400"
-                      height="250"
-                      format="webp"
-                      quality={80}
-                    />
-                  </a>
-                  {
-                    category === "MackDaddy Fun & Games" && (
-                      <div class="corner-box">
-                        <a
-                          href="https://www.youtube.com/@mackdaddyfun"
-                          target="_blank">
-                          <img
-                            src="/assets/images/mackdaddy-logo@3x.png"
-                            class="no-border md-logo"
-                          />
-                        </a>
-                      </div>
-                    )
-                  }
+                    <rect width="100%" height="100%" filter="url(#noiseFilter)"
+                    ></rect>
+                  </svg>
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    class={image.class}
+                    width="400"
+                    height="250"
+                    format="webp"
+                    quality={80}
+                  />
                 </section>
                 <h1>{title}</h1>
               </header>
@@ -271,6 +253,7 @@ const postURL = url + "/blog/" + post.slug;
   }
   .card__content > article > header > .hero-image {
     margin: 0;
+    padding: 0;
   }
   .card__content > article > header > h1 {
     background-color: hsl(var(--color-dark), 0.75);
@@ -286,6 +269,7 @@ const postURL = url + "/blog/" + post.slug;
     pointer-events: none;
     place-items: center;
     text-align: center;
+    width: 100%;
     z-index: 5;
   }
   #slug > main {
