@@ -277,9 +277,14 @@ const postURL = url + "/blog/" + post.slug;
     border: none !important;
     box-shadow: none !important;
     color: hsl(var(--color-light), 1);
+    display: grid;
     font-size: clamp(4ch, 5ch, 7ch);
+    height: 100%;
     line-height: 90%;
+    margin: 0 !important;
     padding: 1rem 2rem;
+    pointer-events: none;
+    place-items: center;
     text-align: center;
     z-index: 5;
   }
