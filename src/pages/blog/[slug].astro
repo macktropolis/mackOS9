@@ -102,48 +102,52 @@ const postURL = url + "/blog/" + post.slug;
 
           <section class="card__content">
             <article>
-              <section class="hero-image">
-                <a href="#">
-                  <svg xmlns="http://www.w3.org/2000/svg">
-                    <filter id="noiseFilter">
-                      <feTurbulence
-                        type="fractalNoise"
-                        baseFrequency="0.5"
-                        numOctaves="3"
-                        stitchTiles="stitch"></feTurbulence>
-                    </filter>
+              <header>
+                <section class="hero-image">
+                  <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg">
+                      <filter id="noiseFilter">
+                        <feTurbulence
+                          type="fractalNoise"
+                          baseFrequency="0.5"
+                          numOctaves="3"
+                          stitchTiles="stitch"></feTurbulence>
+                      </filter>
 
-                    <rect width="100%" height="100%" filter="url(#noiseFilter)"
-                    ></rect>
-                  </svg>
-                  <Image
-                    src={image.src}
-                    alt={image.alt}
-                    class={image.class}
-                    width="400"
-                    height="250"
-                    format="webp"
-                    quality={80}
-                  />
-                </a>
-                {
-                  category === "MackDaddy Fun & Games" && (
-                    <div class="corner-box">
-                      <a
-                        href="https://www.youtube.com/@mackdaddyfun"
-                        target="_blank">
-                        <img
-                          src="/assets/images/mackdaddy-logo@3x.png"
-                          class="no-border md-logo"
-                        />
-                      </a>
-                    </div>
-                  )
-                }
-              </section>
-
-              <section id="content">
+                      <rect
+                        width="100%"
+                        height="100%"
+                        filter="url(#noiseFilter)"></rect>
+                    </svg>
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      class={image.class}
+                      width="400"
+                      height="250"
+                      format="webp"
+                      quality={80}
+                    />
+                  </a>
+                  {
+                    category === "MackDaddy Fun & Games" && (
+                      <div class="corner-box">
+                        <a
+                          href="https://www.youtube.com/@mackdaddyfun"
+                          target="_blank">
+                          <img
+                            src="/assets/images/mackdaddy-logo@3x.png"
+                            class="no-border md-logo"
+                          />
+                        </a>
+                      </div>
+                    )
+                  }
+                </section>
                 <h1>{title}</h1>
+              </header>
+
+              <section id="content" class="post__content">
                 <Content />
                 <TagCloud tags={tags ?? []} />
                 <section class="share">
@@ -229,7 +233,7 @@ const postURL = url + "/blog/" + post.slug;
     </main>
     <aside class="related">
       <Comments />
-      <RelatedPosts {relatedPosts} />
+      <!-- <RelatedPosts {relatedPosts} /> -->
     </aside>
   </div>
 </Layout>
@@ -248,10 +252,39 @@ const postURL = url + "/blog/" + post.slug;
     margin: 0;
     width: 100%;
   }
+  .card__content > article > header {
+    border-bottom: 2px solid hsl(var(--color-dark), 1);
+    display: grid;
+    grid-template-areas: "title";
+    margin-top: 0.25px;
+    padding: 0;
+    position: relative;
+    place-items: center;
+    width: 99.8%;
+  }
+  .card__content > article > header > .hero-image,
+  .card__content > article > header > h1 {
+    grid-area: title;
+    position: relative;
+    z-index: 1;
+  }
+  .card__content > article > header > .hero-image {
+    margin: 0;
+  }
+  .card__content > article > header > h1 {
+    background-color: hsl(var(--color-dark), 0.75);
+    border: none !important;
+    box-shadow: none !important;
+    color: hsl(var(--color-light), 1);
+    font-size: clamp(4ch, 5ch, 7ch);
+    line-height: 90%;
+    padding: 1rem 2rem;
+    text-align: center;
+    z-index: 5;
+  }
   #slug > main {
     padding-bottom: 0;
   }
-
   aside.related {
     width: 100%;
   }
@@ -337,6 +370,9 @@ const postURL = url + "/blog/" + post.slug;
     background-color: hsl(var(--color-mid), 1);
     display: inline-block;
   }
+  #single-post .hero-image {
+    margin: 0;
+  }
   #single-post .hero-image img {
     max-height: 400px;
   }
@@ -383,6 +419,8 @@ const postURL = url + "/blog/" + post.slug;
     #slug > aside.related {
       flex: 1 1 35%;
       min-width: 15ch;
+      position: sticky;
+      top: 3rem;
     }
   }
 </style>

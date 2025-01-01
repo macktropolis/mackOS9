@@ -113,7 +113,6 @@ Cards
 .card__content article {
     background-color: hsl(var(--color-light, 1));  
     border: 2px solid hsl(var(--color-dark, 1));
-    padding: 1rem;
     position: relative;
     z-index: 50;
 }
@@ -147,6 +146,9 @@ Cards
     margin: 0;
     padding-block: 0.5rem;
     text-align: right;
+}
+.card__content .post__content {
+    padding: 1rem;
 }
 
 /* = = = = = = = = = = = = = 
