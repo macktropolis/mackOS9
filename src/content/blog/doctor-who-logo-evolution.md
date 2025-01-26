@@ -9,7 +9,7 @@ image:
     class: "",
   }
 description: "I love classic Doctor Who. I love Logos. So let's have a look at how the logo regenerated with each new Doctor."
-draft: false
+draft: true
 category: "Sci-Fi"
 tags: ["doctor who","logos","design","branding"]  # Add tags here
 ---
