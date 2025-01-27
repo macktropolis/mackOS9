@@ -1,0 +1,120 @@
+---
+// library imports
+import { getCollection, type CollectionEntry } from "astro:content";
+
+// utils imports
+import { slugify, formatBlogPosts } from "../../../../js/utils";
+
+// layout imports
+import Layout from "../../../../layouts/Layout.astro";
+
+// component imports
+import Hero from "../../../../components/SectionHeader.astro";
+import HeroMD from "../../../../components/SectionHeader-MackDaddy.astro";
+import PostCard from "../../../../components/PostCard.astro";
+
+// Get dynamic route params
+const { category, page } = Astro.params;
+const POSTS_PER_PAGE = 5;
+
+// Fetch and format all posts
+const allPosts = await getCollection("blog");
+const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts);
+
+// Filter posts by the current category
+const categoryName = formattedPosts.find(
+    (post) => slugify(post.data.category) === category,
+)?.data.category;
+
+if (!categoryName) {
+    throw new Error(`Category "${category}" not found.`);
+}
+
+const categoryPosts = formattedPosts.filter(
+    (post) => slugify(post.data.category) === category,
+);
+
+// Paginate posts
+const currentPage = parseInt(page || "1", 10);
+const totalPages = Math.ceil(categoryPosts.length / POSTS_PER_PAGE);
+const paginatedPosts = categoryPosts.slice(
+    (currentPage - 1) * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE,
+);
+
+// Set metadata
+const title = `${categoryName} Articles - Page ${currentPage}`;
+const description = `Browse ${categoryName} articles. Page ${currentPage}.`;
+const headerTitle = "Files";
+const categorySlug = slugify(categoryName);
+---
+
+<Layout title={title} page={categoryName} categorySlug={categorySlug}>
+    <main>
+        {
+            // Use the appropriate Hero component
+            categoryName === "MackDaddy Fun & Games" && <HeroMD />
+        }
+
+        {
+            categoryName !== "MackDaddy Fun & Games" && (
+                <Hero
+                    headerTitle={headerTitle}
+                    title={title}
+                    description={description}
+                    category={categoryName}
+                    categorySlug={categorySlug}
+                />
+            )
+        }
+        <div id="columns">
+            {
+                paginatedPosts.map((post) => (
+                    <PostCard data={post.data} url={post.slug} tagType="h2" />
+                ))
+            }
+        </div>
+
+        <!-- Pagination -->
+        {
+            totalPages > 1 && (
+                <nav class="pagination">
+                    {currentPage > 1 && (
+                        <a
+                            href={`/${category}/page/${currentPage - 1}`}
+                            class="button">
+                            Previous
+                        </a>
+                    )}
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <a
+                            href={`/${category}/page/${index + 1}`}
+                            class={
+                                currentPage === index + 1
+                                    ? "active button"
+                                    : "button"
+                            }>
+                            {index + 1}
+                        </a>
+                    ))}
+                    {currentPage < totalPages && (
+                        <a
+                            href={`/${category}/page/${currentPage + 1}`}
+                            class="button">
+                            Next
+                        </a>
+                    )}
+                </nav>
+            )
+        }
+    </main>
+</Layout>
+
+<style>
+    .pagination {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 1rem;
+        justify-content: center;
+    }
+</style>

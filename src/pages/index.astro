@@ -8,7 +8,7 @@ import * as site from "../data/site.json";
 // layout imports
 import Layout from "../layouts/Layout.astro";
 
-//  component imports
+// component imports
 import Hero from "../components/Hero.astro";
 import PostCard from "../components/PostCard.astro";
 
@@ -17,106 +17,197 @@ import { formatBlogPosts } from "../js/utils";
 
 // retrieve all blog posts
 const allPosts = await getCollection("blog");
-const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts, {
-	//limit: 4,
-});
+const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts, {});
 
 const { author, description } = site;
 const title = "Home";
+
+// Constants for pagination
+const POSTS_PER_PAGE = 5;
+
+// Filter posts by category
+const fileMakerPosts = formattedPosts.filter(
+    (post) => post.data.category === "FileMaker",
+);
+const codingPosts = formattedPosts.filter(
+    (post) => post.data.category === "Coding",
+);
+
+// Pagination logic for FileMaker
+const fileMakerPage = Number(Astro.url.searchParams.get("fileMakerPage")) || 1;
+const totalFileMakerPages = Math.ceil(fileMakerPosts.length / POSTS_PER_PAGE);
+const paginatedFileMakerPosts = fileMakerPosts.slice(
+    (fileMakerPage - 1) * POSTS_PER_PAGE,
+    fileMakerPage * POSTS_PER_PAGE,
+);
+
+// Pagination logic for Coding
+const codingPage = Number(Astro.url.searchParams.get("codingPage")) || 1;
+const totalCodingPages = Math.ceil(codingPosts.length / POSTS_PER_PAGE);
+const paginatedCodingPosts = codingPosts.slice(
+    (codingPage - 1) * POSTS_PER_PAGE,
+    codingPage * POSTS_PER_PAGE,
+);
 ---
 
 <Layout title={title} description={description} />
 <main>
-	<div id="mack">
-		<Hero title={author} description={description} />
-	</div>
-	<div id="subgrid">
-		<div>
-			<div class="card alt featured">
-				<header class="card__header">
-					<div class="title">
-						<h3 class="card__title">FileMaker</h3>
-						<span class="icon filemaker">&nbsp;</span>
-					</div>
-					<img
-						src="/assets/images/title-bar-expand.png"
-						height="28"
-						width="28"
-						class="control expand"
-					/>
-					<img
-						src="/assets/images/title-bar-collapse.png"
-						height="28"
-						width="28"
-						class="control collapse"
-					/>
-				</header>
-				<section class="card__content filemaker">
-					<article>
-						<h1 class="title">FileMaker Articles</h1>
-					</article>
-				</section>
-			</div>
-			{
-				formattedPosts
-					.filter((post) => post.data.category === "FileMaker") // Filter posts by category
-					.map((post) => (
-						<PostCard
-							data={post.data}
-							url={post.slug}
-							tagType="h2"
-						/>
-					))
-			}
-		</div>
-		<div>
-			<div class="card alt featured">
-				<header class="card__header">
-					<div class="title">
-						<h3 class="card__title">Coding</h3>
-						<span class="icon coding">&nbsp;</span>
-					</div>
-					<img
-						src="/assets/images/title-bar-expand.png"
-						height="28"
-						width="28"
-						class="control expand"
-					/>
-					<img
-						src="/assets/images/title-bar-collapse.png"
-						height="28"
-						width="28"
-						class="control collapse"
-					/>
-				</header>
-				<section class="card__content coding">
-					<article>
-						<h1 class="title">Coding Articles</h1>
-					</article>
-				</section>
-			</div>
-			{
-				formattedPosts
-					.filter((post) => post.data.category === "Coding") // Filter posts by category
-					.map((post) => (
-						<PostCard
-							data={post.data}
-							url={post.slug}
-							tagType="h2"
-						/>
-					))
-			}
-		</div>
-	</div>
+    <div id="mack">
+        <Hero title={author} description={description} />
+    </div>
+    <div id="subgrid">
+        <!-- FileMaker Column -->
+        <div>
+            <div class="card alt featured">
+                <header class="card__header">
+                    <div class="title">
+                        <h3 class="card__title">FileMaker</h3>
+                        <span class="icon filemaker">&nbsp;</span>
+                    </div>
+                    <img
+                        src="/assets/images/title-bar-expand.png"
+                        height="28"
+                        width="28"
+                        class="control expand"
+                    />
+                    <img
+                        src="/assets/images/title-bar-collapse.png"
+                        height="28"
+                        width="28"
+                        class="control collapse"
+                    />
+                </header>
+                <section class="card__content filemaker">
+                    <article>
+                        <h1 class="title">FileMaker Articles</h1>
+                    </article>
+                </section>
+            </div>
+            {
+                paginatedFileMakerPosts.map((post) => (
+                    <PostCard data={post.data} url={post.slug} tagType="h2" />
+                ))
+            }
+            <!-- FileMaker Pagination -->
+            {
+                totalFileMakerPages > 1 && (
+                    <nav class="pagination">
+                        {fileMakerPage > 1 && (
+                            <a
+                                href={`?fileMakerPage=${fileMakerPage - 1}`}
+                                class="button">
+                                Previous
+                            </a>
+                        )}
+                        {Array.from(
+                            { length: totalFileMakerPages },
+                            (_, index) => (
+                                <a
+                                    href={`?fileMakerPage=${index + 1}`}
+                                    class={
+                                        fileMakerPage === index + 1
+                                            ? "active button"
+                                            : "button"
+                                    }>
+                                    {index + 1}
+                                </a>
+                            ),
+                        )}
+                        {fileMakerPage < totalFileMakerPages && (
+                            <a
+                                href={`?fileMakerPage=${fileMakerPage + 1}`}
+                                class="button">
+                                Next
+                            </a>
+                        )}
+                    </nav>
+                )
+            }
+        </div>
+
+        <!-- Coding Column -->
+        <div>
+            <div class="card alt featured">
+                <header class="card__header">
+                    <div class="title">
+                        <h3 class="card__title">Coding</h3>
+                        <span class="icon coding">&nbsp;</span>
+                    </div>
+                    <img
+                        src="/assets/images/title-bar-expand.png"
+                        height="28"
+                        width="28"
+                        class="control expand"
+                    />
+                    <img
+                        src="/assets/images/title-bar-collapse.png"
+                        height="28"
+                        width="28"
+                        class="control collapse"
+                    />
+                </header>
+                <section class="card__content coding">
+                    <article>
+                        <h1 class="title">Coding Articles</h1>
+                    </article>
+                </section>
+            </div>
+            {
+                paginatedCodingPosts.map((post) => (
+                    <PostCard data={post.data} url={post.slug} tagType="h2" />
+                ))
+            }
+            <!-- Coding Pagination -->
+            {
+                totalCodingPages > 1 && (
+                    <nav class="pagination">
+                        {codingPage > 1 && (
+                            <a
+                                href={`?codingPage=${codingPage - 1}`}
+                                class="button">
+                                Previous
+                            </a>
+                        )}
+                        {Array.from(
+                            { length: totalCodingPages },
+                            (_, index) => (
+                                <a
+                                    href={`?codingPage=${index + 1}`}
+                                    class={
+                                        codingPage === index + 1
+                                            ? "active button"
+                                            : "button"
+                                    }>
+                                    {index + 1}
+                                </a>
+                            ),
+                        )}
+                        {codingPage < totalCodingPages && (
+                            <a
+                                href={`?codingPage=${codingPage + 1}`}
+                                class="button">
+                                Next
+                            </a>
+                        )}
+                    </nav>
+                )
+            }
+        </div>
+    </div>
 </main>
 
 <style>
-	#subgrid {
-		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-		gap: 1rem;
-	}
-	div.card.alt.featured {
-		margin-bottom: 1rem !important;
-	}
+    #subgrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 1rem;
+    }
+    div.card.alt.featured {
+        margin-bottom: 1rem !important;
+    }
+    .pagination {
+        margin-top: 1rem;
+        display: flex;
+        gap: 0.5rem;
+    }
 </style>
