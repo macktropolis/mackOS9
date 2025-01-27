@@ -59,6 +59,10 @@ const categorySlug = slugify(category);
   .control {
     opacity: 0;
   }
+  .card {
+    position: sticky;
+    top: 3rem;
+  }
   h1.title {
     border: none !important;
     box-shadow: none !important;
@@ -81,58 +85,5 @@ const categorySlug = slugify(category);
     left: 0;
     height: 36px;
     width: 36px;
-  }
-  .card__content {
-    position: relative;
-  }
-  .card__content.coding {
-    background-image: url("/assets/images/backgrounds/code.jpg");
-    background-size: cover;
-  }
-  .card__content.comics {
-    background-image: url("/assets/images/backgrounds/comics.jpg");
-    background-size: cover;
-  }
-  .card__content.filemaker {
-    background-image: url("/assets/images/backgrounds/filemaker.jpg");
-    background-size: cover;
-  }
-  .card__content.tags {
-    background-image: url("/assets/images/backgrounds/halftone-blue.gif");
-    background-size: cover;
-  }
-  .card__content.author {
-    background-image: url("/assets/images/backgrounds/halftone-orange.gif");
-    background-size: cover;
-    background-position: top center;
-  }
-  .card__content.random-fun {
-    background-image: url("/assets/images/backgrounds/rpg.jpg");
-    background-size: cover;
-  }
-  .card__content.sci-fi {
-    background-image: url("/assets/images/backgrounds/sci-fi.jpg");
-    background-size: cover;
-    background-position: center;
-  }
-  .card__content.coding:before,
-  .card__content.comics:before,
-  .card__content.sci-fi:before,
-  .card__content.random-fun:before {
-    content: "";
-    background-color: hsl(var(--color-dark), 0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-  .card__content.coding h1,
-  .card__content.comics h1,
-  .card__content.filemaker h1,
-  .card__content.random-fun h1,
-  .card__content.sci-fi h1,
-  .card__content.tags h1 {
-    color: hsl(var(--color-light), 1);
   }
 </style>

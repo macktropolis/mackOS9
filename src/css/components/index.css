@@ -3,8 +3,9 @@ Main
 = = = = = = = = = = = = = */
 main {
     animation: fade 1.5s 1;
-    columns: 425px;
-    column-gap: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 100%;
     margin: 0 auto;
     padding: 0 0 1rem 0;
     position: relative;
@@ -12,11 +13,21 @@ main {
     width: 90%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
     main {
+        grid-template-columns: 33% 1fr;
         margin: 0 0 0 1rem;
     }
 }
+
+/* = = = = = = = = = = = = = 
+Columns
+= = = = = = = = = = = = = */
+#columns {
+    columns: 425px;
+    column-gap: 1rem;
+}
+
 /* = = = = = = = = = = = = = 
 Cards
 = = = = = = = = = = = = = */
@@ -578,6 +589,62 @@ section#content section.listicle-item:first-of-type {
     margin-top: 2rem;
 }
 
+.card__content {
+    position: relative;
+}
+.card__content.coding {
+    background-image: url("/assets/images/backgrounds/code.jpg");
+    background-size: cover;
+  }
+  .card__content.comics {
+    background-image: url("/assets/images/backgrounds/comics.jpg");
+    background-size: cover;
+  }
+  .card__content.filemaker {
+    background-image: url("/assets/images/backgrounds/filemaker.jpg");
+    background-size: cover;
+  }
+  .card__content.tags {
+    background-image: url("/assets/images/backgrounds/halftone-blue.gif");
+    background-size: cover;
+  }
+  .card__content.author {
+    background-image: url("/assets/images/backgrounds/halftone-orange.gif");
+    background-size: cover;
+    background-position: top center;
+  }
+  .card__content.random-fun {
+    background-image: url("/assets/images/backgrounds/rpg.jpg");
+    background-size: cover;
+  }
+  .card__content.sci-fi {
+    background-image: url("/assets/images/backgrounds/sci-fi.jpg");
+    background-size: cover;
+    background-position: center;
+  }
+  .card__content.coding:before,
+  .card__content.comics:before,
+  .card__content.sci-fi:before,
+  .card__content.random-fun:before {
+    content: "";
+    background-color: hsl(var(--color-dark), 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .card__content.coding h1,
+  .card__content.comics h1,
+  .card__content.filemaker h1,
+  .card__content.random-fun h1,
+  .card__content.sci-fi h1,
+  .card__content.tags h1 {
+    color: hsl(var(--color-light), 1);
+    border: none !important;
+    box-shadow: none !important;
+    margin: 0;
+  }
 @media screen and (max-width: 600px) {
     section.listicle-item {
         display: flex;

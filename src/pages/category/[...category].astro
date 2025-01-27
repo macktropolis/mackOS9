@@ -72,10 +72,12 @@ const categorySlug = slugify(categoryName);
         />
       )
     }
-    {
-      posts.map((post) => (
-        <PostCard data={post.data} url={post.slug} tagType="h2" />
-      ))
-    }
+    <div id="columns">
+      {
+        posts.map((post) => (
+          <PostCard data={post.data} url={post.slug} tagType="h2" />
+        ))
+      }
+    </div>
   </main>
 </Layout>

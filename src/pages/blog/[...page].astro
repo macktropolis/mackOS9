@@ -40,11 +40,13 @@ const description = "I write about comics, coding and everything in between.";
 <Layout title={title} page={headerTitle} description={description}>
   <main>
     <Hero category={headerTitle} title={title} description={description} />
-    {
-      // @ts-ignore
-      page.data.map((post) => (
-        <PostCard data={post.data} url={post.slug} tagType="h2" />
-      ))
-    }
+    <div id="columns">
+      {
+        // @ts-ignore
+        page.data.map((post) => (
+          <PostCard data={post.data} url={post.slug} tagType="h2" />
+        ))
+      }
+    </div>
   </main>
 </Layout>
