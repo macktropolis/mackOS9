@@ -6,6 +6,7 @@ body {
     height: 100dvh;
     padding-top: 3rem;
     scroll-behavior: smooth;
+    scrollbar-gutter: stable both-edges;
     width: 100%;
 }
 body::after {
