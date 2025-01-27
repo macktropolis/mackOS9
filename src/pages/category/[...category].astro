@@ -2,62 +2,50 @@
 // library imports
 import { getCollection, type CollectionEntry } from "astro:content";
 
+// data imports
+// import * as site from "../../data/site.json";
+
 // layout imports
 import Layout from "../../layouts/Layout.astro";
 
 // component imports
 import Hero from "../../components/SectionHeader.astro";
+import HeroMD from "../../components/SectionHeader-MackDaddy.astro";
 import PostCard from "../../components/PostCard.astro";
 
 // utils imports
 import { slugify, formatBlogPosts } from "../../js/utils";
 
-// Export formatted blog posts by category
+// export formatted blog posts by category
 export async function getStaticPaths() {
-    const POSTS_PER_PAGE = 1; // Define POSTS_PER_PAGE here since this function is isolated.
     const allPosts = await getCollection("blog");
     const formattedPosts: CollectionEntry<"blog">[] = formatBlogPosts(allPosts);
     const allCategories = [
         ...new Set(formattedPosts.map((post) => post.data.category).flat()),
     ];
-
-    const paths = [];
-    for (const category of allCategories) {
+    return allCategories.map((category) => {
         const categoryPosts = formattedPosts.filter(
             (post) => post.data.category === category,
         );
-        const totalPages = Math.ceil(categoryPosts.length / POSTS_PER_PAGE);
-
-        for (let page = 1; page <= totalPages; page++) {
-            paths.push({
-                params: { category: slugify(category), page: page.toString() },
-                props: {
-                    categoryName: category,
-                    posts: categoryPosts.slice(
-                        (page - 1) * POSTS_PER_PAGE,
-                        page * POSTS_PER_PAGE,
-                    ),
-                    totalPages,
-                    currentPage: page,
-                },
-            });
-        }
-    }
-
-    return paths;
+        return {
+            params: { category: slugify(category) },
+            props: {
+                categoryName: category,
+                posts: categoryPosts,
+            },
+        };
+    });
 }
 
 interface Props {
     posts: CollectionEntry<"blog">[];
     categoryName: string;
-    currentPage: number;
-    totalPages: number;
     title?: string;
     description?: string;
 }
 
 const { category } = Astro.params;
-const { posts, categoryName, currentPage, totalPages } = Astro.props;
+const { posts, categoryName } = Astro.props;
 const headerTitle = "Files";
 const categoryTitle = category ?? "More Article Categories";
 const title = categoryName + " Articles";
@@ -69,7 +57,13 @@ const categorySlug = slugify(categoryName);
     <main>
         <header>
             {
-                (
+                // if the category is "MackDaddy Fun & Games", use the HeroMD component
+                categoryName === "MackDaddy Fun & Games" && <HeroMD />
+            }
+
+            {
+                // if the category is not "MackDaddy Fun & Games", use the Hero component
+                categoryName != "MackDaddy Fun & Games" && (
                     <Hero
                         headerTitle={headerTitle}
                         title={title}
@@ -79,42 +73,8 @@ const categorySlug = slugify(categoryName);
                     />
                 )
             }
-
-            <!-- Pagination -->
-            {
-                totalPages > 1 && (
-                    <nav class="pagination">
-                        {currentPage > 1 && (
-                            <a
-                                href={`/${categorySlug}/page/${currentPage - 1}`}
-                                class="button">
-                                Previous
-                            </a>
-                        )}
-                        {Array.from({ length: totalPages }, (_, index) => (
-                            <a
-                                href={`/${categorySlug}/page/${index + 1}`}
-                                class={
-                                    currentPage === index + 1
-                                        ? "active button"
-                                        : "button"
-                                }>
-                                {index + 1}
-                            </a>
-                        ))}
-                        {currentPage < totalPages && (
-                            <a
-                                href={`/${categorySlug}/page/${currentPage + 1}`}
-                                class="button">
-                                Next
-                            </a>
-                        )}
-                    </nav>
-                )
-            }
-            <!-- End Pagination -->
         </header>
-        <div id="columns">
+        <div id="subgrid">
             {
                 posts.map((post) => (
                     <PostCard data={post.data} url={post.slug} tagType="h2" />
@@ -123,12 +83,10 @@ const categorySlug = slugify(categoryName);
         </div>
     </main>
 </Layout>
-
 <style>
-    .pagination {
-        display: flex;
-        gap: 0.5rem;
-        margin: 1rem auto 0 auto;
-        justify-content: center;
+    #subgrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        gap: 1rem;
     }
 </style>

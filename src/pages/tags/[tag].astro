@@ -55,17 +55,28 @@ const description = "Articles tagged with '" + tagName + "'";
 
 <Layout title={title} page={tagName}>
   <main>
-    <Hero
-      headerTitle={headerTitle}
-      title={title}
-      description={description}
-      category={headerTitle}
-      categorySlug="tags"
-    />
-    {
-      posts.map((post) => (
-        <PostCard data={post.data} url={post.slug} tagType="h2" />
-      ))
-    }
+    <header>
+      <Hero
+        headerTitle={headerTitle}
+        title={title}
+        description={description}
+        category={headerTitle}
+        categorySlug="tags"
+      />
+    </header>
+    <div id="subgrid">
+      {
+        posts.map((post) => (
+          <PostCard data={post.data} url={post.slug} tagType="h2" />
+        ))
+      }
+    </div>
   </main>
 </Layout>
+<style>
+  #subgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1rem;
+  }
+</style>
