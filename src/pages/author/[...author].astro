@@ -49,10 +49,19 @@ const authorSlug = slugify(authorName);
 <Layout title={title} page={authorName}>
   <main>
     <Hero title={title} authorName={authorName} author={authorSlug} />
-    {
-      posts.map((post) => (
-        <PostCard data={post.data} url={post.slug} tagType="h2" />
-      ))
-    }
+    <div id="subgrid">
+      {
+        posts.map((post) => (
+          <PostCard data={post.data} url={post.slug} tagType="h2" />
+        ))
+      }
+    </div>
   </main>
 </Layout>
+<style>
+  #subgrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 1rem;
+  }
+</style>
